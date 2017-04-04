@@ -1,0 +1,64 @@
+.classdex_fancy_table {
+	border-collapse: separate;
+	margin-bottom: 20px;
+	border-spacing: 0;
+	width: 99%;
+	vertical-align: middle;
+	border: 1px solid #fff;
+	background-color: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fff),
+		to(#f6f6f6));
+	background: -moz-linear-gradient(top, #fff, #f6f6f6);
+	background: -o-linear-gradient(top, #fff, #f6f6f6);
+	background: linear-gradient(top, #fff, #f6f6f6);
+	-webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	-moz-box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .2);
+	background-color: #f8f8f8;
+	background: -webkit-gradient(linear, left bottom, left top, from(#f6f6f6),
+		to(#fff));
+	background: -moz-linear-gradient(bottom, #f6f6f6, #fff);
+	background: -o-linear-gradient(bottom, #f6f6f6, #fff);
+	background: linear-gradient(bottom, #f6f6f6, #fff);
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+}
+
+.classdex_fancy_table th {
+	letter-spacing: 1px;
+	font-weight: normal;
+	vertical-align: middle;
+	border-bottom: 1px solid #fff;
+	background: #f3f3f3 url(img/th.png) 0 0 repeat-x;
+	text-align: left;
+	padding: 10px 10px;
+	text-shadow: 1px 1px 1px #fff;
+	font-size: 14px;
+}
+
+.classdex_fancy_table td {
+	padding: 7px 10px;
+	border-top: 1px solid #eee;
+	text-align: left;
+}
+
+.classdex_fancy_table tr:hover {
+	background: #f3f3f3 url(img/th.png) 0 0 repeat-x;
+}
+
+.classdex_fancy_table th:first-child, .classdex_fancy_table td:first-child
+	{
+	text-align: left;
+	padding-left: 30px;
+}
+
+.classdex_divider {
+	background: url(img/inset_line.png) left center no-repeat;
+	clear: both;
+	display: block;
+	height: 20px;
+	margin: 30px 0;
+	text-align: right;
+	width: 100%;
+}
