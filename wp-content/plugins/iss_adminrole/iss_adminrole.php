@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: ISS Roles Plugin
+ * Plugin Name: ISS Roles
  * Description: Create admin, board, teacher, parent and student roles on activation.
  * Version: 1.0.0
  * Author: Azra Syed

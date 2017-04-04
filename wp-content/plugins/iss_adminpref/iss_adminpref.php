@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: ISS Admin Preference Plugin
+ * Plugin Name: ISS Admin Preferences
  * Description: Save admin preferences.
  * Version: 1.0.0
  * Author: Azra Syed

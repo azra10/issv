@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: ISS Unit Test Plugin
+ * Plugin Name: ISS Unit Test
  * Description: UNIT TEST THE CODE AS MUCH AS POSSIBLE
  * Version: 1.0.0
  * Author: Azra Syed
