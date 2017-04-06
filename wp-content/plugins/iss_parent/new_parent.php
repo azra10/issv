@@ -17,11 +17,13 @@ if (isset ( $_POST ['_wpnonce-iss-edit-parents-form-page'] )) {
 	check_admin_referer ( 'iss-edit-parents-form-page', '_wpnonce-iss-edit-parents-form-page' );
 	iss_write_log ( $_POST );
 	$parentid = iss_process_newparentrequest ( $_POST, $issparent, $errors );
-	if (0 < $parentid) {
+	iss_write_log($parentid);
+	if ((0 < $parentid) && ('new' != $parentid)) {
 		$issparent = iss_get_parent_by_parentid ( $parentid, $regyear );
 		$isstabname = iss_get_next_tab ( $isstabname );
 	} else {
 		$errorstring = '* Could not save changes, please try again. ';
+		iss_write_log($errors);
 	}
 	if ($isstabname == 'home') {
 		$issformposturl = "admin.php?page=edit_parent&pid={$parentid}&regyear={$regyear}";

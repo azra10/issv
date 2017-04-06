@@ -745,7 +745,7 @@ function iss_get_new_parentid() {
  * 
  * @param
  *        	with minimum required fields (RegistrationYear, FatherLastName, FatherFirstName)
- * @return parent id
+ * @return parent id  / 0 indicating error
  *        
  */
 function iss_parent_insert($sdata) {
@@ -801,7 +801,15 @@ function iss_parent_insert($sdata) {
 	}
 	return 0;
 }
-function iss_payment_insert($sdata) {
+/**
+ * Function iss_payment_insert
+ * Insert payment record
+ * 
+ * @param
+ *        	with minimum required fields (RegistrationYear, ParentID)
+ * @return 1 for success and 0 for no insert
+ *        
+ */function iss_payment_insert($sdata) {
 	try {
 		iss_write_log ( "iss_payment_insert" );
 		$table = iss_get_table_name ( "payment" );
@@ -1635,6 +1643,7 @@ function iss_process_updatestudentrequest(&$studentrow, &$post, &$errors) {
  *        
  */
 function iss_process_newparentrequest(&$post, &$issparent, &$errors) {
+	iss_write_log('iss_process_newparentrequest');
 	$required_fields = iss_parent_required_tabfields ();
 	$tab_fields = iss_parent_tabfields ();
 	$displaynames = iss_field_displaynames ();

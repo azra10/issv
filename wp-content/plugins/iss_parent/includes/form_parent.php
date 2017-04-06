@@ -4,7 +4,7 @@
     <input type="hidden" id="ParentID" name="ParentID"
 		value="<?php echo $parentid; ?>" /> <input type="hidden"
 		id="ParentStatus" name="ParentStatus"
-		value="<?php echo $issparent['ParentStatus']; ?>" /> <input
+		value="<?php if (isset($issparent['ParentStatus'])) {echo $issparent['ParentStatus'];} else {echo 'new';} ?>  " /> <input
 		type="hidden" id="RegistrationYear" name="RegistrationYear"
 		value="<?php echo $regyear; ?>" /> <input type="hidden" id="tabname"
 		name="tabname" value="parent" />
