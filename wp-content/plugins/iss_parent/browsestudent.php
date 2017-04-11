@@ -131,12 +131,12 @@ if (count ( $result_set ) == 0) {
                             <?php } ?>
 
                               <a
-							href="admin.php?page=view_parent&id=<?php echo $row['ID'];?>"> <span
+							href="admin.php?page=view_parent&id=<?php echo $row['ParentViewID'];?>"> <span
 								style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-eye-open"></i> View
 							</span>
 						</a> <a
-							href="admin.php?page=print_parent&id=<?php echo $row['ID'];?>"> <span
+							href="admin.php?page=print_parent&id=<?php echo $row['ParentViewID'];?>"> <span
 								style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-print"></i> Print
 							</span></a>

@@ -172,13 +172,14 @@ function iss_registrationyear_field_cb($args) {
 <select id="<?= esc_attr($args['label_for']); ?>"
 	data-custom="<?= esc_attr($args['iss_custom_data']); ?>"
 	name="iss_options[<?= esc_attr($args['label_for']); ?>]">
-	<optionvalue "">Select Registration Year</option>
-    <?php foreach ($regyearlist as $regyear) { ?>
+	<option value="">Select Registration Year</option>
+	<?php foreach ($regyearlist as $regyear) { ?>
         <option value="<?php echo $regyear['RegistrationYear']; ?>" 
         <?= isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $regyear[ 'RegistrationYear'], false)) : (''); ?>>
             <?= esc_html($regyear[ 'RegistrationYear'], 'wporg'); ?>
         </option>
-         <?php } ?>
+		<?php } ?>
+		<option value="2016-2017">2016-2017</option>        
     </select>
 <?php
 }

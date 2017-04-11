@@ -21,7 +21,7 @@ class ISS_UnitTestPlugin {
 				$this,
 				'add_plugin_page_action' 
 		) );
-		add_action ( 'admin_enqueue_scripts', 'load_custom_iss_style' );
+		add_action ( 'admin_enqueue_scripts', 'load_custom_issv_style' );
 	}
 	public function add_plugin_page() {
 		// add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
@@ -1272,7 +1272,7 @@ class ISS_UnitTestPlugin {
 			}
 			if ($result && ($name != 'Islamic School of Silicon Valley')) {
 				$result = false;
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect name {$name} </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect name {$name}, expected Islamic School of Silicon Valley </span>";
 			}
 			
 			if ($result) {
@@ -1309,7 +1309,7 @@ class ISS_UnitTestPlugin {
 			}
 			if ($result && ! iss_field_valid ( 'RegistrationYear', $name, $errors, '' )) {
 				$result = false;
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name} </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name}, expected (ex: 2016-2017)</span>";
 			}
 			
 			if ($result) {
@@ -1511,7 +1511,7 @@ class ISS_UnitTestPlugin {
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Cannot Test Arvhived Parent List </span>";
 				return;
 			}
-			$aid = $plist [0] ['ID'];
+			$aid = $plist [0] ['ParentViewID'];
 			$aresult = iss_archive_family ( $aid ); // archive a parent record
 			
 			if ($aresult == 0) {
@@ -1863,7 +1863,7 @@ class ISS_UnitTestPlugin {
 				return;
 			}
 			if (! iss_field_valid ( 'ParentID', $name, $errors, '' )) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name} </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name}, example: 7 (link is valid for 7 day) </span>";
 				return;
 			}
 			
@@ -1882,7 +1882,7 @@ class ISS_UnitTestPlugin {
 				return;
 			}
 			if (! iss_field_valid ( 'PaymentInstallment1', $name, $errors, '' )) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid Registration Fee1 {$name} </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid Registration Fee (first child) {$name} example:470 </span>";
 				return;
 			}
 			
@@ -1897,11 +1897,11 @@ class ISS_UnitTestPlugin {
 			$errors = array ();
 			$name = iss_adminpref_registrationfee1_installment ();
 			if ($name === NULL) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Fee1 Installment </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Fee (first chile) Installment </span>";
 				return;
 			}
 			if (! iss_field_valid ( 'PaymentInstallment1', $name, $errors, '' )) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name} </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid Installment Amount(first child) {$name}, example: 235 </span>";
 				return;
 			}
 			
@@ -1920,7 +1920,7 @@ class ISS_UnitTestPlugin {
 				return;
 			}
 			if (! iss_field_valid ( 'PaymentInstallment1', $name, $errors, '' )) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid Registration Fee1 {$name} </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid Registration Fee (sibling) {$name}, example:420 </span>";
 				return;
 			}
 			
@@ -1939,7 +1939,7 @@ class ISS_UnitTestPlugin {
 				return;
 			}
 			if (! iss_field_valid ( 'PaymentInstallment1', $name, $errors, '' )) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name} </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid Installment Amount(sibling)  {$name} </span>";
 				return;
 			}
 			

@@ -42,7 +42,7 @@ class ISS_Export_Parents {
 		wp_enqueue_script ( 'custom_iss_export_script' );
 	}
 	public function iss_load_admin_custom_css() {
-		add_action ( 'admin_enqueue_scripts', 'load_custom_iss_style' );
+		add_action ( 'admin_enqueue_scripts', 'load_custom_issv_style' );
 	}
 	/**
 	 * Add administration menus
@@ -122,7 +122,7 @@ class ISS_Export_Parents {
 				
 				$head = false;
 				foreach ( $rows as $row ) {
-					unset ( $row ['ID'] );
+					unset ( $row ['ParentViewID'] );
 					unset ( $row ['created'] );
 					unset ( $row ['updated'] );
 					

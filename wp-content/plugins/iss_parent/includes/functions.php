@@ -1430,18 +1430,18 @@ function iss_quote_all($value) {
  * @return 1 for success
  *        
  */
-function iss_archive_family($id) {
+function iss_archive_family($parentViewID) {
 	global $wpdb;
 	$parents = iss_get_table_name ( "parents" );
 	$students = iss_get_table_name ( "students" );
-	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $id );
+	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $parentViewID );
 	$row = $wpdb->get_row ( $query, ARRAY_A );
 	
 	if ($row != NULL) {
 		$result = $wpdb->update ( $parents, array (
 				'ParentStatus' => 'inactive' 
 		), array (
-				'ID' => $row ['ID'] 
+				'ParentViewID' => $row ['ParentViewID'] 
 		), array (
 				'%s' 
 		), array (
@@ -1472,18 +1472,18 @@ function iss_archive_family($id) {
  * @return 1 for success
  *        
  */
-function iss_unarchive_family($id) {
+function iss_unarchive_family($parentViewID) {
 	global $wpdb;
 	$parents = iss_get_table_name ( "parents" );
 	$students = iss_get_table_name ( "students" );
-	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $id );
+	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $parentViewID );
 	$row = $wpdb->get_row ( $query, ARRAY_A );
 	
 	if ($row != NULL) {
 		$result = $wpdb->update ( $parents, array (
 				'ParentStatus' => 'active' 
 		), array (
-				'ID' => $row ['ID'] 
+				'ParentViewID' => $row ['ParentViewID'] 
 		), array (
 				'%s' 
 		), array (

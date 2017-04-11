@@ -135,11 +135,11 @@ if (count ( $result_set ) == 0) {
 									class="text-primary">$</span> Payment
 							</span>
 						</a> <a
-							href="admin.php?page=email_home&id=<?php echo $row['ID'];?>"> <span
+							href="admin.php?page=email_home&id=<?php echo $row['ParentViewID'];?>"> <span
 								style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-envelope"></i> Email
 							</span></a> <a
-							href="admin.php?page=archived_home&aid=<?php echo $row['ID'];?>">
+							href="admin.php?page=archived_home&aid=<?php echo $row['ParentViewID'];?>">
 								<span style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-eye-close"></i> Archive
 							</span>
@@ -147,11 +147,11 @@ if (count ( $result_set ) == 0) {
 
                             <?php }  ?>
                               <a
-							href="admin.php?page=view_parent&id=<?php echo $row['ID'];?>"> <span
+							href="admin.php?page=view_parent&id=<?php echo $row['ParentViewID'];?>"> <span
 								style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-eye-open"></i> View
 							</span></a> <a
-							href="admin.php?page=print_parent&id=<?php echo $row['ID'];?>"> <span
+							href="admin.php?page=print_parent&id=<?php echo $row['ParentViewID'];?>"> <span
 								style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-print"></i> Print
 							</span></a>

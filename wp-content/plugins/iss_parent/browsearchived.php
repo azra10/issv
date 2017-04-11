@@ -53,11 +53,11 @@ if (count ( $result_set ) == 0) {
                     </td>
                     <td>
                       <?php if (current_user_can('iss_admin')) {    ?>
-                        <a href="admin.php?page=archived_home&uid=<?php echo $row['ID'];?>"><span style="padding-left: 10px; white-space: nowrap;"><i class="glyphicon glyphicon-eye-open"></i> UnArchive </a></span>
+                        <a href="admin.php?page=archived_home&uid=<?php echo $row['ParentViewID'];?>"><span style="padding-left: 10px; white-space: nowrap;"><i class="glyphicon glyphicon-eye-open"></i> UnArchive </a></span>
                         <?php } ?>
-                          <a href="admin.php?page=view_parent&id=<?php echo $row['ID'];?>"> <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-eye-open"></i> View </a></span>
-                          <a href="admin.php?page=print_parent&id=<?php echo $row['ID'];?>"> <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-print"></i> Print</span></a>
-                          <a href="admin.php?page=delete_parent&id=<?php echo $row['ID'];?>"> <span style="padding-left: 10px; white-space: nowrap;"><i class="glyphicon glyphicon-remove"></i> Delete</a></span>
+                          <a href="admin.php?page=view_parent&id=<?php echo $row['ParentViewID'];?>"> <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-eye-open"></i> View </a></span>
+                          <a href="admin.php?page=print_parent&id=<?php echo $row['ParentViewID'];?>"> <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-print"></i> Print</span></a>
+                          <a href="admin.php?page=delete_parent&id=<?php echo $row['ParentViewID'];?>"> <span style="padding-left: 10px; white-space: nowrap;"><i class="glyphicon glyphicon-remove"></i> Delete</a></span>
                     </td>
                   </tr>
                   <?php  } ?>

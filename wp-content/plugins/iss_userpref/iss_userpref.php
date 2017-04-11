@@ -85,13 +85,14 @@ class ISS_UserPreferencePlugin {
 				<td><select name="iss_user_registrationyear"
 					id="iss_user_registrationyear" class="form-control"
 					title="Choose Registration Year" required="">
-						<optionvalue "">Select Registration Year</option>
+						<option value="">Select Registration Year</option>
                 <?php foreach ($regyearlist as $regyear) { ?>
                   <option value="<?php echo $regyear['RegistrationYear'];?>" <?php echo ($regyear[ 'RegistrationYear']==$useroptionlist[ 'iss_user_registrationyear'][0])? ' selected' : '';?> >
                     <?php echo $regyear['RegistrationYear'];?>
                   </option>
                   <?php } ?>
-              </select></td>
+ 				  <option value="2016-2017">2016-2017</option>        
+             </select></td>
 			</tr>
 
 		</table>
