@@ -1292,7 +1292,7 @@ function iss_get_parent_by_parentid($parentid, $regyear) {
 	return NULL;
 }
 /**
- * Function iss_get_parent_by_id
+ * Function iss_get_parent_and_payment_by_id
  * Get parent record by ID
  * 
  * @param
@@ -1300,7 +1300,7 @@ function iss_get_parent_by_parentid($parentid, $regyear) {
  * @return parent record or NULL
  *        
  */
-function iss_get_parent_by_id($id) {
+function iss_get_parent_and_payment_by_id($id) {
 	global $wpdb;
 	$parents = iss_get_table_name ( "parents" );
 	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $id );

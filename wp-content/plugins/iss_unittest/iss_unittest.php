@@ -296,7 +296,7 @@ class ISS_UnitTestPlugin {
 				</td>
 				<th><label>Test14. Archived Parent List
 						(iss_get_archived_parents_list, iss_archive_family,
-						iss_unarchive_family, iss_get_parent_by_id,
+						iss_unarchive_family, iss_get_parent_and_payment_by_id,
 						iss_get_students_by_parentid) </label></th>
 				<td>
                 <?php $this->iss_archive_family_test14();?>
@@ -1519,9 +1519,9 @@ class ISS_UnitTestPlugin {
 				return;
 			}
 			
-			$parent = iss_get_parent_by_id ( $aid );
+			$parent = iss_get_parent_and_payment_by_id ( $aid );
 			if ($parent === NULL) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">  iss_get_parent_by_id Failed </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">  iss_get_parent_and_payment_by_id Failed </span>";
 				return;
 			}
 			if ($parent ['ParentStatus'] == 'active') {
@@ -1562,9 +1562,9 @@ class ISS_UnitTestPlugin {
 				return;
 			}
 			
-			$parent = iss_get_parent_by_id ( $aid );
+			$parent = iss_get_parent_and_payment_by_id ( $aid );
 			if ($parent === NULL) {
-				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">  iss_get_parent_by_id Failed </span>";
+				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">  iss_get_parent_and_payment_by_id Failed </span>";
 				return;
 			}
 			if ($parent ['ParentStatus'] == 'inactive') {

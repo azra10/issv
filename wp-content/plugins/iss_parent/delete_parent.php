@@ -28,7 +28,7 @@ else if (! isset ( $_GET ['id'] ) || empty ( $_GET ['id'] ) || (intval ( $_GET [
 $id = iss_sanitize_input ( $_GET ['id'] );
 
 // IF PARENT EXIST, PULL PARENT
-$issparent = iss_get_parent_by_id ( $id );
+$issparent = iss_get_parent_and_payment_by_id ( $id );
 if ($issparent == NULL) {
 	echo '<p>' . 'No users found.' . '</p>';
 } else {
