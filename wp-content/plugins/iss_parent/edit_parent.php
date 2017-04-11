@@ -11,6 +11,7 @@ if (isset ( $_POST ['_wpnonce-iss-edit-parents-form-page'] )) {
 	include (ISS_PATH . "/includes/form_edit_post.php");
 	if ($isstabname == 'view') {
 		$edit = false;
+		$isstabname = 'parent';
 		include (ISS_PATH . "/includes/form_view.php");
 	} else {
 		$edit = true;
@@ -25,8 +26,8 @@ if (isset ( $_POST ['_wpnonce-iss-edit-parents-form-page'] )) {
 	}
 	
 	// OPTIONAL FIELD
-	if (isset ( $_GET ['StudentID'] ) && ! empty ( $_GET ['StudentID'] )) {
-		$studentid = iss_sanitize_input ( $_GET ['StudentID'] );
+	if (isset ( $_GET ['sid'] ) && ! empty ( $_GET ['sid'] )) {
+		$studentid = iss_sanitize_input ( $_GET ['sid'] );
 	} else {
 		$studentid = '';
 	}

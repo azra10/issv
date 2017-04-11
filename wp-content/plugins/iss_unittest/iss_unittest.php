@@ -626,7 +626,7 @@ class ISS_UnitTestPlugin {
 					if (($studentid != NULL) && ($regyear != NULL)) {
 						iss_delete_student_by_studentid ( $studentid );
 					}
-					iss_delete_parent_by_parentid ( $parentid, $regyear );
+					iss_delete_parent_by_parentid ( $parentid );
 					iss_delete_changelog_by_parentid ( $parentid );
 				}
 			}
@@ -821,7 +821,7 @@ class ISS_UnitTestPlugin {
 				iss_write_changelog_vertical ( 'payment', $parentid, NULL );
 			} finally {
 				if (($parentid != NULL) && ($regyear != NULL)) {
-					iss_delete_parent_by_parentid ( $parentid, $regyear );
+					iss_delete_parent_by_parentid ( $parentid );
 					iss_delete_changelog_by_parentid ( $parentid );
 				}
 			}
@@ -955,7 +955,7 @@ class ISS_UnitTestPlugin {
 					if (($studentid != NULL) && ($regyear != NULL)) {
 						iss_delete_student_by_studentid ( $studentid );
 					}
-					iss_delete_parent_by_parentid ( $parentid, $regyear );
+					iss_delete_parent_by_parentid ( $parentid );
 					iss_delete_changelog_by_parentid ( $parentid );
 				}
 			}
@@ -1061,7 +1061,7 @@ class ISS_UnitTestPlugin {
 				}
 			} finally {
 				if (($parentid != NULL) && ($regyear != NULL)) {
-					iss_delete_parent_by_parentid ( $parentid, $regyear );
+					iss_delete_parent_by_parentid ( $parentid );
 					iss_delete_changelog_by_parentid ( $parentid );
 				}
 			}
@@ -1109,7 +1109,7 @@ class ISS_UnitTestPlugin {
 				}
 			} finally {
 				if (($parentid != NULL) && ($regyear != NULL)) {
-					iss_delete_parent_by_parentid ( $parentid, $regyear );
+					iss_delete_parent_by_parentid ( $parentid );
 					iss_delete_changelog_by_parentid ( $parentid );
 				}
 			}

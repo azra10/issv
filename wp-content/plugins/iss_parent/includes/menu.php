@@ -40,7 +40,7 @@
 			</span>
 		</a>
 		</li>
-		<!-- <li role="presentation" class="<?php echo ($isstabname == 'payment')? 'active': 'disbaled';?>">
+		<!-- <li role="presentation" class="< ?php echo ($isstabname == 'payment')? 'active': 'disbaled';?>">
             <a href="#payment" data-toggle="tab" aria-controls="complete" role="tab" title="Payment">
                 <span class="round-tab">
                     <i class="glyphicon glyphicon-usd"></i>

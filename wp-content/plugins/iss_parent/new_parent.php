@@ -17,7 +17,6 @@ if (isset ( $_POST ['_wpnonce-iss-edit-parents-form-page'] )) {
 	check_admin_referer ( 'iss-edit-parents-form-page', '_wpnonce-iss-edit-parents-form-page' );
 	iss_write_log ( $_POST );
 	$parentid = iss_process_newparentrequest ( $_POST, $issparent, $errors );
-	iss_write_log($parentid);
 	if ((0 < $parentid) && ('new' != $parentid)) {
 		$issparent = iss_get_parent_by_parentid ( $parentid, $regyear );
 		$isstabname = iss_get_next_tab ( $isstabname );

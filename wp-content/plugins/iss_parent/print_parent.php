@@ -11,10 +11,12 @@ $issparent = iss_get_parent_by_id ( $id );
 if ($issparent == NULL) {
 	echo '<p>' . 'No users found.' . '</p>';
 } else {
+	$parentid = $issparent ['ParentID'];
+	$regyear = $issparent ['RegistrationYear'];
 	// IF PARENT EXISTS, PULL STUDENTS
-	$issstudents = iss_get_students_by_parentid ( $issparent ['ParentID'] );
+	$issstudents = iss_get_students_by_parentid ( $issparent ['ParentID'], $regyear );
 	$edit = false;
-	
+		
 	include (ISS_PATH . "/includes/form_print.php");
 }
 ?>

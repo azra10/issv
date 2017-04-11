@@ -190,21 +190,22 @@
         </div>
 	</div>
 </div>
-<?php if ($edit) {?>
+
 <div class="row">
 	<div class="col-md-10">
 		<ul class="list-inline text-center">
 			<li><button type="button" class="btn btn-primary prev-step"
 					data-toggle="tooltip" data-placement="top"
 					title="Leave without saving changes.">Previous</button></li>
+			<?php if ($edit) {?>
 			<li>
 				<button type="submit" name="submit" value="save"
 					class="btn btn-primary" data-toggle="tooltip" data-placement="top"
 					title="All required fields must be filled in!">Save Changes</button>
 			</li>
-	
+			<?php } // if edit  ?>
 	</div>
 </div>
-<?php } // if edit  ?>
+
 
     <?php } // if admin ?>

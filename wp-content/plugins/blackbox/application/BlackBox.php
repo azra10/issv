@@ -60,6 +60,7 @@ class BlackBox
 
     private function __construct()
     {
+        session_start();
         $this->_profiler = new BlackBox_Profiler();
         $this->_globals = array(
             'get' => $_GET,
@@ -139,7 +140,7 @@ class BlackBox
         $hash = md5($errline.$errfile.$errstr.$errno);
 
         if(array_key_exists($hash, self::getInstance()->_error)) {
-            self::getInstance()->_error[$hash]['count']++;
+            self::getInstance()->_error[$hash][]++; //'count'
         } else {
             self::getInstance()->_error[$hash] = array(
                 "errno" => $errno,

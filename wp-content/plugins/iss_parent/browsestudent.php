@@ -78,7 +78,7 @@ if (count ( $result_set ) == 0) {
 	?>
 <div>
 	<div class="bs-bars pull-left">
-		<div id="toolbar">
+		<!--<div id="toolbar">
 			<select id="action"name "action"><option>Bulk Action</option>
 				<option>Archive</option>
 				<option>Email</option></select>
@@ -86,7 +86,7 @@ if (count ( $result_set ) == 0) {
 				disabled="">
 				</i> Submit
 			</button>
-		</div>
+		</div>-->
 		<div>
 			<table class="table table-striped table-responsive table-condensed"
 				id="iss_student_table">
@@ -95,7 +95,7 @@ if (count ( $result_set ) == 0) {
 						<th></th>
 						<th>Student ID</th>
 						<th>Lastname</th>
-						<th>Firstnames</th>
+						<th>Firstname</th>
 						<th>Grade</th>
 						<th>Gender</th>
 						<th>Action</th>

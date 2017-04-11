@@ -1202,67 +1202,50 @@ function iss_get_student_by_studentid($studentid, $regyear) {
 }
 /**
  * Function iss_delete_parent_by_id (Testing Only)
- * Get parent record by ID
- * 
- * @param
- *        	ParentID & RegistrationYear
- * @return none
- *
+ * @param	ParentID 
+ * @return 1 success & 0 for failure
  */
-function iss_delete_parent_by_parentid($parentid, $regyear) {
+function iss_delete_parent_by_parentid($parentid) {
 	global $wpdb;
-	$table = iss_get_table_name ( "payment" );
-	$result2 = $wpdb->delete ( $table, array (
-			'ParentID' => $parentid,
-			'RegistrationYear' => $regyear 
-	), array (
-			'%d',
-			'%s' 
-	) );
 	$table = iss_get_table_name ( "parent" );
-	$result1 = $wpdb->delete ( $table, array (
-			'ParentID' => $parentid 
-	), array (
-			'%d' 
-	) );
-	return $result1 & $result2;
+	$result = $wpdb->delete ( $table, array ( 'ParentID' => $parentid  ), array ( '%d' ) );
+	return $result;
 }
 /**
- * Function iss_delete_student_by_id (Testing Only)
- * Delete student record by ID
- * 
- * @param
- *        	StudentID & RegistrationYear
- * @return none
- *
+ * Function iss_delete_student_by_studentid (Testing Only)
+ * @param	StudentID 
+ * @return 1 success & 0 for failure
  */
 function iss_delete_student_by_studentid($studentid) {
 	global $wpdb;
 	$table = iss_get_table_name ( "student" );
-	$result1 = $wpdb->delete ( $table, array (
-			'StudentID' => $studentid 
-	), array (
-			'%d' 
-	) );
-	return $result1;
+	$result = $wpdb->delete ( $table, array ( 'StudentID' => $studentid ), array ( '%d'  ) );
+	return $result;
+}
+/**
+ * Function iss_delete_students_by_parentid (Testing Only)
+ * Delete student records by ParentID
+ * 
+ * @param PareentID 
+ * @return 1 success & 0 for failure
+ */
+function iss_delete_students_by_parentid($parentid) {
+	global $wpdb;
+	$table = iss_get_table_name ( "student" );
+	$result = $wpdb->delete ( $table, array ('ParentID' => $parentid ), array ('%d' ) );
+	return $result;
 }
 /**
  * Function iss_delete_changelog_by_parentid (Testing Only)
  * Get change record by ParentID
  * 
- * @param
- *        	ParentID
- * @return none
- *
+ * @paramParentID
+ *  @return 1 success & 0 for failure
  */
 function iss_delete_changelog_by_parentid($parentid) {
 	global $wpdb;
 	$table = iss_get_table_name ( "changelog" );
-	$result = $wpdb->delete ( $table, array (
-			'ParentID' => $parentid 
-	), array (
-			'%d' 
-	) );
+	$result = $wpdb->delete ( $table, array ('ParentID' => $parentid ), array ('%d' ) );
 	return $result;
 }
 /**
@@ -1274,10 +1257,10 @@ function iss_delete_changelog_by_parentid($parentid) {
  * @return student records array or NULL
  *        
  */
-function iss_get_students_by_parentid($id, $regyear) {
+function iss_get_students_by_parentid($parentid, $regyear) {
 	global $wpdb;
 	$table = iss_get_table_name ( "students" );
-	$query = $wpdb->prepare ( "SELECT * FROM {$table} WHERE " . " RegistrationYear = '{$regyear}' and ParentID = %d ORDER BY StudentStatus, ParentID", $id );
+	$query = $wpdb->prepare ( "SELECT * FROM {$table} WHERE " . " RegistrationYear = '{$regyear}' and ParentID = %d ORDER BY StudentID", $parentid );
 	$result_set = $wpdb->get_results ( $query, ARRAY_A );
 	
 	if ($result_set != NULL) {

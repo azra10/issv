@@ -91,11 +91,11 @@ if (count ( $result_set ) == 0) {
 	?>
 <div>
 	<div class="bs-bars pull-left">
-		<div id="toolbar">
+		<!--<div id="toolbar">
 			<selectname "action"><option>Bulk Action</option><option>Archive</option><option>Email</option></select>
                 <button id="actionbutton" name="submit" class="btn btn-primary" disabled=""> </i> Submit </button>
               </div>
-		<div>
+		<div>-->
 			<table class="table table-striped table-responsive table-condensed"
 				id="iss_parent_table">
 				<thead>
