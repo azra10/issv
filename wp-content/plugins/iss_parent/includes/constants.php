@@ -162,7 +162,7 @@ function iss_field_displaynames() {
 	global $iss_field_displaynames_;
 	if ($iss_field_displaynames_ == NULL)
 		$iss_field_displaynames_ = array (
-				"ParentID" => "Parent ID",
+				"ParentID" => "ParentID",
 				"ParentStatus" => "Parent Status",
 				"RegistrationYear" => "Registration Period",
 				"created" => "Create Date",
@@ -211,7 +211,7 @@ function iss_field_displaynames() {
 				"PaymentDate2" => "Payment Date 2",
 				"PaidInFull" => "Paid In Full",
 				
-				"StudentID" => "Student ID",
+				"StudentID" => "StudentID",
 				"StudentFirstName" => "Student First Name",
 				"StudentLastName" => "Student Last Name",
 				"RegularSchoolGrade" => "Regular School Grade",

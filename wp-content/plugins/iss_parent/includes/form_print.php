@@ -255,10 +255,11 @@
 			</TR>
 		</TABLE>
 
-		<P class="reg_fee">Registration fee is <?php echo '$' . iss_adminpref_registrationfee1() ?> a year for the first child, payable in 2 installments of 
-    <?php echo '$' . iss_adminpref_registrationfee1_installment() ?> each. Fees for siblings are 
-    <?php echo '$' . iss_adminpref_registrationfee2() ?>/year, payable in 2 installments of 
-    <?php echo '$' . iss_adminpref_registrationfee2_installment() ?> each.</P>
+		<P class="reg_fee">Registration fee is <?php echo '$' . iss_adminpref_registrationfee_firstchild() ?> a year for the first child, payable in 
+	<?php echo '$' . iss_adminpref_registrationfee_installments() ?> installments of 
+    <?php echo '$' . iss_adminpref_registrationfee_firstchild_installment() ?> each. Fees for siblings are 
+    <?php echo '$' . iss_adminpref_registrationfee_sibling() ?>/year, payable in 2 installments of 
+    <?php echo '$' . iss_adminpref_registrationfee_sibling_installment() ?> each.</P>
 		<P class="continue_page" style="">(continued on back)</P>
 		<hr />
 	</DIV>

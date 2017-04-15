@@ -12,87 +12,132 @@
  */
 function iss_adminpref_schoolname() {
 	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_schoolname'] ))
-		return $options ['iss_schoolname'];
+	
+	if (isset ( $options ['iss_schoolname'] ) &&
+		(strlen($options ['iss_schoolname'])>0))
+	{	return $options ['iss_schoolname'];}
 	return NULL;
 }
 function iss_adminpref_registrationyear() {
 	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_registrationyear'] ))
-		return $options ['iss_registrationyear'];
+	
+	if (isset ( $options ['iss_registrationyear'] ) &&
+		(strlen($options ['iss_registrationyear']) > 0))
+	{	
+		$year = $options ['iss_registrationyear'];
+		
+		$errors = array ();
+		$result = iss_field_valid ( 'RegistrationYear', $year, $errors, '' );
+		
+		if ($result == true)  { return $year; }
+	}
 	return NULL;
 }
 function iss_adminpref_registrationfee_installments() {
 	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_registrationfee_installments'] ))
-		return $options ['iss_registrationfee_installments'];
-	return NULL;
+
+	if (isset ( $options ['iss_registrationfee_installments'] ) &&
+		(intval($options ['iss_registrationfee_installments'])>0))
+	{ return intval($options ['iss_registrationfee_installments']); }
+
+	return 0;
 }
-function iss_adminpref_registrationfee1() {
+function iss_adminpref_registrationfee_firstchild() {
 	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_registrationfee1'] ))
-		return $options ['iss_registrationfee1'];
-	return NULL;
+
+	if (isset ( $options ['iss_registrationfee1'] ) &&
+		(intval($options ['iss_registrationfee1'])>0))
+	{ return intval($options ['iss_registrationfee1']); }
+
+	return 0;
 }
-function iss_adminpref_registrationfee1_installment() {
+function iss_adminpref_registrationfee_firstchild_installment() {
 	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_registrationfee1'] ))
-		return $options ['iss_registrationfee1'] / 2;
-	return NULL;
+	$installmetns = 1; 	$fee = 0;
+	
+	if (isset ( $options ['iss_registrationfee_installments'] ) &&
+		(intval($options ['iss_registrationfee_installments'])>0))
+	{ $installmetns = $options ['iss_registrationfee_installments'];}
+      
+	if (isset ( $options ['iss_registrationfee1'] ) &&
+		(intval($options ['iss_registrationfee1'])>0))
+	{ $fee = $options ['iss_registrationfee1'];}
+	
+	if ((intval($fee) >0) && (intval($installmetns)>0))
+	 { return intval($fee / $installmetns);}
+
+	return 0;
 }
-function iss_adminpref_registrationfee2() {
-	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_registrationfee2'] ))
-		return $options ['iss_registrationfee2'];
-	return NULL;
+function iss_adminpref_registrationfee_sibling() {
+	$options = get_option ( 'iss_options' );	
+	      
+	if (isset ( $options ['iss_registrationfee2'] ) &&
+		(intval($options ['iss_registrationfee2'])>0))
+	{ return intval($options ['iss_registrationfee2']); }
+	
+	return 0;
 }
-function iss_adminpref_registrationfee2_installment() {
-	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_registrationfee2'] ))
-		return $options ['iss_registrationfee2'] / 2;
-	return NULL;
+function iss_adminpref_registrationfee_sibling_installment() {
+	$options = get_option ( 'iss_options' );	
+	$installmetns = 1; 	$fee = 0;
+	
+	if (isset ( $options ['iss_registrationfee_installments'] ) &&
+		(intval($options ['iss_registrationfee_installments'])>0))
+	{ $installmetns = $options ['iss_registrationfee_installments'];}
+      
+	if (isset ( $options ['iss_registrationfee2'] ) &&
+		(intval($options ['iss_registrationfee2'])>0))
+	{ $fee = $options ['iss_registrationfee2'];}
+	
+	if ((intval($fee) >0) && (intval($installmetns)>0))
+	 { return intval($fee / $installmetns);}
+
+	return 0;
 }
 function iss_adminpref_openregistrationdays() {
 	$options = get_option ( 'iss_options' );
-	if (isset ( $options ['iss_openregistrationperiod_days'] ))
-		return $options ['iss_openregistrationperiod_days'];
-	return NULL;
+	      
+	if (isset ( $options ['iss_openregistrationperiod_days'] ) &&
+		(intval($options ['iss_openregistrationperiod_days'])>0))
+	{ return intval($options ['iss_openregistrationperiod_days']); }
+	
+	return 0;
 }
 function iss_settings_init() {
-	// register a new setting for "wporg" page
-	register_setting ( 'wporg', 'iss_options' );
+	// register a new setting for "adminpref" page
+	register_setting ( 'adminpref', 'iss_options' );
 	
-	// register a new section in the "wporg" page
-	add_settings_section ( 'iss_registrationyear_section', __ ( 'Change Registration Year', 'wporg' ), 'iss_registrationyear_section_cb', 'wporg' );
+	// register a new section in the "adminpref" page
+	add_settings_section ( 'iss_registrationyear_section', __ ( 'Change Registration Year', 'adminpref' ), 'iss_registrationyear_section_cb', 'adminpref' );
 	
-	// register a new field in the "iss_registrationyear_section" section, inside the "wporg" page
-	add_settings_field ( 'iss_field0', __ ( 'School Name', 'wporg' ), 'iss_textinput_field_cb', 'wporg', 'iss_registrationyear_section', [ 
+	// register a new field in the "iss_registrationyear_section" section, inside the "adminpref" page
+	add_settings_field ( 'iss_field0', __ ( 'School Name', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_schoolname',
 			'class' => 'iss_row',
 			'iss_custom_data' => 'custom' 
 	] );
 	add_settings_field ( 'iss_field', // as of WP 4.6 this value is used only internally
 	             // use $args' label_for to populate the id inside the callback
-	__ ( 'Registration Year', 'wporg' ), 'iss_registrationyear_field_cb', 'wporg', 'iss_registrationyear_section', [ 
+	__ ( 'Registration Year', 'adminpref' ), 'iss_registrationyear_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationyear',
 			'class' => 'iss_row',
 			'iss_custom_data' => 'custom' 
 	] );
-	add_settings_field ( 'iss_field6', __ ( 'Registration Fee Installments', 'wporg' ), 'iss_textinput_field_cb', 'wporg', 'iss_registrationyear_section', [ 
+	add_settings_field ( 'iss_field6', __ ( 'Installments', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee_installments',
 			'class' => 'iss_row',
 			'iss_custom_data' => 'custom' 
 	] );
-	add_settings_field ( 'iss_field1', __ ( 'Registration Fee (first child)', 'wporg' ), 'iss_textinput_field_cb', 'wporg', 'iss_registrationyear_section', [ 
+	add_settings_field ( 'iss_field1', __ ( 'Registration Fee (first child)', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee1',
 			'class' => 'iss_row',
 			'iss_custom_data' => 'custom' 
 	] );
 	// add_settings_field(
 	// 'iss_field3',
-	// __('Registration Installment (first child)', 'wporg'),
+	// __('Registration Installment (first child)', 'adminpref'),
 	// 'iss_textinput_field_cb',
-	// 'wporg',
+	// 'adminpref',
 	// 'iss_registrationyear_section',
 	// [
 	// 'label_for' => 'iss_registrationfee1_installment',
@@ -100,16 +145,16 @@ function iss_settings_init() {
 	// 'iss_custom_data' => 'custom',
 	// ]
 	// );
-	add_settings_field ( 'iss_field2', __ ( 'Registration Fee (siblings)', 'wporg' ), 'iss_textinput_field_cb', 'wporg', 'iss_registrationyear_section', [ 
+	add_settings_field ( 'iss_field2', __ ( 'Registration Fee (siblings)', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee2',
 			'class' => 'iss_row',
 			'iss_custom_data' => 'custom' 
 	] );
 	// add_settings_field(
 	// 'iss_field4',
-	// __('Registration Installment (siblings)', 'wporg'),
+	// __('Registration Installment (siblings)', 'adminpref'),
 	// 'iss_textinput_field_cb',
-	// 'wporg',
+	// 'adminpref',
 	// 'iss_registrationyear_section',
 	// [
 	// 'label_for' => 'iss_registrationfee2_installment',
@@ -117,7 +162,7 @@ function iss_settings_init() {
 	// 'iss_custom_data' => 'custom',
 	// ]
 	// );
-	add_settings_field ( 'iss_field5', __ ( 'Open Registration Days', 'wporg' ), 'iss_textinput_field_cb', 'wporg', 'iss_registrationyear_section', [ 
+	add_settings_field ( 'iss_field5', __ ( 'Open Registration Days', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_openregistrationperiod_days',
 			'class' => 'iss_row',
 			'iss_custom_data' => 'custom' 
@@ -140,7 +185,7 @@ add_action ( 'admin_init', 'iss_settings_init' );
 function iss_registrationyear_section_cb($args) {
 	/*
 	 * ?>
-	 * <p id="<?= esc_attr($args['id']); ?>"><?= esc_html__('Follow the white rabbit.', 'wporg'); ?></p>
+	 * <p id="<?= esc_attr($args['id']); ?>"><?= esc_html__('Follow the white rabbit.', 'adminpref'); ?></p>
 	 * <?php
 	 */
 }
@@ -168,20 +213,27 @@ function iss_registrationyear_field_cb($args) {
 	// get the value of the setting we've registered with register_setting()
 	$options = get_option ( 'iss_options' );
 	// output the field
+	if(sizeof($regyearlist) > 0) {	
 	?>
-<select id="<?= esc_attr($args['label_for']); ?>"
+	<select id="<?= esc_attr($args['label_for']); ?>"
 	data-custom="<?= esc_attr($args['iss_custom_data']); ?>"
 	name="iss_options[<?= esc_attr($args['label_for']); ?>]">
 	<option value="">Select Registration Year</option>
 	<?php foreach ($regyearlist as $regyear) { ?>
         <option value="<?php echo $regyear['RegistrationYear']; ?>" 
         <?= isset($options[$args['label_for']]) ? (selected($options[$args['label_for']], $regyear[ 'RegistrationYear'], false)) : (''); ?>>
-            <?= esc_html($regyear[ 'RegistrationYear'], 'wporg'); ?>
+            <?= esc_html($regyear[ 'RegistrationYear'], 'adminpref'); ?>
         </option>
 		<?php } ?>
-		<option value="2016-2017">2016-2017</option>        
     </select>
+<?php } else { ?>
+<input id="<?= esc_attr($args['label_for']); ?>" type="text"
+			
+	data-custom="<?= esc_attr($args['iss_custom_data']); ?>"
+	name="iss_options[<?= esc_attr($args['label_for']); ?>]"
+	value="<?php if (isset($options[$args['label_for']])) echo $options[$args['label_for']]; ?>">
 <?php
+}
 }
 
 /**
@@ -189,7 +241,7 @@ function iss_registrationyear_field_cb($args) {
  */
 function iss_options_page() {
 	// add top level menu page
-	add_menu_page ( 'Admin Preferences', 'Admin Preferences', 'iss_admin', 'wporg', 'iss_options_page_html' );
+	add_menu_page ( 'Admin Preferences', 'Admin Preferences', 'iss_admin', 'adminpref', 'iss_options_page_html' );
 }
 
 /**
@@ -213,7 +265,7 @@ function iss_options_page_html() {
 	// wordpress will add the "settings-updated" $_GET parameter to the url
 	if (isset ( $_GET ['settings-updated'] )) {
 		// add settings saved message with the class of "updated"
-		add_settings_error ( 'iss_messages', 'iss_message', __ ( 'Settings Saved', 'wporg' ), 'updated' );
+		add_settings_error ( 'iss_messages', 'iss_message', __ ( 'Settings Saved', 'adminpref' ), 'updated' );
 	}
 	
 	// show error/update messages
@@ -223,11 +275,11 @@ function iss_options_page_html() {
 	<h1><?= esc_html(get_admin_page_title()); ?></h1>
 	<form action="options.php" method="post">
             <?php
-	// output security fields for the registered setting "wporg"
-	settings_fields ( 'wporg' );
+	// output security fields for the registered setting "adminpref"
+	settings_fields ( 'adminpref' );
 	// output setting sections and their fields
-	// (sections are registered for "wporg", each field is registered to a specific section)
-	do_settings_sections ( 'wporg' );
+	// (sections are registered for "adminpref", each field is registered to a specific section)
+	do_settings_sections ( 'adminpref' );
 	// output save settings button
 	if (current_user_can ( 'manage_options' ))
 		submit_button ( 'Save Settings' );

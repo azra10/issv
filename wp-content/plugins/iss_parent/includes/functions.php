@@ -115,11 +115,7 @@ function iss_registration_period() {
 	if (NULL == $regyear) {
 		$regyear = iss_adminpref_registrationyear ();
 	}
-	if (NULL == $regyear) {
-		return "2016-2017";
-	} else {
-		return $regyear;
-	}
+	return $regyear;
 }
 /**
  * Function iss_userpref_registrationyear
@@ -132,7 +128,9 @@ function iss_registration_period() {
  */
 function iss_userpref_registrationyear() {
 	$list = iss_get_user_option_list ();
-	if (isset ( $list ['iss_user_registrationyear'] ) && isset ( $list ['iss_user_registrationyear'] [0] ) && ! empty ( $list ['iss_user_registrationyear'] [0] )) {
+	if (isset ( $list ['iss_user_registrationyear'] ) && 
+		isset ( $list ['iss_user_registrationyear'] [0] ) && 
+		! empty ( $list ['iss_user_registrationyear'] [0] ) ) {
 		return $list ['iss_user_registrationyear'] [0];
 	}
 	return NULL;
@@ -294,10 +292,12 @@ function iss_get_user_option_list() {
  * @return none
  *
  */
-function iss_set_user_option_list($changelog) {
-	iss_write_log ( "iss_set_user_option_list" );
-	iss_write_log ( $changelog );
+function iss_set_user_option_list($option,$inputval) {
+	iss_write_log ( "iss_set_user_option_list {$option} {$inputval}" );
 	
+	$changelog = array ();
+	$changelog [$option] = $inputval;
+				
 	$user_id = get_current_user_id ();
 	foreach ( $changelog as $field => $value ) {
 		update_user_meta ( $user_id, $field, $value );
@@ -317,6 +317,7 @@ function iss_get_registrationyear_list() {
 	$parents = iss_get_table_name ( "payment" );
 	$query = "SELECT distinct(RegistrationYear)  FROM {$parents} order by  RegistrationYear";
 	$result_set = $wpdb->get_results ( $query, ARRAY_A );
+	
 	return $result_set;
 }
 /**
@@ -674,7 +675,7 @@ function iss_changelog_insert($tablename, $changelog) {
  * Array of change records
  * 
  * @param
- *        	parent id
+ *        	parentid
  * @return Array of Changelod
  *        
  */
@@ -745,7 +746,7 @@ function iss_get_new_parentid() {
  * 
  * @param
  *        	with minimum required fields (RegistrationYear, FatherLastName, FatherFirstName)
- * @return parent id  / 0 indicating error
+ * @return parentid  / 0 indicating error
  *        
  */
 function iss_parent_insert($sdata) {
@@ -753,7 +754,7 @@ function iss_parent_insert($sdata) {
 		iss_write_log ( "iss_parent_insert" );
 		
 		if (! isset ( $sdata ['RegistrationYear'] ) || empty ( $sdata ['RegistrationYear'] ) || ! isset ( $sdata ['FatherLastName'] ) || empty ( $sdata ['FatherLastName'] ) || ! isset ( $sdata ['FatherFirstName'] ) || empty ( $sdata ['FatherFirstName'] )) {
-			iss_write_log ( "Cannot insert parent due to minimum required fields" );
+			iss_write_log ( "Cannot insert parent due to minimum required fields (RegistrationYear,FatherLastName,FatherFirstName)" );
 			return 0;
 		}
 		
@@ -971,7 +972,7 @@ function iss_get_new_studentid() {
  * 
  * @param
  *        	with minimum required fields (ParentID, RegistrationYear, StudentLastName, StudentFirstName)
- * @return student id
+ * @return studentid
  *        
  */
 function iss_student_insert($sdata) {
@@ -1293,17 +1294,17 @@ function iss_get_parent_by_parentid($parentid, $regyear) {
 }
 /**
  * Function iss_get_parent_and_payment_by_id
- * Get parent record by ID
+ * Get parent record by parentviewid
  * 
  * @param
- *        	ID (auto increment column of the table)
+ *        	parentviewid (auto increment column of the table)
  * @return parent record or NULL
  *        
  */
-function iss_get_parent_and_payment_by_id($id) {
+function iss_get_parent_and_payment_by_id($parentviewid) {
 	global $wpdb;
 	$parents = iss_get_table_name ( "parents" );
-	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $id );
+	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ParentViewID = %d LIMIT 1", $parentviewid );
 	$row = $wpdb->get_row ( $query, ARRAY_A );
 	if ($row != NULL) {
 		return $row;
@@ -1332,9 +1333,8 @@ function iss_get_parent_by_code($code) {
 	}
 	return NULL;
 }
-function iss_get_parent_registration_code($id) {
+function iss_get_parent_registration_code($parentviewid) {
 	global $wpdb;
-	
 	$table = iss_get_table_name ( "parents" );
 	$code = iss_registration_code ();
 	$edate = iss_registration_expirydate ();
@@ -1343,7 +1343,7 @@ function iss_get_parent_registration_code($id) {
 			'RegistrationExpiration' => $edate,
 			'RegistrationComplete' => 'Open' 
 	), array (
-			'ID' => $id 
+			'ParentViewID' => $parentviewid 
 	), array (
 			'%s',
 			'%s',
@@ -1351,8 +1351,9 @@ function iss_get_parent_registration_code($id) {
 	), array (
 			'%d' 
 	) );
-	
-	return $code;
+
+	if (1 === $result) return $code;
+	return NULL;
 }
 /**
  * Function iss_get_table_name
@@ -1426,7 +1427,7 @@ function iss_quote_all($value) {
  * Update parent & students records inactive
  * 
  * @param
- *        	ID (auto increment column of the table)
+ *        	parentViewID (auto increment column of the table)
  * @return 1 for success
  *        
  */
@@ -1434,7 +1435,7 @@ function iss_archive_family($parentViewID) {
 	global $wpdb;
 	$parents = iss_get_table_name ( "parents" );
 	$students = iss_get_table_name ( "students" );
-	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $parentViewID );
+	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ParentViewID = %d LIMIT 1", $parentViewID );
 	$row = $wpdb->get_row ( $query, ARRAY_A );
 	
 	if ($row != NULL) {
@@ -1468,7 +1469,7 @@ function iss_archive_family($parentViewID) {
  * Update parent & students records active
  * 
  * @param
- *        	ID (auto increment column of the table)
+ *        	parentViewID (auto increment column of the table)
  * @return 1 for success
  *        
  */
@@ -1476,7 +1477,7 @@ function iss_unarchive_family($parentViewID) {
 	global $wpdb;
 	$parents = iss_get_table_name ( "parents" );
 	$students = iss_get_table_name ( "students" );
-	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ID = %d LIMIT 1", $parentViewID );
+	$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE ParentViewID = %d LIMIT 1", $parentViewID );
 	$row = $wpdb->get_row ( $query, ARRAY_A );
 	
 	if ($row != NULL) {

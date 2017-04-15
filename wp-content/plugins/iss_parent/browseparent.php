@@ -70,7 +70,7 @@ $letters = array (
 <?php
 $result_set = NULL;
 
-$columns = "ID, ParentID, FatherLastName, FatherFirstName, RegistrationComplete";
+$columns = "ParentViewID, ParentID, FatherLastName, FatherFirstName, RegistrationComplete";
 
 if (isset ( $_POST ['submit'] )) {
 	check_admin_referer ( 'iss_parent_search', 'iss_parent_search_nonce' );

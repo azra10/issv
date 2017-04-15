@@ -329,7 +329,7 @@ function iss_import_parent_update($rowid, $parentrow, $data) {
 		}
 		
 		if (! empty ( $inputval ) && iss_field_valid ( $fieldname, $inputval, $errors, '' ) && (strcmp ( $inputval, $parentrow [$fieldname] ) != 0)) {
-			echo "<br/> Parent ID: {$data['ParentID']} Field: {$fieldname}   input: {$inputval} changed "; // ISS TEST
+			echo "<br/> ParentID: {$data['ParentID']} Field: {$fieldname}   input: {$inputval} changed "; // ISS TEST
 			
 			$parentrow [$fieldname] = $inputval;
 			$changedfields [] = $fieldname;

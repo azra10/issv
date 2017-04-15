@@ -1,5 +1,11 @@
 -- replace wp with actual prefix before running the commands
 
+DELETE FROM `lwp_iss_payment`;
+DELETE FROM `lwp_iss_registration`;
+DELETE FROM `lwp_iss_student`;
+DELETE FROM `lwp_iss_parent`;
+DELETE FROM `lwp_iss_changelog`;
+
 DROP VIEW IF EXISTS `lwp_iss_students`;
 DROP VIEW IF EXISTS `lwp_iss_parents`;
 DROP TABLE IF EXISTS `lwp_iss_payment`;
@@ -24,7 +30,6 @@ ALTER TABLE `lwp_iss_changelog` ADD PRIMARY KEY (`ChangelogID`);
 ALTER TABLE `lwp_iss_changelog`  MODIFY `ChangelogID` int(11) NOT NULL AUTO_INCREMENT;
 
 CREATE TABLE IF NOT EXISTS `lwp_iss_parent` (
-  `ID` int(11) unsigned NOT NULL,
   `ParentID` int(11) NOT NULL,
   `FatherFirstName` varchar(100) NOT NULL COMMENT 'Father First Name',
   `FatherLastName` varchar(100) NOT NULL COMMENT 'Father Last Name',
@@ -58,8 +63,7 @@ CREATE TABLE IF NOT EXISTS `lwp_iss_parent` (
   `SpecialNeedNote` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Parents';
 
-ALTER TABLE `lwp_iss_parent`  ADD PRIMARY KEY (`ID`), ADD UNIQUE KEY `ParentID` (`ParentID`);
-ALTER TABLE `lwp_iss_parent`  MODIFY `ID` int(11) unsigned NOT NULL AUTO_INCREMENT;
+ALTER TABLE `lwp_iss_parent`  ADD PRIMARY KEY  (`ParentID`);
 
 CREATE TABLE IF NOT EXISTS `lwp_iss_payment` (
   `PaymentID` int(11) unsigned NOT NULL,
@@ -96,7 +100,6 @@ ALTER TABLE `lwp_iss_payment`
   ADD CONSTRAINT `ISS_Registration_ParentID_FK` FOREIGN KEY (`ParentID`) REFERENCES `lwp_iss_parent` (`ParentID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 CREATE TABLE IF NOT EXISTS `lwp_iss_student` (
-  `ID` int(11) NOT NULL,
   `StudentID` int(11) NOT NULL,
   `ParentID` int(11) NOT NULL,
   `StudentBirthDate` date NOT NULL,
@@ -110,11 +113,9 @@ CREATE TABLE IF NOT EXISTS `lwp_iss_student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 ALTER TABLE `lwp_iss_student`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `StudentID` (`StudentID`),
+  ADD PRIMARY KEY (`StudentID`),
   ADD UNIQUE KEY `ParentID_StudentID` (`ParentID`,`StudentID`) USING BTREE,
   ADD KEY `ISS_Student_ParentID_FK` (`ParentID`);
-ALTER TABLE `lwp_iss_student` MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `lwp_iss_student` ADD CONSTRAINT `ISS_Student_ParentID_FK` FOREIGN KEY (`ParentID`) REFERENCES `lwp_iss_parent` (`ParentID`);
 
 CREATE TABLE IF NOT EXISTS `lwp_iss_registration` (
@@ -138,6 +139,6 @@ ALTER TABLE `lwp_iss_registration` ADD CONSTRAINT `ISS_Class_StudentID_FK` FOREI
 CREATE VIEW `lwp_iss_parents` AS select `lwp_iss_payment`.`PaymentID` AS `ParentViewID`,`lwp_iss_parent`.`ParentID` AS `ParentID`,`lwp_iss_parent`.`FatherFirstName` AS `FatherFirstName`,`lwp_iss_parent`.`FatherLastName` AS `FatherLastName`,`lwp_iss_parent`.`FatherEmail` AS `FatherEmail`,`lwp_iss_parent`.`FatherWorkPhone` AS `FatherWorkPhone`,`lwp_iss_parent`.`FatherCellPhone` AS `FatherCellPhone`,`lwp_iss_parent`.`HomeStreetAddress` AS `HomeStreetAddress`,`lwp_iss_parent`.`HomeCity` AS `HomeCity`,`lwp_iss_parent`.`HomeZip` AS `HomeZip`,`lwp_iss_parent`.`HomePhone` AS `HomePhone`,`lwp_iss_parent`.`FamilySchoolStartYear` AS `FamilySchoolStartYear`,`lwp_iss_parent`.`SchoolEmail` AS `SchoolEmail`,`lwp_iss_parent`.`MotherFirstName` AS `MotherFirstName`,`lwp_iss_parent`.`MotherLastName` AS `MotherLastName`,`lwp_iss_parent`.`MotherStreetAddress` AS `MotherStreetAddress`,`lwp_iss_parent`.`MotherCity` AS `MotherCity`,`lwp_iss_parent`.`MotherZip` AS `MotherZip`,`lwp_iss_parent`.`MotherEmail` AS `MotherEmail`,`lwp_iss_parent`.`MotherHomePhone` AS `MotherHomePhone`,`lwp_iss_parent`.`MotherWorkPhone` AS `MotherWorkPhone`,`lwp_iss_parent`.`MotherCellPhone` AS `MotherCellPhone`,`lwp_iss_parent`.`EmergencyContactName1` AS `EmergencyContactName1`,`lwp_iss_parent`.`EmergencyContactPhone1` AS `EmergencyContactPhone1`,`lwp_iss_parent`.`EmergencyContactName2` AS `EmergencyContactName2`,`lwp_iss_parent`.`EmergencyContactPhone2` AS `EmergencyContactPhone2`,`lwp_iss_parent`.`ShareAddress` AS `ShareAddress`,`lwp_iss_parent`.`TakePicture` AS `TakePicture`,`lwp_iss_parent`.`ParentStatus` AS `ParentStatus`,`lwp_iss_parent`.`SpecialNeedNote` AS `SpecialNeedNote`,`lwp_iss_payment`.`RegistrationYear` AS `RegistrationYear`,`lwp_iss_payment`.`PaymentInstallment1` AS `PaymentInstallment1`,`lwp_iss_payment`.`PaymentMethod1` AS `PaymentMethod1`,`lwp_iss_payment`.`PaymentDate1` AS `PaymentDate1`,`lwp_iss_payment`.`PaymentInstallment2` AS `PaymentInstallment2`,`lwp_iss_payment`.`PaymentMethod2` AS `PaymentMethod2`,`lwp_iss_payment`.`PaymentDate2` AS `PaymentDate2`,`lwp_iss_payment`.`TotalAmountDue` AS `TotalAmountDue`,`lwp_iss_payment`.`PaidInFull` AS `PaidInFull`,`lwp_iss_payment`.`RegistrationCode` AS `RegistrationCode`,`lwp_iss_payment`.`RegistrationExpiration` AS `RegistrationExpiration`,`lwp_iss_payment`.`RegistrationComplete` AS `RegistrationComplete`,`lwp_iss_payment`.`Comments` AS `Comments` from (`lwp_iss_parent` join `lwp_iss_payment` on((`lwp_iss_parent`.`ParentID` = `lwp_iss_payment`.`ParentID`)));
 
 
-CREATE VIEW `lwp_iss_students` AS select `lwp_iss_registration`.`StudentViewID` AS `RegistrationID`,`lwp_iss_student`.`StudentID` AS `StudentID`,`lwp_iss_student`.`ParentID` AS `ParentID`,`lwp_iss_student`.`StudentFirstName` AS `StudentFirstName`,`lwp_iss_student`.`StudentLastName` AS `StudentLastName`,`lwp_iss_student`.`StudentBirthDate` AS `StudentBirthDate`,`lwp_iss_student`.`StudentGender` AS `StudentGender`,`lwp_iss_student`.`StudentStatus` AS `StudentStatus`,`lwp_iss_student`.`StudentEmail` AS `StudentEmail`,`lwp_iss_registration`.`RegularSchoolGrade` AS `RegularSchoolGrade`,`lwp_iss_registration`.`ISSGrade` AS `ISSGrade`,`lwp_iss_registration`.`RegistrationYear` AS `RegistrationYear` from (`lwp_iss_student` join `lwp_iss_registration` on((`lwp_iss_student`.`StudentID` = `lwp_iss_registration`.`StudentID`)));
+CREATE VIEW `lwp_iss_students` AS select `lwp_iss_registration`.`RegistrationID` AS `StudentViewID`,`lwp_iss_student`.`StudentID` AS `StudentID`,`lwp_iss_student`.`ParentID` AS `ParentID`,`lwp_iss_student`.`StudentFirstName` AS `StudentFirstName`,`lwp_iss_student`.`StudentLastName` AS `StudentLastName`,`lwp_iss_student`.`StudentBirthDate` AS `StudentBirthDate`,`lwp_iss_student`.`StudentGender` AS `StudentGender`,`lwp_iss_student`.`StudentStatus` AS `StudentStatus`,`lwp_iss_student`.`StudentEmail` AS `StudentEmail`,`lwp_iss_registration`.`RegularSchoolGrade` AS `RegularSchoolGrade`,`lwp_iss_registration`.`ISSGrade` AS `ISSGrade`,`lwp_iss_registration`.`RegistrationYear` AS `RegistrationYear` from (`lwp_iss_student` join `lwp_iss_registration` on((`lwp_iss_student`.`StudentID` = `lwp_iss_registration`.`StudentID`)));
 
 

@@ -28,25 +28,18 @@ class ISS_UserPreferencePlugin {
 				'users_page' 
 		), 'dashicons-admin-customizer', 6 );
 	}
-	public function add_plugin_page_action() {
-		// ISS TEST CODE - START
-		// var_dump($_GET);
-		// echo "<table>";
-		// foreach ($_POST as $key => $value) { echo "<tr>";echo "<td>"; echo $key; echo "</td>"; echo "<td>"; echo $value; echo "</td>"; echo "</tr>"; }
-		// echo "</table>";
-		// ISS TEST CODE - END
-		
+	public function add_plugin_page_action() {		
 		// / IF FORM POST REQUEST
 		if (isset ( $_POST ['_wpnonce-iss-user-specific-preferences'] )) {
 			check_admin_referer ( 'iss-user-specific-preferences', '_wpnonce-iss-user-specific-preferences' );
-			$error = array ();
-			$changelog = array ();
 			if (isset ( $_POST ['iss_user_registrationyear'] )) {
 				$inputval = iss_sanitize_input ( $_POST ['iss_user_registrationyear'] );
 			}
-			iss_field_valid ( 'RegistrationYear', $inputval, $errors, '' );
-			$changelog ['iss_user_registrationyear'] = $inputval;
 			
+			$error = array ();
+			if (strlen($inputval) != 0) // allow removing value
+			{iss_field_valid ( 'RegistrationYear', $inputval, $errors, '' );}
+						
 			// CONSOLIDATE ERRORS
 			if (! empty ( $errors )) {
 				$this->errorstring = '';
@@ -54,8 +47,8 @@ class ISS_UserPreferencePlugin {
 					$this->errorstring = $this->errorstring . $error . '<br/>'; // REMOVE LATER
 						                                                                                                   // echo $errorstring; //ISS TEST
 			} else // / UPDATE DB start
-{
-				iss_set_user_option_list ( $changelog );
+			{
+				iss_set_user_option_list ('iss_user_registrationyear', $inputval );
 				$this->errorstring = "Changes saved.";
 			}
 		} // form post request
@@ -72,8 +65,7 @@ class ISS_UserPreferencePlugin {
 		if (isset ( $_GET ['error'] )) {
 			echo '<div class="updated"><p><strong> User not logged in.</strong></p></div>';
 		}
-		$useroptionlist = iss_get_user_option_list (); // var_dump($useroptionlist); echo '<br>' . $useroptionlist['iss_user_registrationyear'][0];
-		
+		$userregyear = iss_userpref_registrationyear();
 		$regyearlist = iss_get_registrationyear_list ();
 		?>
       <form class="form" method="post" action=""
@@ -82,17 +74,26 @@ class ISS_UserPreferencePlugin {
            <table class="form-table">
 			<tr valign="top">
 				<th scope="row"><label>Registration Year</label></th>
-				<td><select name="iss_user_registrationyear"
-					id="iss_user_registrationyear" class="form-control"
-					title="Choose Registration Year" required="">
-						<option value="">Select Registration Year</option>
-                <?php foreach ($regyearlist as $regyear) { ?>
-                  <option value="<?php echo $regyear['RegistrationYear'];?>" <?php echo ($regyear[ 'RegistrationYear']==$useroptionlist[ 'iss_user_registrationyear'][0])? ' selected' : '';?> >
-                    <?php echo $regyear['RegistrationYear'];?>
-                  </option>
-                  <?php } ?>
- 				  <option value="2016-2017">2016-2017</option>        
-             </select></td>
+				<td>
+				<?php if (sizeof($regyearlist) > 0) { ?>
+					<select name="iss_user_registrationyear"
+						id="iss_user_registrationyear" class="form-control"
+						title="Choose Registration Year" required="">
+							<option value="">Select Registration Year</option>
+						<?php foreach ($regyearlist as $regyear) { ?>
+					<option value="<?php echo $regyear['RegistrationYear'];?>" <?php echo ($regyear[ 'RegistrationYear']==$userregyear)? ' selected' : '';?> >
+						<?php echo $regyear['RegistrationYear'];?>
+					</option>
+					<?php }  if (strlen($userregyear)>0) {?>
+					<option value="<?php echo $userregyear;?>" selected><?php echo $userregyear;?></option>
+					<?php }?>
+					</select>
+					<?php } else { ?>
+						<input name="iss_user_registrationyear" max-length="9" size="50"
+						id="iss_user_registrationyear" class="form-control"
+						title="Enter Registration Year"  value="<?php echo $userregyear;?>">
+					<?php } ?>
+			 </td>
 			</tr>
 
 		</table>

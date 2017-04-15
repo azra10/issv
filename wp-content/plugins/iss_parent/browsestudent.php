@@ -58,7 +58,7 @@ $letters = array (
 </div>
 <?php
 $result_set = NULL;
-$columns = "ID,StudentID,ParentId,StudentFirstName, StudentLastName,ISSGrade,StudentGender";
+$columns = "StudentViewID,StudentID,ParentId,StudentFirstName, StudentLastName,ISSGrade,StudentGender";
 if (isset ( $_POST ['submit'] )) {
 	check_admin_referer ( 'iss_student_search', 'iss_student_search_nonce' );
 	$keyword = iss_sanitize_input ( $_POST ['keyword'] );
@@ -93,7 +93,7 @@ if (count ( $result_set ) == 0) {
 				<thead>
 					<tr>
 						<th></th>
-						<th>Student ID</th>
+						<th>StudentID</th>
 						<th>Lastname</th>
 						<th>Firstname</th>
 						<th>Grade</th>
