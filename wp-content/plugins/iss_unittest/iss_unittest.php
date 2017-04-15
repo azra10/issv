@@ -55,7 +55,22 @@ class ISS_UnitTestPlugin {
 </div>
 
 <table class="table table-striped">
-	
+<form class="form" method="post" action="" enctype="multipart/form-data">
+				<?php wp_nonce_field( 'iss-test-cases', '_wpnonce-iss-test-cases' ); ?>
+				<div class="row">
+		<button type="submit" name="submit" class="btn btn-primary"
+			value="all">Run All Tests</button>
+		 <a class="btn btn-info" href="admin.php?page=user_home">Change
+			User Preferences</a> <a class="btn btn-info"
+			href="admin.php?page=adminpref">Change Admin Preferences</a> 
+		<!--<button type="submit" name="submit" class="btn btn-info" value="addtestdata">Add Test Data</button>
+		<button type="submit" name="submit" class="btn btn-info" value="deletetestdata">Delete Test Data</button>
+		<button type="submit" name="submit" class="btn btn-info" value="addregyear">Add RegYear (UserPref)</button> 
+		<button type="submit" name="submit" class="btn btn-info" value="removeregyear">Delete RegYear (UserPref)</button> -->
+
+	</div>
+	<hr />
+
 <?php
 		echo ' <th><td colspan=3 ><h3>ADMIN PREFERENCES (Must Pass with Admin Preferences set)</h3></td></th>';
 		$this->iss_get_school_name_test3 ();
@@ -103,7 +118,7 @@ class ISS_UnitTestPlugin {
 		$this->iss_get_table_name_test29 ();
 		?>
 </table>
-
+</form>	
 <?php
 	} // tests_page
 	public function iss_get_registrationyear_list_test1() {
@@ -425,6 +440,8 @@ class ISS_UnitTestPlugin {
 				$result = false;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration period {$name} </span>";
 			}
+			if ($result)
+			{
 			$newregyear = iss_next_registration_year ();
 			list ( $y1, $y2 ) = explode ( "-", $newregyear );
 			$y1int = intval ( $y1 );
@@ -436,10 +453,12 @@ class ISS_UnitTestPlugin {
 				$result = false;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect last registration period {$name} </span>";
 			}
+			}
 			if ($result && ($name != $regyear)) {
 				$result = false;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect last registration period {$name} </span>";
 			}
+			
 			
 			if ($result) {
 				echo "<span class=\"text-success\"> Pass <i class=\"glyphicon glyphicon-ok\" ></i></span>";
@@ -1329,7 +1348,7 @@ class ISS_UnitTestPlugin {
 				// CHANGE LOG TEST ON INSERT
 				$changeset = iss_changelog_list ( iss_get_table_name ( "student" ), $parentid, NULL );
 				// $count = count($changeset);
-				echo "<br>first changelog {$count}<br>";
+				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
 					echo "<br><br>";
 					var_dump ( $row );
@@ -1481,7 +1500,7 @@ class ISS_UnitTestPlugin {
 				// CHANGE LOG TEST ON INSERT
 				$changeset = iss_changelog_list ( iss_get_table_name ( "parent" ), $parentid, NULL );
 				// $count = count($changeset);
-				echo "<br>first changelog {$count}<br>";
+				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
 					echo "<br><br>";
 					var_dump ( $row );
@@ -1732,7 +1751,7 @@ class ISS_UnitTestPlugin {
 				// check change log
 				$changeset = iss_changelog_list ( iss_get_table_name ( "student" ), $parentid, $studentid );
 				// $count = count($changeset);
-				echo "<br>first changelog {$count}<br>";
+				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
 					echo "<br><br>";
 					var_dump ( $row );
@@ -1864,7 +1883,7 @@ class ISS_UnitTestPlugin {
 				// check change log
 				$changeset = iss_changelog_list ( iss_get_table_name ( "parent" ), $parentid, NULL );
 				// $count = count($changeset);
-				echo "<br>first changelog {$count}<br>";
+				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
 					echo "<br><br>";
 					var_dump ( $row );
@@ -2044,11 +2063,11 @@ class ISS_UnitTestPlugin {
 				echo '</td></tr>';
 				return;
 			}
-			// if(iss_get_table_name('students') != $wpdb->prefix .'iss_students') {
-			// echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect table name for students</span>";
-			// echo '</td></tr>';return;
-			//
-			// }
+			if(iss_get_table_name('students') != $wpdb->prefix .'iss_students') {
+			echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect table name for students</span>";
+			echo '</td></tr>';return;
+			
+			}
 			if (iss_get_table_name ( 'payment' ) != $wpdb->prefix . 'iss_payment') {
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect table name for payment</span>";
 				echo '</td></tr>';
@@ -2161,29 +2180,6 @@ class ISS_UnitTestPlugin {
 		} else if ($this->submit === 'deletetestdata') {
 			iss_delete_test_data ();
 		}
-		
-		?><form class="form" method="post" action=""
-	enctype="multipart/form-data">
-				<?php wp_nonce_field( 'iss-test-cases', '_wpnonce-iss-test-cases' ); ?>
-				<div class="row">
-		<button type="submit" name="submit" class="btn btn-primary"
-			value="all">Run All Tests</button>
-		&nbsp; <a class="btn btn-info" href="admin.php?page=user_home">Change
-			User Preferences</a> <a class="btn btn-info"
-			href="admin.php?page=user_home">Change Admin Preferences</a> &nbsp;
-		<button type="submit" name="submit" class="btn btn-info"
-			value="addtestdata">Add Test Data</button>
-		&nbsp;
-		<button type="submit" name="submit" class="btn btn-info"
-			value="deletetestdata">Delete Test Data</button>
-		&nbsp;
-		<!-- 				<button type="submit" name="submit" class="btn btn-info" value="addregyear">Add RegYear (UserPref)</button> -->
-
-		<!-- 				<button type="submit" name="submit" class="btn btn-info" value="removeregyear">Delete RegYear (UserPref)</button> -->
-		&nbsp;
-	</div>
-	<hr />
-</form><?php
 	} // iss_initialize
 } // class
 

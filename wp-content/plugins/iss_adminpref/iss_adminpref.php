@@ -114,24 +114,24 @@ function iss_settings_init() {
 	add_settings_field ( 'iss_field0', __ ( 'School Name', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_schoolname',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'custom' 
+			'iss_custom_data' => 'Example: Islamic School of Silicon Valley' 
 	] );
 	add_settings_field ( 'iss_field', // as of WP 4.6 this value is used only internally
 	             // use $args' label_for to populate the id inside the callback
 	__ ( 'Registration Year', 'adminpref' ), 'iss_registrationyear_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationyear',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'custom' 
+			'iss_custom_data' => 'Example: 2016-2017' 
 	] );
 	add_settings_field ( 'iss_field6', __ ( 'Installments', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee_installments',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'custom' 
+			'iss_custom_data' => 'Example: 2' 
 	] );
 	add_settings_field ( 'iss_field1', __ ( 'Registration Fee (first child)', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee1',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'custom' 
+			'iss_custom_data' => 'Example: 470' 
 	] );
 	// add_settings_field(
 	// 'iss_field3',
@@ -148,7 +148,7 @@ function iss_settings_init() {
 	add_settings_field ( 'iss_field2', __ ( 'Registration Fee (siblings)', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee2',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'custom' 
+			'iss_custom_data' => 'Example: 420' 
 	] );
 	// add_settings_field(
 	// 'iss_field4',
@@ -165,7 +165,7 @@ function iss_settings_init() {
 	add_settings_field ( 'iss_field5', __ ( 'Open Registration Days', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_openregistrationperiod_days',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'custom' 
+			'iss_custom_data' => 'Example: 7' 
 	] );
 }
 
@@ -199,6 +199,7 @@ function iss_textinput_field_cb($args) {
 	data-custom="<?= esc_attr($args['iss_custom_data']); ?>"
 	name="iss_options[<?= esc_attr($args['label_for']); ?>]"
 	value="<?php if (isset($options[$args['label_for']])) echo $options[$args['label_for']]; ?>">
+	<br/><span class="text-info"><?php  echo $args['iss_custom_data']; ?></span>
 <?php
 }
 
@@ -234,6 +235,8 @@ function iss_registrationyear_field_cb($args) {
 	value="<?php if (isset($options[$args['label_for']])) echo $options[$args['label_for']]; ?>">
 <?php
 }
+?><br/><span class="text-info"><?php  echo $args['iss_custom_data']; ?></span>
+<?php
 }
 
 /**

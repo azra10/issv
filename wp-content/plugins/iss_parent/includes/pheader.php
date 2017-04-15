@@ -2,7 +2,7 @@
 	<nav class="navbar navbar-light bg-faded">
 		<strong class="navbar-brand">Parents </strong>
 		<ul class="nav navbar-nav">
-<?php if (current_user_can('iss_admin') && (strlen($regyeat)>0)) { ?>
+<?php if (current_user_can('iss_admin') && (strlen($regyear)>0)) { ?>
       <li class="nav-item"><a class="nav-link"
 				href="admin.php?page=new_parent"><i class="icon-plus-sign"></i> <span
 					class="button-primary">Add Parent</span></a></li>

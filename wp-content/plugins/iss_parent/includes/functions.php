@@ -1366,8 +1366,9 @@ function iss_get_parent_registration_code($parentviewid) {
  */
 function iss_get_table_name($name) {
 	global $wpdb;
-	
-	if ($name == "registration") {
+	if (empty($name)){
+		iss_write_log ( "Empty table name" );
+	} elseif ($name == "registration") {
 		return $wpdb->prefix . "iss_registration";
 	} elseif ($name == "changelog") {
 		return $wpdb->prefix . "iss_changelog";
