@@ -17,3 +17,11 @@ Password Password1
 6. Activate ISS Import From CSV
 7. Activate ISS Registeration For Next Year
 8. Activate ISS Unit Test Plugin
+
+--Loading custom css in theme page template
+copy wp-content/themes/<name>/page.php to regpage.php to theme folder
+add add_action ( 'wp_head', 'load_custom_issv_style' );  before header part.
+
+
+create a page 'register' with registration page template
+Add a shortcode [issv_edit_parent] to page body

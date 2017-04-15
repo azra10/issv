@@ -63,7 +63,9 @@ function edit_parent_function() {
 		include (ISS_PATH . "/includes/form_edit_post.php");
 		
 		if ($isstabname == 'view') {
-			include (ISS_PATH . "/includes/form_view.php");
+			$edit = false;
+			//include (ISS_PATH . "/includes/form_view.php");
+			include (ISS_PATH . "/includes/form_print.php");
 		} else {
 			$edit = true;
 			include (ISS_PATH . "/includes/form_edit.php");

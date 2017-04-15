@@ -84,13 +84,15 @@
 	margin-bottom: 0px;
 }
 
-.note {
+.notehead {
 	font: italic bold 1.5em 'Calibri';
 	line-height: 18px;
 	text-align: center;
 	padding: 0px 5px 0px 5px;
 }
-
+.notetext {
+	line-height: 16px;
+}
 .stu_head {
 	font: bold 1.2em 'Calibri';
 	text-decoration: underline;
@@ -106,6 +108,7 @@
 </STYLE>
 
 	<DIV id="page1">
+	<div class="p0 ft0"><?php echo iss_get_school_name();?></div>
 		<div class="p0 ft0">In The Name of Allah, Most Merciful, Most
 			Compassionate</div>
 
@@ -266,15 +269,16 @@
 	<p style="page-break-after:always;"></p>
 	<div id="page2">
 		<DIV>
-			<SPAN class="note">PLEASE NOTE: </SPAN>
-			<P>Should you require financial assistance then please indicate below
+			<SPAN class="notehead">PLEASE NOTE: </SPAN>
+			<div class="notetext">Should you require <b>financial assistance</b> then please indicate below
 				appropriately. Additionally, please complete and return the
 				financial aid assistance form separately. Please note: Financial Aid
-				information is held in strict confidentiality.</P>
+				information is held in strict confidentiality.</div>
 		</DIV>
 		<div>
-			Does your child require any special needs at regular school or any
-			food allergies that we should know about?
+			<SPAN class="notehead">SPECIAL NEEDS: </SPAN>
+			<div class="notetext">Does your child require any special needs at regular school or any
+			food allergies that we should know about?</div>
 			<P>
 				If yes, please explain:
 				<TEXTAREA class="form-control" rows="5"

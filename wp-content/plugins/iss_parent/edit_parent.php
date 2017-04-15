@@ -12,7 +12,8 @@ if (isset ( $_POST ['_wpnonce-iss-edit-parents-form-page'] )) {
 	if ($isstabname == 'view') {
 		$edit = false;
 		$isstabname = 'parent';
-		include (ISS_PATH . "/includes/form_view.php");
+		//include (ISS_PATH . "/includes/form_view.php");
+		include (ISS_PATH . "/includes/form_print.php");
 	} else {
 		$edit = true;
 		include (ISS_PATH . "/includes/form_edit.php");
@@ -43,7 +44,7 @@ if (isset ( $_POST ['_wpnonce-iss-edit-parents-form-page'] )) {
 	if ((intval ( $studentid ) != 0)) {
 		$isstabname = "student{$studentid}";
 		foreach ( $issstudents as &$row ) {
-			if ($studentrow ['StudentID'] == $studentid) {
+			if ($row ['StudentID'] == $studentid) {
 				$studentrow = $row;
 				break;
 			}

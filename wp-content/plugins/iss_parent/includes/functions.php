@@ -1088,8 +1088,8 @@ function iss_student_update($changedfields, $sdata) {
 			iss_write_log ( "Cannot update student due to minimum required fields" );
 			return 0;
 		}
-		
-		iss_write_log ( "iss_student_update" );
+		iss_write_log ( 'cool' );
+		iss_write_log ( $changedfields );iss_write_log ( $sdata );
 		
 		$update = false;
 		$changelog = array ();

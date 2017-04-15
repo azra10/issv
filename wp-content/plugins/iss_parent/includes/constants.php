@@ -26,6 +26,7 @@ function iss_student_table_fields() {
 				"StudentBirthDate",
 				"StudentGender",
 				"StudentStatus",
+				"StudentEmail",
 				"ParentID",
 				"StudentID" 
 		);

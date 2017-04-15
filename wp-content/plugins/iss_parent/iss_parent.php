@@ -66,9 +66,11 @@ function iss_register_menu_page() {
 }
 
 add_action ( 'admin_menu', 'iss_register_menu_page' );
-add_shortcode ( 'view_parent', 'view_parent_function' );
-add_shortcode ( 'edit_parent', 'edit_parent_function' );
 
+function register_shortcodes(){
+//add_shortcode ( 'issv_view_parent', 'view_parent_function' );
+add_shortcode ( 'issv_edit_parent', 'edit_parent_function' );
+}
 // Add custom CSS to plugin pages
 function load_custom_issv_style() {
 	wp_register_style ( 'custom_issv_bootstrap_min_css', ISS_URL . '/css/bootstrap.min.css' ); 
@@ -99,5 +101,5 @@ function load_custom_issv_style() {
 function iss_load_admin_custom_css() {
 	add_action ( 'admin_enqueue_scripts', 'load_custom_issv_style' );
 }
-
+add_action( 'init', 'register_shortcodes');
 ?>

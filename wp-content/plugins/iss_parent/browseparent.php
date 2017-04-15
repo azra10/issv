@@ -130,15 +130,18 @@ if (count ( $result_set ) == 0) {
 									class="glyphicon glyphicon-edit"></i> Edit
 							</span>
 						</a> <a
-							href="admin.php?page=payment_parent&id=<?php echo " {$row[ 'ID']} ";?>">
+							href="admin.php?page=payment_parent&id=<?php echo " {$row[ 'ParentViewID']} ";?>">
 								<span style="padding-left: 10px; white-space: nowrap;"> <span
 									class="text-primary">$</span> Payment
 							</span>
-						</a> <a
+						</a> 
+						<!--<a
 							href="admin.php?page=email_home&id=<?php echo $row['ParentViewID'];?>"> <span
 								style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-envelope"></i> Email
-							</span></a> <a
+							</span></a> -->
+							
+						<a
 							href="admin.php?page=archived_home&aid=<?php echo $row['ParentViewID'];?>">
 								<span style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-eye-close"></i> Archive
