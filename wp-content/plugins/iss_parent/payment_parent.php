@@ -36,9 +36,6 @@ else {
 		$parentid = $issparent ['ParentID'];
 		$regyear = $issparent ['RegistrationYear'];
 		$errorstring = '';
-		
-		// IF PARENT EXISTS, PULL STUDENTS
-		$issstudents = iss_get_students_by_parentid ( $issparent ['ParentID'] );
 	}
 }
 $edit = true;

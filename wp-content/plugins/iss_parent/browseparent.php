@@ -130,7 +130,7 @@ if (count ( $result_set ) == 0) {
 									class="glyphicon glyphicon-edit"></i> Edit
 							</span>
 						</a> <a
-							href="admin.php?page=payment_parent&id=<?php echo " {$row[ 'ParentViewID']} ";?>">
+							href="admin.php?page=payment_parent&id=<?php echo $row[ 'ParentViewID'];?>">
 								<span style="padding-left: 10px; white-space: nowrap;"> <span
 									class="text-primary">$</span> Payment
 							</span>

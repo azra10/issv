@@ -98,7 +98,7 @@ function iss_import_parents() {
 				<tr valign="top">
 					<th scope="row">Example</th>
 					<td>Download this <a
-						href="<?php echo plugins_url() . " /iss_import/test.csv "; ?>">.csv
+						href="<?php echo plugins_url() . "/iss_import/test.csv "; ?>">.csv
 							file</a> for column names.
 					</td>
 				</tr>
@@ -296,7 +296,8 @@ $row ++;
 			// echo "</tr>";
 			// }
 			flush ();
-			// if ($row == 2) return;
+			
+			// if ($row == 1) return; // TEST WITH JUST FIRST RECORD
 			
 			$row ++;
 		}
@@ -324,10 +325,11 @@ function iss_import_parent_update($rowid, $parentrow, $data) {
 	// / VALIDATE INPUT - start
 	foreach ( iss_parent_fields () as $fieldname ) {
 		$inputval = '';
-		if (in_array ( $fieldname, $data )) {
+		if (array_key_exists ( $fieldname, $data )) {
 			$inputval = iss_sanitize_input ( $data [$fieldname] );
 		}
-		
+				
+		// TODO: FLOAT COMPARISON IS NOT WORKING
 		if (! empty ( $inputval ) && iss_field_valid ( $fieldname, $inputval, $errors, '' ) && (strcmp ( $inputval, $parentrow [$fieldname] ) != 0)) {
 			echo "<br/> ParentID: {$data['ParentID']} Field: {$fieldname}   input: {$inputval} changed "; // ISS TEST
 			
@@ -366,7 +368,7 @@ function iss_import_student_update($rowid, $studentrow, $data) {
 		}
 		
 		// / VALIDATION ERRORS
-		if (iss_field_valid ( $fieldname, $inputval, $errors, '' ) && (strcmp ( $inputval, $studentrow [$fieldname] ) != 0)) {
+		if (! empty ( $inputval ) && iss_field_valid ( $fieldname, $inputval, $errors, '' ) && (strcmp ( $inputval, $studentrow [$fieldname] ) != 0)) {
 			echo "<br/> StudentID: {$data['StudentID']} Field: {$fieldname}  orig: {$studentrow[$fieldname]}  input: {$inputval} changed "; // ISS TEST
 			
 			$studentrow [$fieldname] = $inputval;

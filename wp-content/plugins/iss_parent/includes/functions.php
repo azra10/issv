@@ -567,7 +567,7 @@ function iss_field_valid($field, $inputval, &$errors, $prefix) {
 		}
 		
 		if ($fields_with_types [$field] == 'int') {
-			if (intval ( $inputval ) === 0) {
+			if (is_int ( $inputval )) {
 				$errors [$errorfield] = "{$displaynames[$field]} is not a valid integer.";
 				return false;
 			}
@@ -590,8 +590,8 @@ function iss_field_valid($field, $inputval, &$errors, $prefix) {
 			}
 		}
 		
-		if ($fields_with_types [$field] == 'float') {
-			if (floatval ( $inputval ) == 0) {
+		if ($fields_with_types [$field] == 'float') { 
+			if (!check_double_string ( $inputval )) {
 				$errors [$errorfield] = "{$displaynames[$field]} is not a valid amount.";
 				return false;
 			}
@@ -621,6 +621,13 @@ function iss_field_valid($field, $inputval, &$errors, $prefix) {
 		}
 	}
 	return true;
+}
+function check_double_string($str){
+ $pairs = explode('.',$str);
+ if ( is_array($pairs) && count($pairs)==2) {
+   return ( is_numeric($pairs[0]) && is_numeric($pairs[1]))? true : false; 
+ }
+ return false;
 }
 function iss_changelogsetid() {
 	return date ( 'Y-m-d H:i:s' ) . substr ( microtime (), 1, 9 );
@@ -821,8 +828,10 @@ function iss_parent_insert($sdata) {
 		$changelog = array ();
 		foreach ( iss_payment_table_fields () as $field ) {
 			if (isset ( $sdata [$field] )) {
-				$dsarray [$field] = $sdata [$field];
 				$typearray [] = iss_field_type ( $field );
+				if ($field == 'PaymentInstallment1') 
+				{ $dsarray [$field] = floatval($sdata [$field]); }
+				else {$dsarray [$field] = $sdata [$field];}
 				$changelog [] = iss_create_changelog ( $sdata ['ParentID'], NULL, $field, $sdata [$field] );
 			}
 		}
@@ -928,8 +937,11 @@ function iss_payment_update($changedfields, $sdata) {
 		if (in_array ( $field, $changedfields )) {
 			$result = - 1;
 			$update = true;
-			$dsarray [$field] = $sdata [$field];
 			$typearray [] = iss_field_type ( $field );
+			if ($field == 'PaymentInstallment1') 
+			{ $dsarray [$field] = floatval($sdata [$field]); }
+			else 
+			{$dsarray [$field] = $sdata [$field];}
 			$changelog [] = iss_create_changelog ( $sdata ['ParentID'], NULL, $field, $sdata [$field] );
 		}
 	}
