@@ -48,5 +48,5 @@ function iss_news_search_add_dashboard_widgets() {
 		wp_add_dashboard_widget ( 'iss_news_search_dashboard_widget', "ISS Admin Message", 'iss_news_search_dashboard_widget_function' );
 	}
 }
-add_action ( 'wp_dashboard_setup', 'iss_news_search_add_dashboard_widgets' );
+//add_action ( 'wp_dashboard_setup', 'iss_news_search_add_dashboard_widgets' );
 ?>

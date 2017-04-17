@@ -14,7 +14,7 @@ if (isset ( $_POST ['_wpnonce-iss-delete-parent-form-page'] )) {
                     
 
     if ($result>0) {
-        echo '<div class="text-primary"><p><strong>Parent Record Deleted.</strong></p></div>';
+        echo '<div class="text-primary"><p><strong>Family Record Deleted (Contact Administrator to Undo delete).</strong></p></div>';
         return;
     }
 } elseif (! isset ( $_GET ['id'] ) || empty ( $_GET ['id'] ) || (intval ( $_GET ['id'] ) == 0)) {

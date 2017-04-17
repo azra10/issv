@@ -113,7 +113,16 @@ class ISS_AdminRolePlugin {
 				'ISS Student Role',
 				'iss_student' 
 		) );
-		
+
+		forward_static_call_array ( array (
+				'ISS_AdminRolePlugin',
+				'addrole' 
+		), array (
+				'isstestrole',
+				'ISS Student Role',
+				'iss_test' 
+		) );
+		// teacher is also a parent
 		forward_static_call_array ( array (
 				'ISS_AdminRolePlugin',
 				'addcapability' 
@@ -121,6 +130,17 @@ class ISS_AdminRolePlugin {
 				'issteacherrole',
 				'iss_parent' 
 		) );
+
+		// issAdmin is also board member
+		forward_static_call_array ( array (
+				'ISS_AdminRolePlugin',
+				'addcapability' 
+		), array (
+				'issadminrole',
+				'iss_board' 
+		) );
+		
+		// admnistrator has all the capabilities
 		forward_static_call_array ( array (
 				'ISS_AdminRolePlugin',
 				'addcapability' 
@@ -134,6 +154,13 @@ class ISS_AdminRolePlugin {
 		), array (
 				'administrator',
 				'iss_board' 
+		) );
+		forward_static_call_array ( array (
+				'ISS_AdminRolePlugin',
+				'addcapability' 
+		), array (
+				'administrator',
+				'iss_test' 
 		) );
 	}
 }

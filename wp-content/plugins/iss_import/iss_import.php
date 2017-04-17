@@ -330,7 +330,7 @@ function iss_import_parent_update($rowid, $parentrow, $data) {
 		}
 				
 		// TODO: FLOAT COMPARISON IS NOT WORKING
-		if (! empty ( $inputval ) && iss_field_valid ( $fieldname, $inputval, $errors, '' ) && (strcmp ( $inputval, $parentrow [$fieldname] ) != 0)) {
+		if (! empty ( $inputval ) && iss_field_valid ( $fieldname, $inputval, $errors, '' ) && iss_compare_values( $fieldname, $inputval, $parentrow [$fieldname] )) {
 			echo "<br/> ParentID: {$data['ParentID']} Field: {$fieldname}   input: {$inputval} changed "; // ISS TEST
 			
 			$parentrow [$fieldname] = $inputval;
@@ -354,6 +354,16 @@ function iss_import_parent_update($rowid, $parentrow, $data) {
 	}
 	
 	return 0;
+}
+function iss_compare_values($fieldname, $value1, $value2){
+	$fields_with_types = iss_fields_types ();
+	
+	$type = $fields_with_types[$fieldname];
+	if ($type == 'float') {
+		$value11 = floatval($value1 . '.00');
+		return ($value11 === $value2);
+	}
+   return (strcmp ( $value1, $value2 ) != 0);
 }
 function iss_import_student_update($rowid, $studentrow, $data) {
 	$changed = false;

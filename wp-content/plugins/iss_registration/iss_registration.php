@@ -54,7 +54,7 @@ class ISS_Registation {
 		add_menu_page ( __ ( 'Registration', 'iss_registration_text' ), __ ( 'Registration', 'iss_registration_text' ), 'iss_admin', 'iss_registration_text', array (
 				$this,
 				'users_page' 
-		), 'dashicons-download', 8 );
+		), 'dashicons-migrate', 8 );
 	}
 	
 	/**
