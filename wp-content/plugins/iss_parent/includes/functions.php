@@ -637,17 +637,17 @@ function check_datetime_string($inputval){
 	return false;
 }
 function check_int_string($str){
- if (($str === '0') || is_int ( $str ) || (intval($str)>0)) 
- return true;
+ if (($str === '0') || ($str===0) || (intval($str)>0)) 
+ 	return true;
 
 	return false;
 }
 function check_double_string($str){
- if (($str === '0') || is_float($str) || is_int($str)) return true;
- $pairs = explode('.',$str);
- if ( is_array($pairs) && count($pairs)==2) {
-   return ( is_numeric($pairs[0]) && is_numeric($pairs[1]))? true : false; 
- }
+ if (($str === '0.00') || check_int_string($str) || (floatval($str)>0)) return true;
+//  $pairs = explode('.',$str);
+//  if ( is_array($pairs) && count($pairs)==2) {
+//    return ( is_numeric($pairs[0]) && is_numeric($pairs[1]))? true : false; 
+//  }
  return false;
 }
 function iss_changelogsetid() {

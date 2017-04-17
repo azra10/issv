@@ -18,6 +18,12 @@ Password Password1
 7. Activate ISS Registeration For Next Year
 8. Activate ISS Unit Test Plugin
 
+
+—Loading Data
+make sure the birth date is in yyyy-mm-dd, all amounts do not have a ‘,’ comma,
+remove any ‘&’ or ‘$’ from data columns
+format and save the file in comma separated file before importing into the database
+
 --Loading custom css in theme page template
 copy wp-content/themes/<name>/page.php to regpage.php to theme folder
 add add_action ( 'wp_head', 'load_custom_issv_style' );  before header part.
