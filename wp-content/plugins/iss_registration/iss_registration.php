@@ -95,15 +95,15 @@ class ISS_Registation {
 			if ((NULL == $parents) || (count ( $parents ) == 0)) {
 				$this->errorstring = "<br>Aborted: Parent records not found in previous registration year.";
 				return;
-			}
+			}			
 			foreach ( $parents as $parent ) {
 				$registration = array ();
 				$registration ['ParentID'] = $parent ['ParentID'];
 				$registration ['RegistrationYear'] = $this->nextregyear;
-				// $registration['TotalAmountDue'] = 0;
-				// $registration['PaidInFull'] = 'No';
+				$registration['TotalAmountDue'] = iss_calculate_total_amount_due($parent['ParentID']);
+				$registration['PaidInFull'] = 'No';
 				if (iss_payment_insert ( $registration ) == false)
-					$this->messages [] = "<br>Parent Skipped PID: {$parent['ParentID']}";
+				{	$this->messages [] = "<br>Parent Skipped PID: {$parent['ParentID']}";}
 			}
 			
 			$students = iss_get_students_list ( $this->prevregyear, "*" );

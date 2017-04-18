@@ -359,6 +359,33 @@ function iss_get_parents_complete_list($regyear) {
 	return iss_get_parents_list ( $regyear, '*' );
 }
 /**
+ * Function iss_calculate_total_amount_due
+ * Returns the total amount due for a given parent
+ *
+ *  @param parentid
+ *  @return dollar amount for fee
+*/
+function iss_calculate_total_amount_due($parentid){
+	global $wpdb;
+	
+	$table = iss_get_table_name ( "student" );
+	$query =  "SELECT COUNT(*) as total FROM {$table}  
+    	WHERE StudentStatus='active' and ParentID='{$parentid}'";
+	$result = $wpdb->get_results ( $query, ARRAY_A );
+	
+	$fee = 0.00;
+	$count = intval($result[0]['total']);
+	if ($count === 1){
+		$fee = iss_adminpref_registrationfee_firstchild();
+	} else if ($count > 1){
+		$fee = iss_adminpref_registrationfee_firstchild() +
+		   ($count-1) * iss_adminpref_registrationfee_sibling();		
+	}
+	iss_write_log('iss_calculate_total_amount_due: parendid:' . $parentid . 'student count'  . $count. ' fee :' . $fee);
+			
+	return $fee;
+}
+/**
  * Function iss_get_parents_list
  * Queries parents in a registration period
  * 
