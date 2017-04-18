@@ -93,7 +93,7 @@ class ISS_UserPreferencePlugin {
 						id="iss_user_registrationyear" class="form-control"
 						title="Enter Registration Year"  value="<?php echo $userregyear;?>">
 					<?php } ?>
-					<br/><span class="text-info">Example: 2016-2017</span>
+					<br/><span class="text-info">ex: 2016-2017</span>
 			 </td>
 			</tr>
 

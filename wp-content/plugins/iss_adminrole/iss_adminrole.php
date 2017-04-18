@@ -35,6 +35,9 @@ class ISS_AdminRolePlugin
         if (get_role ( 'issstudentrole' )) {
             remove_role ( 'issstudentrole' );
         }
+        if (get_role ( 'isstestrole' )) {
+            remove_role ( 'isstestrole' );
+        }
         iss_write_log ( 'administrator role capability is_admin & iss_board removed' );
         global $wp_roles;
         if (! isset ( $wp_roles )) {
@@ -83,47 +86,18 @@ class ISS_AdminRolePlugin
         if (! isset ( $wp_roles )) {
             $wp_roles = new WP_Roles ();
         }
-        
+                
+        /// Test Role 
         forward_static_call_array ( array (
                 'ISS_AdminRolePlugin',
                 'addrole'
         ), array (
-                'issadminrole',
-                'ISS Admin Role',
-                'iss_admin'
+                'isstestrole',
+                'ISS Test Role',
+                'iss_test'
         ) );
-        forward_static_call_array ( array (
-                'ISS_AdminRolePlugin',
-                'addrole'
-        ), array (
-                'isssecretaryrole',
-                'ISS Secretary Role',
-                'iss_secretary'
-        ) );
-        forward_static_call_array ( array (
-                'ISS_AdminRolePlugin',
-                'addrole'
-        ), array (
-                'issboardrole',
-                'ISS Board Role',
-                'iss_board'
-        ) );
-        forward_static_call_array ( array (
-                'ISS_AdminRolePlugin',
-                'addrole'
-        ), array (
-                'issteacherrole',
-                'ISS Teacher Role',
-                'iss_teacher'
-        ) );
-        forward_static_call_array ( array (
-                'ISS_AdminRolePlugin',
-                'addrole'
-        ), array (
-                'issparentrole',
-                'ISS Parent Role',
-                'iss_parent'
-        ) );
+  
+        /// Student Role 
         forward_static_call_array ( array (
                 'ISS_AdminRolePlugin',
                 'addrole'
@@ -132,16 +106,28 @@ class ISS_AdminRolePlugin
                 'ISS Student Role',
                 'iss_student'
         ) );
-
+      
+        /// Parent Role 
         forward_static_call_array ( array (
                 'ISS_AdminRolePlugin',
                 'addrole'
         ), array (
-                'isstestrole',
-                'ISS Student Role',
-                'iss_test'
+                'issparentrole',
+                'ISS Parent Role',
+                'iss_parent'
         ) );
-        // teacher is also a parent
+
+        /// Teacher Role 
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issteacherrole',
+                'ISS Teacher Role',
+                'iss_teacher'
+        ) );
+
+        // Teacher Role is also a parent
         forward_static_call_array ( array (
                 'ISS_AdminRolePlugin',
                 'addcapability'
@@ -150,7 +136,27 @@ class ISS_AdminRolePlugin
                 'iss_parent'
         ) );
 
-        // issSecretary is also board member
+        /// Board Role        
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issboardrole',
+                'ISS Board Role',
+                'iss_board'
+        ) );
+ 
+        /// Secretary Role 
+       forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'isssecretaryrole',
+                'ISS Secretary Role',
+                'iss_secretary'
+        ) );
+
+        // Secretary Role is also board member
         forward_static_call_array ( array (
                 'ISS_AdminRolePlugin',
                 'addcapability'
@@ -159,7 +165,17 @@ class ISS_AdminRolePlugin
                 'iss_board'
         ) );
 
-        // issAdmin is also board member & secretary
+         // Admin Role
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issadminrole', // internal role name
+                'ISS Admin Role', // role dislay name
+                'iss_admin'  // capability
+        ) );
+
+       // Admin Role is also board member & secretary
         forward_static_call_array ( array (
                 'ISS_AdminRolePlugin',
                 'addcapability'

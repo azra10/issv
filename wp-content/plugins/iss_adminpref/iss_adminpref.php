@@ -114,24 +114,24 @@ function iss_settings_init() {
 	add_settings_field ( 'iss_field0', __ ( 'School Name', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_schoolname',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'Example: Islamic School of Silicon Valley' 
+			'iss_custom_data' => 'ex: Islamic School of Silicon Valley' 
 	] );
 	add_settings_field ( 'iss_field', // as of WP 4.6 this value is used only internally
 	             // use $args' label_for to populate the id inside the callback
 	__ ( 'Registration Year', 'adminpref' ), 'iss_registrationyear_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationyear',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'Example: 2016-2017' 
+			'iss_custom_data' => 'ex: 2016-2017' 
 	] );
 	add_settings_field ( 'iss_field6', __ ( 'Installments', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee_installments',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'Example: 2' 
+			'iss_custom_data' => 'ex: 2' 
 	] );
 	add_settings_field ( 'iss_field1', __ ( 'Registration Fee (first child)', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee1',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'Example: 470' 
+			'iss_custom_data' => 'ex: 470' 
 	] );
 	// add_settings_field(
 	// 'iss_field3',
@@ -148,7 +148,7 @@ function iss_settings_init() {
 	add_settings_field ( 'iss_field2', __ ( 'Registration Fee (siblings)', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_registrationfee2',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'Example: 420' 
+			'iss_custom_data' => 'ex: 420' 
 	] );
 	// add_settings_field(
 	// 'iss_field4',
@@ -165,7 +165,7 @@ function iss_settings_init() {
 	add_settings_field ( 'iss_field5', __ ( 'Open Registration Days', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
 			'label_for' => 'iss_openregistrationperiod_days',
 			'class' => 'iss_row',
-			'iss_custom_data' => 'Example: 7' 
+			'iss_custom_data' => 'ex: 7' 
 	] );
 }
 
@@ -244,7 +244,7 @@ function iss_registrationyear_field_cb($args) {
  */
 function iss_options_page() {
 	// add top level menu page
-	add_menu_page ( 'Admin Preferences', 'Admin Preferences', 'iss_admin', 'adminpref', 'iss_options_page_html' );
+	add_menu_page ( 'Admin Preferences', 'Admin Preferences', 'iss_board', 'adminpref', 'iss_options_page_html' );
 }
 
 /**
@@ -258,7 +258,7 @@ add_action ( 'admin_menu', 'iss_options_page' );
  */
 function iss_options_page_html() {
 	// check user capabilities
-	if (!iss_current_user_can_admin()) {
+	if (!iss_current_user_on_board()) {
 		return;
 	}
 	
