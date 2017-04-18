@@ -24,7 +24,7 @@ class ISS_UnitTestPlugin {
 	}
 	public function add_plugin_page() {
 		// add_menu_page( $page_title, $menu_title, $capability, $menu_slug, $function, $icon_url, $position );
-		add_menu_page ( 'iss_unittest', 'Unit Test', 'iss_admin', 'test_home', array (
+		add_menu_page ( 'iss_unittest', 'Unit Test', 'iss_test', 'test_home', array (
 				$this,
 				'tests_page' 
 		), 'dashicons-lightbulb', 99 );
@@ -40,7 +40,7 @@ class ISS_UnitTestPlugin {
 		} // form post request
 	}
 	public function tests_page() {
-		if (! current_user_can ( 'iss_admin' ))
+		if (! iss_current_user_can_runtest())
 			wp_die ( __ ( 'You do not have sufficient permissions to access this page.', 'iss_unittest_text' ) );
 		?>
 

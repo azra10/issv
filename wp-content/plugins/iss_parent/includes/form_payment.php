@@ -1,4 +1,4 @@
-<?php if (current_user_can('iss_admin')) { ?>
+<?php if (iss_current_user_is_secretery()) { ?>
 
 <legend>Admin Only</legend>
 <div class="row">

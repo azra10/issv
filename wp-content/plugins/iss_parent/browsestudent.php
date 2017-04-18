@@ -121,7 +121,7 @@ if (count ( $result_set ) == 0) {
                             <?php echo $row['StudentGender'];?>
                         </td>
                         <td>
-                            <?php if (current_user_can('iss_admin')) { ?>
+                            <?php if (iss_current_user_is_secretery()) { ?>
                             <a
                             href="admin.php?page=edit_parent&pid=<?php echo $row['ParentID']; ?>&regyear=<?php echo (isset($regyear))?
                                  $regyear :''; ?>&sid=<?php echo $row['StudentID'];?>">

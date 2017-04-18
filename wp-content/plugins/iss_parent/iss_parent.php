@@ -52,13 +52,13 @@ function iss_register_menu_page() {
 	$my_pages [] = add_menu_page ( 'Parents', 'Parents', 'iss_board', 'parents_home', 'parents_home_page', 'dashicons-id-alt', 3 );
 	$my_pages [] = add_menu_page ( 'Students', 'Students', 'iss_board', 'students_home', 'students_home_page', 'dashicons-groups', 4 );
 	$my_pages [] = add_menu_page ( 'Archived', 'Archived', 'iss_board', 'archived_home', 'archived_home_page', 'dashicons-hidden', 6 );
-	$my_pages [] = add_submenu_page ( null, 'Payment', 'Payment', 'iss_admin', 'payment_parent', 'payment_parent_page' );
+	$my_pages [] = add_submenu_page ( null, 'Payment', 'Payment', 'iss_secretary', 'payment_parent', 'payment_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'Print', 'Print', 'iss_board', 'print_parent', 'print_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'View', 'View', 'iss_board', 'view_parent', 'view_parent_page' );
-	$my_pages [] = add_submenu_page ( null, 'Delete', 'Delete', 'iss_admin', 'delete_parent', 'delete_parent_page' );
-	$my_pages [] = add_submenu_page ( null, 'Edit', 'Edit', 'iss_admin', 'edit_parent', 'edit_parent_page' );
-	$my_pages [] = add_submenu_page ( 'parents_home', 'Add', 'Add', 'iss_admin', 'new_parent', 'new_parent_page' );
-	$my_pages [] = add_submenu_page ( null, 'Email', 'Email', 'iss_admin', 'email_home', 'email_home_page' );
+	$my_pages [] = add_submenu_page ( null, 'Delete', 'Delete', 'iss_secretary', 'delete_parent', 'delete_parent_page' );
+	$my_pages [] = add_submenu_page ( null, 'Edit', 'Edit', 'iss_secretary', 'edit_parent', 'edit_parent_page' );
+	$my_pages [] = add_submenu_page ( 'parents_home', 'Add', 'Add', 'iss_secretary', 'new_parent', 'new_parent_page' );
+	$my_pages [] = add_submenu_page ( null, 'Email', 'Email', 'iss_secretary', 'email_home', 'email_home_page' );
 	
 	foreach ( $my_pages as $my_page ) {
 		add_action ( 'load-' . $my_page, 'iss_load_admin_custom_css' );

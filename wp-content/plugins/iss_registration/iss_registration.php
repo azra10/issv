@@ -51,7 +51,7 @@ class ISS_Registation {
 	 *       
 	 */
 	public function add_registration_page() {
-		add_menu_page ( __ ( 'Registration', 'iss_registration_text' ), __ ( 'Registration', 'iss_registration_text' ), 'iss_admin', 'iss_registration_text', array (
+		add_menu_page ( __ ( 'Prepare Next Year', 'iss_registration_text' ), __ ( 'Prepare Next Year', 'iss_registration_text' ), 'iss_admin', 'iss_registration_text', array (
 				$this,
 				'users_page' 
 		), 'dashicons-migrate', 8 );
@@ -134,7 +134,7 @@ class ISS_Registation {
 	 *       
 	 */
 	public function users_page() {
-		if (! current_user_can ( 'iss_admin' ))
+		if (! iss_current_user_can_admin())
 			wp_die ( __ ( 'You do not have sufficient permissions to access this page.', 'iss_registration_text' ) );
 		?>
 

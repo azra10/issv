@@ -52,7 +52,7 @@ if (count ( $result_set ) == 0) {
                       <?php echo $row['FatherFirstName'];?>
                     </td>
                     <td>
-                      <?php if (current_user_can('iss_admin')) {    ?>
+                      <?php if (iss_current_user_is_secretery()) {    ?>
                         <a href="admin.php?page=archived_home&uid=<?php echo $row['ParentViewID'];?>"><span style="padding-left: 10px; white-space: nowrap;"><i class="glyphicon glyphicon-eye-open"></i> UnArchive </a></span>
                         <?php } ?>
                           <a href="admin.php?page=view_parent&id=<?php echo $row['ParentViewID'];?>"> <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-eye-open"></i> View </a></span>

@@ -11,7 +11,7 @@ function iss_student_search_dashboard_widget_function() {
 <?php
 }
 function iss_student_search_add_dashboard_widgets() {
-	if (current_user_can ( 'iss_board' )) {
+	if (iss_current_user_on_board()) {
 		wp_add_dashboard_widget ( 'iss_student_search_dashboard_widget', "Search Students", 'iss_student_search_dashboard_widget_function' );
 	}
 }
@@ -28,7 +28,7 @@ function iss_parent_search_dashboard_widget_function() {
 <?php
 }
 function iss_parent_search_add_dashboard_widgets() {
-	if (current_user_can ( 'iss_board' )) {
+	if (iss_current_user_on_board()) {
 		wp_add_dashboard_widget ( 'iss_parent_search_dashboard_widget', "Search Parents", 'iss_parent_search_dashboard_widget_function' );
 	}
 }
@@ -44,7 +44,7 @@ function iss_news_search_dashboard_widget_function() {
 <?php
 }
 function iss_news_search_add_dashboard_widgets() {
-	if (current_user_can ( 'iss_board' )) {
+	if (iss_current_user_on_board()) {
 		wp_add_dashboard_widget ( 'iss_news_search_dashboard_widget', "ISS Admin Message", 'iss_news_search_dashboard_widget_function' );
 	}
 }

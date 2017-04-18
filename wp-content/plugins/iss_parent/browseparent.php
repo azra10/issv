@@ -123,7 +123,7 @@ if (count ( $result_set ) == 0) {
                           <?php echo $row['RegistrationComplete'];?>
                         </td>
 						<td nowrap>
-                          <?php if (current_user_can('iss_admin')) {    ?>
+                          <?php if (iss_current_user_is_secretery()) {    ?>
                             <a
 							href="admin.php?page=edit_parent&pid=<?php echo $row['ParentID']; ?>&regyear=<?php if (isset($regyear)) echo $regyear;?>">
 								<span style="padding-left: 10px; white-space: nowrap;"> <i

@@ -53,7 +53,7 @@ function iss_string_conversion($string) {
 function iss_import_parents() {
 	$post_filtered = filter_input_array ( INPUT_POST );
 	
-	if (! current_user_can ( 'iss_admin' )) {
+	if (! iss_current_user_can_admin()) {
 		wp_die ( __ ( 'You are not allowed to see this content.' ) );
 		// $acui_action_url = admin_url('options-general.php?page=' . plugin_basename(__FILE__));
 	} else if (isset ( $post_filtered ['uploadfile'] ))

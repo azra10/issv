@@ -54,7 +54,7 @@ class ISS_UserPreferencePlugin {
 		} // form post request
 	}
 	public function users_page() {
-		if (! current_user_can ( 'iss_board' ))
+		if (! iss_current_user_on_board())
 			wp_die ( __ ( 'You do not have sufficient permissions to access this page.', 'iss_userpref_text' ) );
 		?>
 

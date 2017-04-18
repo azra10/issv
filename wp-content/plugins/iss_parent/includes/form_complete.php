@@ -16,7 +16,7 @@
       </div>
     </div>
 
-<?php if (!current_user_can('iss_admin')) { ?>
+<?php if (!iss_current_user_is_secretery()) { ?>
       <div class="row">
         <div class="rfpanel col-md-5">
         	<div class="form-group row">

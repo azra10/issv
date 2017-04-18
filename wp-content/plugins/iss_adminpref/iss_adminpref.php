@@ -258,7 +258,7 @@ add_action ( 'admin_menu', 'iss_options_page' );
  */
 function iss_options_page_html() {
 	// check user capabilities
-	if (! current_user_can ( 'iss_admin' )) {
+	if (!iss_current_user_can_admin()) {
 		return;
 	}
 	
@@ -284,7 +284,7 @@ function iss_options_page_html() {
 	// (sections are registered for "adminpref", each field is registered to a specific section)
 	do_settings_sections ( 'adminpref' );
 	// output save settings button
-	if (current_user_can ( 'manage_options' ))
+	if (iss_current_user_can_admin())
 		submit_button ( 'Save Settings' );
 	?>
         </form>

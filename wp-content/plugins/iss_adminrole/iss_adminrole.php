@@ -6,169 +6,211 @@
  * Author: Azra Syed
  * Text Domain: iss_adminpref
  */
-class ISS_AdminRolePlugin {
-	static function uninsatall() {
-		if (get_role ( 'issadminrole' )) {
-			remove_role ( 'issadminrole' );
-		}
-		if (get_role ( 'issboardrole' )) {
-			remove_role ( 'issboardrole' );
-		}
-		if (get_role ( 'issparentrole' )) {
-			remove_role ( 'issparentrole' );
-		}
-		if (get_role ( 'issteacherrole' )) {
-			remove_role ( 'issteacherrole' );
-		}
-		if (get_role ( 'issstudentrole' )) {
-			remove_role ( 'issstudentrole' );
-		}
-		$admrole = get_role ( 'administrator' );
-		if (NULL != $admrole) {
-			$admrole->remove_cap ( 'iss_admin' );
-			$admrole->remove_cap ( 'iss_board' );
-		}
-		iss_write_log ( 'administrator role capability is_admin & iss_board removed' );
-		global $wp_roles;
-		if (! isset ( $wp_roles )) {
-			$wp_roles = new WP_Roles ();
-			iss_write_log ( $wp_roles );
-		}
-	}
-	static function addrole($roleInternalName, $roleDisplayName, $capability) {
-		$issrole = get_role ( $roleInternalName );
-		if (NULL == $issrole) {
-			$result = add_role ( $roleInternalName, $roleDisplayName, array (
-					'read' => true,
-					'level_0' => true,
-					$capability => true 
-			) );
-			iss_write_log ( $result );
-			if (null != $result) {
-				iss_write_log ( "{$roleInternalName} role with capability {$capability} created!" );
-			}
-		} else {
-			iss_write_log ( "{$roleInternalName} role exists" );
-		}
-	}
-	static function addcapability($roleInternalName, $capability) {
-		$issrole = get_role ( $roleInternalName );
-		$cap = NULL;
-		if (NULL != $issrole) {
-			if (isset ( $issrole->capabilities [$capability] )) {
-				$cap = $issrole->capabilities [$capability];
-			}
-			if (NULL == $cap) {
-				$issrole->add_cap ( $capability );
-				iss_write_log ( "{$roleInternalName} role, capability {$capability} is added" );
-			} else {
-				iss_write_log ( "{$roleInternalName} role, capability {$capability} already exists" );
-			}
-		} else {
-			iss_write_log ( "{$roleInternalName} role does not exists" );
-		}
-	}
-	static function install() {
-		global $wp_roles;
-		if (! isset ( $wp_roles ))
-			$wp_roles = new WP_Roles ();
-		
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addrole' 
-		), array (
-				'issadminrole',
-				'ISS Admin Role',
-				'iss_admin' 
-		) );
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addrole' 
-		), array (
-				'issboardrole',
-				'ISS Board Role',
-				'iss_board' 
-		) );
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addrole' 
-		), array (
-				'issteacherrole',
-				'ISS Teacher Role',
-				'iss_teacher' 
-		) );
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addrole' 
-		), array (
-				'issparentrole',
-				'ISS Parent Role',
-				'iss_parent' 
-		) );
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addrole' 
-		), array (
-				'issstudentrole',
-				'ISS Student Role',
-				'iss_student' 
-		) );
+class ISS_AdminRolePlugin
+{
+    static function uninsatall()
+    {
+        $admrole = get_role ( 'administrator' );
+        if (null != $admrole) {
+            $admrole->remove_cap ( 'iss_admin' );
+            $admrole->remove_cap ( 'iss_board' );
+            $admrole->remove_cap ( 'iss_secretary' );
+            $admrole->remove_cap ( 'iss_test' );
+        }
+        if (get_role ( 'issadminrole' )) {
+            remove_role ( 'issadminrole' );
+        }
+        if (get_role ( 'isssecretaryrole' )) {
+            remove_role ( 'isssecretaryrole' );
+        }
+        if (get_role ( 'issboardrole' )) {
+            remove_role ( 'issboardrole' );
+        }
+        if (get_role ( 'issparentrole' )) {
+            remove_role ( 'issparentrole' );
+        }
+        if (get_role ( 'issteacherrole' )) {
+            remove_role ( 'issteacherrole' );
+        }
+        if (get_role ( 'issstudentrole' )) {
+            remove_role ( 'issstudentrole' );
+        }
+        iss_write_log ( 'administrator role capability is_admin & iss_board removed' );
+        global $wp_roles;
+        if (! isset ( $wp_roles )) {
+            $wp_roles = new WP_Roles ();
+            iss_write_log ( $wp_roles );
+        }
+    }
+    static function addrole($roleInternalName, $roleDisplayName, $capability)
+    {
+        $issrole = get_role ( $roleInternalName );
+        if (null == $issrole) {
+            $result = add_role ( $roleInternalName, $roleDisplayName, array (
+                    'read' => true,
+                    'level_0' => true,
+                    $capability => true
+            ) );
+            iss_write_log ( $result );
+            if (null != $result) {
+                iss_write_log ( "{$roleInternalName} role with capability {$capability} created!" );
+            }
+        } else {
+            iss_write_log ( "{$roleInternalName} role exists" );
+        }
+    }
+    static function addcapability($roleInternalName, $capability)
+    {
+        $issrole = get_role ( $roleInternalName );
+        $cap = null;
+        if (null != $issrole) {
+            if (isset ( $issrole->capabilities [$capability] )) {
+                $cap = $issrole->capabilities [$capability];
+            }
+            if (null == $cap) {
+                $issrole->add_cap ( $capability );
+                iss_write_log ( "{$roleInternalName} role, capability {$capability} is added" );
+            } else {
+                iss_write_log ( "{$roleInternalName} role, capability {$capability} already exists" );
+            }
+        } else {
+            iss_write_log ( "{$roleInternalName} role does not exists" );
+        }
+    }
+    static function install()
+    {
+        global $wp_roles;
+        if (! isset ( $wp_roles )) {
+            $wp_roles = new WP_Roles ();
+        }
+        
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issadminrole',
+                'ISS Admin Role',
+                'iss_admin'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'isssecretaryrole',
+                'ISS Secretary Role',
+                'iss_secretary'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issboardrole',
+                'ISS Board Role',
+                'iss_board'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issteacherrole',
+                'ISS Teacher Role',
+                'iss_teacher'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issparentrole',
+                'ISS Parent Role',
+                'iss_parent'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'issstudentrole',
+                'ISS Student Role',
+                'iss_student'
+        ) );
 
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addrole' 
-		), array (
-				'isstestrole',
-				'ISS Student Role',
-				'iss_test' 
-		) );
-		// teacher is also a parent
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addcapability' 
-		), array (
-				'issteacherrole',
-				'iss_parent' 
-		) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addrole'
+        ), array (
+                'isstestrole',
+                'ISS Student Role',
+                'iss_test'
+        ) );
+        // teacher is also a parent
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'issteacherrole',
+                'iss_parent'
+        ) );
 
-		// issAdmin is also board member
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addcapability' 
-		), array (
-				'issadminrole',
-				'iss_board' 
-		) );
-		
-		// admnistrator has all the capabilities
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addcapability' 
-		), array (
-				'administrator',
-				'iss_admin' 
-		) );
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addcapability' 
-		), array (
-				'administrator',
-				'iss_board' 
-		) );
-		forward_static_call_array ( array (
-				'ISS_AdminRolePlugin',
-				'addcapability' 
-		), array (
-				'administrator',
-				'iss_test' 
-		) );
-	}
+        // issSecretary is also board member
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'isssecretaryrole',
+                'iss_board'
+        ) );
+
+        // issAdmin is also board member & secretary
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'issadminrole',
+                'iss_board'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'issadminrole',
+                'iss_secretary'
+        ) );
+
+        // wordpress admnistrator has unittest, admin, secretary & board  capabilities
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'administrator',
+                'iss_admin'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'administrator',
+                'iss_secretary'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'administrator',
+                'iss_board'
+        ) );
+        forward_static_call_array ( array (
+                'ISS_AdminRolePlugin',
+                'addcapability'
+        ), array (
+                'administrator',
+                'iss_test'
+        ) );
+    }
 }
 register_activation_hook ( __FILE__, array (
-		'ISS_AdminRolePlugin',
-		'install' 
+        'ISS_AdminRolePlugin',
+        'install'
 ) );
 register_deactivation_hook ( __FILE__, array (
-		'ISS_AdminRolePlugin',
-		'uninsatall' 
+        'ISS_AdminRolePlugin',
+        'uninsatall'
 ) );

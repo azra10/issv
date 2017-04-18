@@ -29,7 +29,7 @@
 					<input class="form-control input-md"
 						placeholder="Father Last Name (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['FatherLastName']; ?>"
+						value="<?php if (isset($issparent['FatherLastName'])) echo $issparent['FatherLastName']; ?>"
 						id="FatherLastName" name="FatherLastName" required="true"
 						maxlength="100"> <span class="input-group-addon danger"><span
 						class="glyphicon glyphicon-remove"></span></span>
@@ -48,7 +48,7 @@
 					<input class="form-control input-md"
 						placeholder="Father First Name (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['FatherFirstName']; ?>"
+						value="<?php if (isset($issparent['FatherFirstName'])) echo $issparent['FatherFirstName']; ?>"
 						id="FatherFirstName" name="FatherFirstName" required=""
 						maxlength="100"> <span class="input-group-addon danger"><span
 						class="glyphicon glyphicon-remove"></span></span>
@@ -67,7 +67,7 @@
 					<input class="form-control input-md"
 						placeholder="Father Email (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['FatherEmail']; ?>" id="FatherEmail"
+						value="<?php if (isset($issparent['FatherEmail'])) echo $issparent['FatherEmail']; ?>" id="FatherEmail"
 						name="FatherEmail" required="" maxlength="100" validate="true"> <span
 						class="input-group-addon"> <i class="glyphicon glyphicon-envelope"
 						aria-="" hidden="true"></i></span>
@@ -85,7 +85,7 @@
 					<input class="form-control input-md"
 						placeholder="Father Cell Phone (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['FatherCellPhone']; ?>"
+						value="<?php if (isset($issparent['FatherCellPhone'])) echo $issparent['FatherCellPhone']; ?>"
 						id="FatherCellPhone" name="FatherCellPhone" maxlength="20"
 						required="true" validate="true"> <span class="input-group-addon"><i
 						class=" glyphicon glyphicon-phone" aria-="" hidden="true"></i></span>
@@ -103,7 +103,7 @@
 					<input class="form-control input-md"
 						placeholder="Father Work Phone (optional)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['FatherWorkPhone']; ?>"
+						value="<?php if (isset($issparent['FatherWorkPhone'])) echo $issparent['FatherWorkPhone']; ?>"
 						id="FatherWorkPhone" name="FatherWorkPhone" maxlength="20"
 						validate="true"> <span class="input-group-addon"><i
 						class=" glyphicon glyphicon-earphone" aria-="" hidden="true"></i></span>
@@ -125,7 +125,7 @@
 					<input class="form-control input-md"
 						placeholder="Mother Last Name (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['MotherLastName']; ?>"
+						value="<?php if (isset($issparent['MotherLastName'])) echo $issparent['MotherLastName']; ?>"
 						id="MotherLastName" name="MotherLastName" required=""
 						maxlength="100"> <span class="input-group-addon danger"><span
 						class="glyphicon glyphicon-remove"></span></span>
@@ -144,7 +144,7 @@
 					<input class="form-control input-md"
 						placeholder="Mother First Name (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['MotherFirstName']; ?>"
+						value="<?php if (isset($issparent['MotherFirstName'])) echo $issparent['MotherFirstName']; ?>"
 						id="MotherFirstName" name="MotherFirstName" required=""
 						maxlength="100"> <span class="input-group-addon danger"><span
 						class="glyphicon glyphicon-remove"></span> </span>
@@ -163,7 +163,7 @@
 					<input class="form-control input-md"
 						placeholder="Mother Email (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['MotherEmail']; ?>" id="MotherEmail"
+						value="<?php if (isset($issparent['MotherEmail'])) echo $issparent['MotherEmail']; ?>" id="MotherEmail"
 						name="MotherEmail" required="true" maxlength="100" validate="true">
 					<span class="input-group-addon"><i
 						class="glyphicon glyphicon-envelope" aria-="" hidden="true"></i></span>
@@ -181,7 +181,7 @@
 					<input class="form-control input-md"
 						placeholder="Mother Cell Phone (required)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['MotherCellPhone']; ?>"
+						value="<?php if (isset($issparent['MotherCellPhone'])) echo $issparent['MotherCellPhone']; ?>"
 						id="MotherCellPhone" name="MotherCellPhone" required="true"
 						maxlength="20" validate="true"> <span class="input-group-addon"><i
 						class=" glyphicon glyphicon-phone" aria-="" hidden="true"></i></span>
@@ -199,7 +199,7 @@
 					<input class="form-control input-md"
 						placeholder="Mother Work Phone (optional)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['MotherWorkPhone']; ?>"
+						value="<?php if (isset($issparent['MotherWorkPhone'])) echo $issparent['MotherWorkPhone']; ?>"
 						id="MotherWorkPhone" name="MotherWorkPhone" maxlength="20"
 						validate="true"> <span class="input-group-addon"><i
 						class=" glyphicon glyphicon-earphone" aria-="" hidden="true"></i></span>
@@ -221,12 +221,12 @@
 				<div class="col-md-7">
 					<label class="radio-inline" for="schoolemail"> <input type="radio"
 						name="SchoolEmail" value="Mother"
-						<?php echo (($issparent[ 'SchoolEmail']=='Mother' ) || empty($issparent[ 'SchoolEmail']) || ($issparent[ 'SchoolEmail']!='Father' ))? 'checked': ''; ?>
+						<?php echo (isset($issparent['SchoolEmail']) && (($issparent[ 'SchoolEmail']=='Mother' ) || empty($issparent[ 'SchoolEmail']) || ($issparent[ 'SchoolEmail']!='Father' )))? 'checked': ''; ?>
 						size="20" <?php if (!$edit) { echo "disabled"; } ?>> <Strong>
 							Mother Email</Strong>
 					</label> <label class="radio-inline" for="schoolemail"> <input
 						type="radio" name="SchoolEmail" value="Father"
-						<?php echo ($issparent[ 'SchoolEmail']=='Father' )? 'checked': ''; ?>
+						<?php echo (isset($issparent['SchoolEmail']) && ($issparent[ 'SchoolEmail']=='Father' ))? 'checked': ''; ?>
 						size="20" <?php if (!$edit) { echo "disabled"; } ?>> <Strong>
 							Father Email</Strong>
 					</label>
@@ -246,7 +246,7 @@
 					<input class="form-control input-md"
 						placeholder="Start Year (Ex: 2010)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php echo $issparent['FamilySchoolStartYear']; ?>"
+						value="<?php if (isset($issparent['FamilySchoolStartYear'])) echo $issparent['FamilySchoolStartYear']; ?>"
 						id="FamilySchoolStartYear" name="FamilySchoolStartYear"
 						maxlength="5" validate="true"> <span class="input-group-addon"><span
 						class="glyphicon glyphicon-ok"></span></span>
