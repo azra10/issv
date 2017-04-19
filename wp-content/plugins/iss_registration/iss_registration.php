@@ -118,7 +118,7 @@ class ISS_Registation {
 				$class ['StudentID'] = $student ['StudentID'];
 				$class ['RegistrationYear'] = $this->nextregyear;
 				$class ['ISSGrade'] = iss_next_issgrade ( $student ['ISSGrade'], $student ['StudentGender'], $student ['RegularSchoolGrade'] );
-				$student ['RegularSchoolGrade'] = iss_next_regularschoolgrade ( $student ['RegularSchoolGrade'] );
+				$class ['RegularSchoolGrade'] = iss_next_regularschoolgrade ( $student ['RegularSchoolGrade'] );
 				
 				if (iss_registration_insert ( $class ) == false)
 					$this->messages [] = "Student Skipped PID: {$student['StudentID']}<br>";

@@ -748,7 +748,7 @@ function iss_changelog_list($tablename, $parentid, $studentid) {
 	// if ($row != NULL) { $result[] = $row; }
 	
 	$table = iss_get_table_name ( "changelog" );
-	$query = ($studentid == NULL) ? "SELECT * FROM {$table} WHERE ParentID = {$parentid} and  TableName = '{$tablename}' order by ChangelogID DESC" : "SELECT * FROM {$table} WHERE ParentID = {$parentid} and  TableName = '{$tablename}' and StudentID = {$studentid} order by ChangelogID DESC";
+	$query = ($studentid == NULL) ? "SELECT * FROM {$table} WHERE ParentID = {$parentid} and  TableName = '{$tablename}' order by ChangelogID ASC" : "SELECT * FROM {$table} WHERE ParentID = {$parentid} and  TableName = '{$tablename}' and StudentID = {$studentid} order by ChangelogID ASC";
 	$result_set = $wpdb->get_results ( $query, ARRAY_A );
 	
 	$changesetid = NULL;
@@ -1724,7 +1724,7 @@ function iss_process_newparentrequest(&$post, &$issparent, &$errors) {
  * FUNCTION iss_process_updateparentrequest
  *
  * @param
- *        	tabname, parentid, issparent:existing parent record where change applied, post:input from client, errors: processing errors
+ *        	tab name, parentid, issparent:existing parent record where change applied, post:input from client, errors: processing errors
  * @return 1 for update success, 0 for update failure
  *        
  */
@@ -1760,9 +1760,11 @@ function iss_process_updateparentrequest($tabname, &$issparent, &$post, &$errors
 }
 function iss_write_changelog_vertical($tablename, $parentid, $studentid) {
 	$changeset = iss_changelog_list ( iss_get_table_name ( $tablename ), $parentid, $studentid );
-	echo "<br>Table:{$tablename}<table border=1><tr><th>Change Details</th>";
+	echo "<br><h3>{$tablename} record</h3><table border=1><tr><th>Change Details</th>";
+	$count=1;
 	foreach ( $changeset as $changelog ) {
-		echo "<td>{$changelog['ChangeSetID']} <br/>By {$changelog['ModifiedBy']}</td>";
+		echo "<td>{$changelog['ChangeSetID']} <br/>By {$changelog['ModifiedBy']} <br/> Change# {$count} </td>";
+		$count++;
 	}
 	echo "</tr>";
 	foreach ( iss_get_table_fields ( $tablename ) as $field ) {

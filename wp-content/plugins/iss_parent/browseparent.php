@@ -109,8 +109,8 @@ if (count ( $result_set ) == 0) {
 					</tr>
 				</thead>
 				<tbody>
-                    <?php  foreach($result_set as $row) { ?>
-                      <tr>
+            <?php  foreach($result_set as $row) { ?>
+             <tr>
 						<td></td>
 						<td nowrap>
                           <?php echo $row['ParentID'];?>
@@ -123,8 +123,9 @@ if (count ( $result_set ) == 0) {
                           <?php echo $row['RegistrationComplete'];?>
                         </td>
 						<td nowrap>
-                          <?php if (iss_current_user_is_secretery()) {    ?>
-                            <a
+						<?php if (iss_current_user_is_secretery()) {    
+						?>
+							<a
 							href="admin.php?page=edit_parent&pid=<?php echo $row['ParentID']; ?>&regyear=<?php if (isset($regyear)) echo $regyear;?>">
 								<span style="padding-left: 10px; white-space: nowrap;"> <i
 									class="glyphicon glyphicon-edit"></i> Edit
@@ -148,7 +149,14 @@ if (count ( $result_set ) == 0) {
 							</span>
 						</a>
 
-                            <?php }  ?>
+						<a
+							href="admin.php?page=history_parent&id=<?php echo $row['ParentViewID'];?>">
+								<span style="padding-left: 10px; white-space: nowrap;"> <i
+									class="glyphicon glyphicon-header"></i> History
+							</span>
+						</a>
+						<?php } 						
+						?>
                               <a
 							href="admin.php?page=view_parent&id=<?php echo $row['ParentViewID'];?>"> <span
 								style="padding-left: 10px; white-space: nowrap;"> <i
