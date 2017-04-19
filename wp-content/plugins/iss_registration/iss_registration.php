@@ -102,6 +102,7 @@ class ISS_Registation {
 				$registration ['RegistrationYear'] = $this->nextregyear;
 				$registration['TotalAmountDue'] = iss_calculate_total_amount_due($parent['ParentID']);
 				$registration['PaidInFull'] = 'No';
+				$registration['RegistrationComplete'] = 'Open';
 				if (iss_payment_insert ( $registration ) == false)
 				{	$this->messages [] = "<br>Parent Skipped PID: {$parent['ParentID']}";}
 			}

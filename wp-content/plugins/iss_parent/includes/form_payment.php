@@ -118,17 +118,33 @@
 </div>
 <div class="row">
 	<div class="rfpanel col-md-5">
-		<label class="col-md-4 control-label" for="Comments">Paid In Full</label>
-		<div class="col-md-7">
-			<label class="radio-inline" for="PaidInFull"> <input type="radio"
-				name="PaidInFull" value="Yes"
-				<?php echo ($issparent[ 'PaidInFull']=='Yes')? 'checked': '' ?>
-				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Yes</Strong>
-			</label> <label class="radio-inline" for="PaidInFull"> <input
-				type="radio" name="PaidInFull" value="No"
-				<?php echo (($issparent[ 'PaidInFull']!='Yes' ))? 'checked': '' ?>
-				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> No</Strong>
-			</label>
+		<div class="row">
+			<label class="col-md-4 control-label" for="Comments">Paid In Full</label>
+			<div class="col-md-7">
+				<label class="radio-inline" for="PaidInFull"> <input type="radio"
+					name="PaidInFull" value="Yes"
+					<?php echo ($issparent[ 'PaidInFull']=='Yes')? 'checked': '' ?>
+					size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Yes</Strong>
+				</label> <label class="radio-inline" for="PaidInFull"> <input
+					type="radio" name="PaidInFull" value="No"
+					<?php echo (($issparent[ 'PaidInFull']!='Yes' ))? 'checked': '' ?>
+					size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> No</Strong>
+				</label>
+			</div>
+		</div>
+		<div class="row">
+			<label class="col-md-4 control-label" for="FinancialAid">Financial Aid</label>
+			<div class="col-md-7">
+				<label class="radio-inline" for="FinancialAid"> <input type="radio"
+					name="FinancialAid" value="Yes"
+					<?php echo ($issparent[ 'FinancialAid']=='Yes')? 'checked': '' ?>
+					size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Yes</Strong>
+				</label> <label class="radio-inline" for="FinancialAid"> <input
+					type="radio" name="FinancialAid" value="No"
+					<?php echo (($issparent[ 'FinancialAid']!='Yes' ))? 'checked': '' ?>
+					size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> No</Strong>
+				</label>
+			</div>
 		</div>
 	</div>
 	<div class="rfpanel col-md-5">
@@ -156,15 +172,15 @@
 			<label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="New"
 				<?php echo (($issparent[ 'RegistrationComplete']=='New' ) || empty($issparent[ 'RegistrationComplete']))? 'checked': '' ?>
-				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> New</Strong>
+				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> New Family</Strong>
 			</label> <label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="Open"
 				<?php echo (($issparent[ 'RegistrationComplete']=='Open' ) || empty($issparent[ 'RegistrationComplete']))? 'checked': '' ?>
-				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Open</Strong>
+				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Open Enrollment</Strong>
 			</label> <label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="Pending"
 				<?php echo ($issparent[ 'RegistrationComplete']=='Pending' )? 'checked': '' ?>
-				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Pending
+				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Pending Staff
 					Approval</Strong>
 			</label> <label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="Complete"

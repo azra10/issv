@@ -155,6 +155,7 @@ function iss_payment_tabfields() {
 			"PaymentMethod2",
 			"PaymentDate2",
 			"TotalAmountDue",
+			"FinancialAid",
 			"PaidInFull",
 			"Comments" 
 	);
@@ -207,6 +208,7 @@ function iss_field_displaynames() {
 				"PaymentMethod1" => "Payment Method 1",
 				"PaymentDate1" => "Payment Date 1",
 				"TotalAmountDue" => "Total Amount Due",
+				"FinancialAid" => "Financial Aid",
 				"PaymentInstallment2" => "Payment Installment 2",
 				"PaymentMethod2" => "Payment Method 2",
 				"PaymentDate2" => "Payment Date 2",
@@ -272,6 +274,7 @@ function iss_fields_lengths() {
 				"PaymentDate1" => 10,
 				"PaymentDate2" => 10,
 				"TotalAmountDue" => 9,
+				"FinancialAid" => 3,
 				"PaymentInstallment2" => 10,
 				"PaymentMethod2" => 20,
 				"PaymentDate2" => 10,
@@ -336,6 +339,7 @@ function iss_fields_types() {
 				"PaymentMethod1" => "string",
 				"PaymentDate1" => "date",
 				"TotalAmountDue" => "float",
+				"FinancialAid" => "string",
 				"PaymentInstallment2" => "float",
 				"PaymentMethod2" => "string",
 				"PaymentDate2" => "date",

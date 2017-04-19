@@ -882,7 +882,8 @@ function iss_parent_insert($sdata) {
 		foreach ( iss_payment_table_fields () as $field ) {
 			if (isset ( $sdata [$field] )) {
 				$typearray [] = iss_field_type ( $field );
-				if ($field == 'PaymentInstallment1') 
+				if (($field == 'PaymentInstallment1')  || ($field == 'PaymentInstallment2') || 
+					($field == 'PaymentInstallment3') || ($field == 'PaymentInstallment4'))
 				{ $dsarray [$field] = floatval($sdata [$field]); }
 				else {$dsarray [$field] = $sdata [$field];}
 				$changelog [] = iss_create_changelog ( $sdata ['ParentID'], NULL, $field, $sdata [$field] );
@@ -986,12 +987,13 @@ function iss_payment_update($changedfields, $sdata) {
 	$changelog = array ();
 	$dsarray = array ();
 	$typearray = array ();
-	foreach ( iss_payment_table_fields () as $field ) {
+	foreach (  iss_payment_table_fields() as $field ) {
 		if (in_array ( $field, $changedfields )) {
 			$result = - 1;
 			$update = true;
 			$typearray [] = iss_field_type ( $field );
-			if ($field == 'PaymentInstallment1') 
+			if (($field == 'PaymentInstallment1')  || ($field == 'PaymentInstallment2') || 
+				($field == 'PaymentInstallment3') || ($field == 'PaymentInstallment4'))
 			{ $dsarray [$field] = floatval($sdata [$field]); }
 			else 
 			{$dsarray [$field] = $sdata [$field];}
