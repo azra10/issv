@@ -151,14 +151,17 @@ if (count ( $result_set ) == 0) {
 										<a
 											href="admin.php?page=archived_home&aid=<?php echo $row['ParentViewID'];?>">
 												<span style="padding-left: 10px; white-space: nowrap;"> <i
-													class="glyphicon glyphicon-eye-close"></i> Archive
-											</span>
+													class="glyphicon glyphicon-eye-close"></i> Archive 	</span>
 										</a>
 								<?php } else { 	?>
 										<a href="admin.php?page=archived_home&uid=<?php echo $row['ParentViewID'];?>">
 											<span style="padding-left: 10px; white-space: nowrap;"><i 
-												class="glyphicon glyphicon-eye-open"></i> UnArchive 
-											</span></a>                   
+											class="glyphicon glyphicon-eye-open"></i> UnArchive  </span>
+										</a>                   
+	                   <a href="admin.php?page=delete_parent&id=<?php echo $row['ParentViewID'];?>"> 
+												<span style="padding-left: 10px; white-space: nowrap;"><i 
+												class="glyphicon glyphicon-remove"></i> Delete</span>
+										 </a>
 								<?php } 	?>
 						<?php } 	 	?>
 
