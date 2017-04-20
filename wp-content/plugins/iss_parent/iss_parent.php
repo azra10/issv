@@ -12,12 +12,19 @@ if (! defined ( 'ISS_PATH' )) {
 	define ( 'ISS_PATH', WP_PLUGIN_DIR . '/' . basename ( dirname ( $this_plugin_file ) ) );
 	define ( 'ISS_URL', plugin_dir_url ( ISS_PATH ) . basename ( dirname ( $this_plugin_file ) ) );
 }
+require_once (ISS_PATH . "/functions/function_archive.php");
+require_once (ISS_PATH . "/functions/function_changelog.php");
+require_once (ISS_PATH . "/functions/function_common.php");
+require_once (ISS_PATH . "/functions/function_delete.php");
+require_once (ISS_PATH . "/functions/function_permission.php");
+require_once (ISS_PATH . "/functions/function_registration.php");
+require_once (ISS_PATH . "/functions/function_ui.php");
+require_once (ISS_PATH . "/functions/function_update.php");
+require_once (ISS_PATH . "/functions/function_validate.php");
+require_once (ISS_PATH . "/functions/constants.php");
+require_once (ISS_PATH . "/functions/widgets.php");
+require_once (ISS_PATH . "/functions/shortcodes.php");
 
-require_once (ISS_PATH . "/includes/functions.php");
-require_once (ISS_PATH . "/includes/constants.php");
-require_once (ISS_PATH . "/includes/widgets.php");
-
-require_once (ISS_PATH . "/includes/shortcodes.php");
 function students_home_page() {
 	include (ISS_PATH . "/browsestudent.php");
 }
@@ -55,14 +62,15 @@ function history_parent_page() {
 function iss_register_menu_page() {
 	$my_pages [] = add_menu_page ( 'Parents', 'Parents', 'iss_board', 'parents_home', 'parents_home_page', 'dashicons-id-alt', 3 );
 	$my_pages [] = add_menu_page ( 'Students', 'Students', 'iss_board', 'students_home', 'students_home_page', 'dashicons-groups', 4 );
-	$my_pages [] = add_menu_page ( 'Archived', 'Archived', 'iss_board', 'archived_home', 'archived_home_page', 'dashicons-hidden', 6 );
+	//$my_pages [] = add_menu_page ( 'Archived', 'Archived', 'iss_board', 'archived_home', 'archived_home_page', 'dashicons-hidden', 6 );
 	$my_pages [] = add_submenu_page ( null, 'Payment', 'Payment', 'iss_secretary', 'payment_parent', 'payment_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'Print', 'Print', 'iss_board', 'print_parent', 'print_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'View', 'View', 'iss_board', 'view_parent', 'view_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'Delete', 'Delete', 'iss_secretary', 'delete_parent', 'delete_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'Edit', 'Edit', 'iss_secretary', 'edit_parent', 'edit_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'History', 'History', 'iss_board', 'history_parent', 'history_parent_page' );
-	//$my_pages [] = add_submenu_page ( 'parents_home', 'Add', 'Add', 'iss_secretary', 'new_parent', 'new_parent_page' );
+	$my_pages [] = add_submenu_page ( null, 'Archived', 'Archived', 'iss_secretary', 'archived_home', 'archived_home_page' );
+	$my_pages [] = add_submenu_page ( null, 'Add', 'Add', 'iss_secretary', 'new_parent', 'new_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'Email', 'Email', 'iss_secretary', 'email_home', 'email_home_page' );
 	
 	foreach ( $my_pages as $my_page ) {

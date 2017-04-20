@@ -169,20 +169,24 @@
 		<label class="col-md-2 control-label" for="Comments">Registration
 			Status</label>
 		<div class="col-md-8">
-			<label class="radio-inline" for="RegistrationComplete"> <input
+			<!--<label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="New"
 				<?php echo (($issparent[ 'RegistrationComplete']=='New' ) || empty($issparent[ 'RegistrationComplete']))? 'checked': '' ?>
 				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> New Family</Strong>
-			</label> <label class="radio-inline" for="RegistrationComplete"> <input
+			</label> -->
+			<label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="Open"
 				<?php echo (($issparent[ 'RegistrationComplete']=='Open' ) || empty($issparent[ 'RegistrationComplete']))? 'checked': '' ?>
 				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Open Enrollment</Strong>
-			</label> <label class="radio-inline" for="RegistrationComplete"> <input
+			</label> 
+			<!--<label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="Pending"
 				<?php echo ($issparent[ 'RegistrationComplete']=='Pending' )? 'checked': '' ?>
 				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong> Pending Staff
 					Approval</Strong>
-			</label> <label class="radio-inline" for="RegistrationComplete"> <input
+			</label> -->
+			
+			<label class="radio-inline" for="RegistrationComplete"> <input
 				type="radio" name="RegistrationComplete" value="Complete"
 				<?php echo ($issparent[ 'RegistrationComplete']=='Complete' )? 'checked': '' ?>
 				size="3" <?php if (!$edit) { echo "disabled"; } ?>> <Strong>

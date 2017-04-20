@@ -10,6 +10,21 @@
 /**
  * custom option and settings
  */
+ /**
+ * Function iss_get_school_name
+ * Find admin preference or default school name
+ * 
+ * @param
+ *        	none
+ * @return string school name
+ *        
+ */
+function iss_get_school_name() {
+	$name = iss_adminpref_schoolname ();
+	if (NULL == $name)
+		$name = "School Name";
+	return $name;
+}
 function iss_adminpref_schoolname() {
 	$options = get_option ( 'iss_options' );
 	
@@ -108,7 +123,7 @@ function iss_settings_init() {
 	register_setting ( 'adminpref', 'iss_options' );
 	
 	// register a new section in the "adminpref" page
-	add_settings_section ( 'iss_registrationyear_section', __ ( 'Change Registration Year', 'adminpref' ), 'iss_registrationyear_section_cb', 'adminpref' );
+	add_settings_section ( 'iss_registrationyear_section', __ ( '', 'adminpref' ), 'iss_registrationyear_section_cb', 'adminpref' );
 	
 	// register a new field in the "iss_registrationyear_section" section, inside the "adminpref" page
 	add_settings_field ( 'iss_field0', __ ( 'School Name', 'adminpref' ), 'iss_textinput_field_cb', 'adminpref', 'iss_registrationyear_section', [ 
@@ -244,7 +259,7 @@ function iss_registrationyear_field_cb($args) {
  */
 function iss_options_page() {
 	// add top level menu page
-	add_menu_page ( 'Admin Preferences', 'Admin Preferences', 'iss_board', 'adminpref', 'iss_options_page_html' );
+	add_menu_page ( 'School Settings', 'School Setting', 'iss_board', 'adminpref', 'iss_options_page_html' );
 }
 
 /**

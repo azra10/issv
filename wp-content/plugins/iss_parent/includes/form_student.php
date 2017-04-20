@@ -50,6 +50,7 @@ $regschclasslist = array (
 				class="<?php echo ($activetab == 'student' . $student['StudentID'])? 'active':'' ?>">
 				<a href="#student<?php echo $i; ?>" data-toggle="tab">
                 <?php echo $student['StudentFirstName'] . ' - Grade ' . $student['ISSGrade']?>
+				<?php echo ($student['StudentNew'] == 'Yes')? '(New)': '';?>
               </a>
 			</li>
             <?php $i++; } } ?>
@@ -99,7 +100,7 @@ $regschclasslist = array (
 						value="<?php echo $parentid; ?>" /> <input type="hidden"
 						id="tabname" name="tabname" value="studentnew" /> <input
 						type="hidden" id="StudentID" name="StudentID" value="new">
-                       
+                        <input type="hidden" id="StudentNew" name="StudentNew" value="Yes">
                         <?php   include(ISS_PATH . "/includes/studentnew.php"); ?>
 
                     </form>

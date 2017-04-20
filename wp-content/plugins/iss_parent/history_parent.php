@@ -17,7 +17,7 @@ if ($issparent == NULL) {
 	$parentid = $issparent ['ParentID'];
 	
     iss_write_changelog_vertical ( 'parent', $parentid, NULL );
-    iss_write_changelog_vertical ( 'payment', $parentid, NULL );
+  //  iss_write_changelog_vertical ( 'payment', $parentid, NULL );
 
     // IF PARENT EXISTS, PULL STUDENTS
 	$issstudents = iss_get_students_by_parentid ( $issparent ['ParentID'], $issparent ['RegistrationYear'] );
@@ -25,7 +25,7 @@ if ($issparent == NULL) {
     foreach($issstudents as $student) {
         $studentid = $student['StudentID'];
     iss_write_changelog_vertical ( 'student', $parentid, $studentid );
-	iss_write_changelog_vertical ( 'registration', $parentid, $studentid );
+	//iss_write_changelog_vertical ( 'registration', $parentid, $studentid );
     }
 }
 ?>

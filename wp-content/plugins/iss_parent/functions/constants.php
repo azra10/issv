@@ -1,5 +1,21 @@
 <?php
 // / TABLE FIELDS BEGIN
+function iss_get_table_fields($name) {
+	global $wpdb;
+	
+	if ($name == "registration") {
+		return iss_registration_table_fields ();
+	} elseif ($name == "payment") {
+		return iss_payment_table_fields ();
+	} elseif ($name == "parent") {
+		return iss_parent_table_fields ();
+	} elseif ($name == "student") {
+		return iss_student_table_fields ();
+	} else {
+		iss_write_log ( "iss_get_table_fields: Unknown table name {$name}" );
+		return NULL;
+	}
+}
 function iss_parent_table_fields() {
 	global $iss_parent_table_fieldnames;
 	if ($iss_parent_table_fieldnames == NULL) {
@@ -27,6 +43,7 @@ function iss_student_table_fields() {
 				"StudentGender",
 				"StudentStatus",
 				"StudentEmail",
+				"StudentNew",
 				"ParentID",
 				"StudentID" 
 		);
@@ -65,7 +82,7 @@ function iss_student_fields() {
 	global $iss_student_tabfieldnames;
 	if (NULL == $iss_student_tabfieldnames)
 		$iss_student_tabfieldnames = array_merge ( iss_student_required_fields (), array (
-				"StudentEmail" 
+				"StudentEmail", "StudentNew" 
 		) );
 	return $iss_student_tabfieldnames;
 }
@@ -90,7 +107,8 @@ function iss_parent_tabfields() {
 	return array_merge ( iss_parent_required_tabfields (), array (
 			"FatherWorkPhone",
 			"MotherWorkPhone",
-			"FamilySchoolStartYear" 
+			"FamilySchoolStartYear",
+			"ParentNew" 
 	) );
 }
 function iss_parent_required_tabfields() {
@@ -166,6 +184,7 @@ function iss_field_displaynames() {
 		$iss_field_displaynames_ = array (
 				"ParentID" => "ParentID",
 				"ParentStatus" => "Parent Status",
+				"ParentNew" => "Parent New",
 				"RegistrationYear" => "Registration Period",
 				"created" => "Create Date",
 				"updated" => "Last Update Date",
@@ -220,6 +239,7 @@ function iss_field_displaynames() {
 				"RegularSchoolGrade" => "Regular School Grade",
 				"ISSGrade" => "Islamic School Grade",
 				"StudentStatus" => "Student Status",
+				"StudentNew" => "Student New",
 				"StudentEmail" => "Student Email",
 				"StudentBirthDate" => "Student Birth Date",
 				"StudentGender" => "Student Gender",
@@ -235,6 +255,7 @@ function iss_fields_lengths() {
 				"ParentID" => 11,
 				"RegistrationYear" => 10,
 				"ParentStatus" => 10,
+				"ParentNew" => 3,
 				"FatherFirstName" => 100,
 				"FatherLastName" => 100,
 				"FatherEmail" => 100,
@@ -290,7 +311,8 @@ function iss_fields_lengths() {
 				"StudentEmail" => 100,
 				"StudentBirthDate" => 10,
 				"StudentGender" => 1,
-				"StudentStatus" => 10 
+				"StudentStatus" => 10,
+				"StudentNew" => 3				
 		);
 	return $iss_field_lengths_;
 }
@@ -303,6 +325,7 @@ function iss_fields_types() {
 				"created" => "datetime",
 				"updated" => "datetime",
 				"ParentStatus" => "string",
+				"ParentNew" => "string",
 				"FatherFirstName" => "string",
 				"FatherLastName" => "string",
 				"FatherEmail" => "string",
@@ -356,6 +379,7 @@ function iss_fields_types() {
 				"StudentBirthDate" => "date",
 				"StudentGender" => "string",
 				"StudentStatus" => "string",
+				"StudentNew" => "string",				
 				"ChangeSetID" => "string" 
 		);
 	return $iss_field_types_;

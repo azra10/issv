@@ -1,11 +1,12 @@
 <div class="wrap">
 	<nav class="navbar navbar-light bg-faded">
 		<strong class="navbar-brand">Parent &amp; Students Information
-			(Editable)</strong>
+			( Editable <?php echo ($issparent['ParentNew'] == 'Yes')? '- New Parent ': '';?>)</strong>
 	</nav>
 </div>
 <div class="container">
-	<strong>Registration Year <?php echo $regyear; ?></strong>
+	<strong>Registration Year <?php echo $regyear; ?>	</strong>			
+	
 	<div class="row">
 		<section>
 			<div class="wizard">  

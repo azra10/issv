@@ -1,6 +1,5 @@
 <?php global $wpdb; ?>
   <?php   $regyear = iss_registration_period(); ?>
-    <?php require_once(ISS_PATH . "/includes/functions.php"); ?>
 
       <div class="wrap">
         <nav class="navbar navbar-light bg-faded">

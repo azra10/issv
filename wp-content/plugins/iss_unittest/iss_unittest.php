@@ -668,7 +668,7 @@ class ISS_UnitTestPlugin {
 				$this->failedtestcount++; return;
 			}
 			
-			$list = iss_get_archived_parents_list ( $regyear );
+			$list = iss_get_archived_parents_list ( $regyear, '*' );
 			if ($list === NULL) {
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Arvhived Parent List </span>";
 				echo '</td></tr>';
@@ -1359,7 +1359,7 @@ class ISS_UnitTestPlugin {
 				}
 				
 				// CHANGE LOG TEST ON INSERT
-				$changeset = iss_changelog_list ( iss_get_table_name ( "student" ), $parentid, NULL );
+				$changeset = iss_changelog_list ( "student", $parentid, NULL );
 				// $count = count($changeset);
 				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
@@ -1372,7 +1372,7 @@ class ISS_UnitTestPlugin {
 					$this->failedtestcount++; return;
 				}
 				
-				$changeset = iss_changelog_list ( iss_get_table_name ( "registration" ), $parentid, NULL );
+				$changeset = iss_changelog_list (  "registration" , $parentid, NULL );
 				if ((count ( $changeset ) != 1) || ($changeset [0] ["RegistrationYear"] != $regyear)) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">7. Incorrect registration change log iss_changelog_list after iss_process_newstudentrequest </span>";
 					echo '</td></tr>';
@@ -1511,7 +1511,7 @@ class ISS_UnitTestPlugin {
 				}
 				
 				// CHANGE LOG TEST ON INSERT
-				$changeset = iss_changelog_list ( iss_get_table_name ( "parent" ), $parentid, NULL );
+				$changeset = iss_changelog_list (  "parent" , $parentid, NULL );
 				// $count = count($changeset);
 				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
@@ -1524,7 +1524,7 @@ class ISS_UnitTestPlugin {
 					$this->failedtestcount++; return;
 				}
 				
-				$changeset = iss_changelog_list ( iss_get_table_name ( "payment" ), $parentid, NULL );
+				$changeset = iss_changelog_list (  "payment" , $parentid, NULL );
 				if ((count ( $changeset ) != 1) || ($changeset [0] ["RegistrationYear"] != $regyear)) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">7. Incorrect payment change log iss_changelog_list after iss_process_newparentrequest </span>";
 					echo '</td></tr>';
@@ -1762,19 +1762,19 @@ class ISS_UnitTestPlugin {
 				}
 				
 				// check change log
-				$changeset = iss_changelog_list ( iss_get_table_name ( "student" ), $parentid, $studentid );
+				$changeset = iss_changelog_list ( "student" , $parentid, $studentid );
 				// $count = count($changeset);
 				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
 					echo "<br><br>";
-					var_dump ( $row );
+					//var_dump ( $row );
 				}
 				if ((count ( $changeset ) != 1) || ($changeset [0] ['StudentLastName'] != 'TestStudentLastName')) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">6 Incorrect student change log iss_changelog_list after iss_student_insert </span>";
 					echo '</td></tr>';
 					$this->failedtestcount++; return;
 				}
-				$changeset = iss_changelog_list ( iss_get_table_name ( "registration" ), $parentid, $studentid );
+				$changeset = iss_changelog_list ( "registration" , $parentid, $studentid );
 				if ((count ( $changeset ) != 1) || ($changeset [0] ["RegistrationYear"] != $regyear)) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">7 Incorrect registration change log iss_changelog_list after iss_student_insert </span>";
 					echo '</td></tr>';
@@ -1814,14 +1814,14 @@ class ISS_UnitTestPlugin {
 				}
 				
 				// check the changed log
-				$changeset = iss_changelog_list ( iss_get_table_name ( "student" ), $parentid, $studentid );
-				if ((count ( $changeset ) != 2) || ($changeset [1] ['StudentLastName'] != 'TestStudentLastName') || ($changeset [0] ['StudentLastName'] != 'testchangedlastname')) {
-					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect student change log iss_changelog_list after iss_student_update </span>";
+				$changeset = iss_changelog_list (   "student" , $parentid, $studentid );
+				if ((count ( $changeset ) != 2) || ($changeset [0] ['StudentLastName'] != 'TestStudentLastName') || ($changeset [1] ['StudentLastName'] != 'testchangedlastname')) {
+					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> 9.1 Incorrect student change log iss_changelog_list after iss_student_update </span>";
 					echo '</td></tr>';
 					$this->failedtestcount++; return;
 				}
-				$changeset = iss_changelog_list ( iss_get_table_name ( "registration" ), $parentid, $studentid );
-				if ((count ( $changeset ) != 2) || ($changeset [1] ['ISSGrade'] != '2') || ($changeset [0] ['ISSGrade'] != '4') || ($changeset [1] ['RegularSchoolGrade'] != 'KG') || ($changeset [0] ['RegularSchoolGrade'] != '5')) {
+				$changeset = iss_changelog_list (   "registration" , $parentid, $studentid );
+				if ((count ( $changeset ) != 2) || ($changeset [0] ['ISSGrade'] != '2') || ($changeset [1] ['ISSGrade'] != '4') || ($changeset [0] ['RegularSchoolGrade'] != 'KG') || ($changeset [1] ['RegularSchoolGrade'] != '5')) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">10 Incorrect student change log iss_changelog_list after iss_student_update </span>";
 					echo '</td></tr>';
 					$this->failedtestcount++; return;
@@ -1894,20 +1894,20 @@ class ISS_UnitTestPlugin {
 				}
 				
 				// check change log
-				$changeset = iss_changelog_list ( iss_get_table_name ( "parent" ), $parentid, NULL );
+				$changeset = iss_changelog_list (  "parent" , $parentid, NULL );
 				// $count = count($changeset);
 				//echo "<br>first changelog {$count}<br>";
-				foreach ( $changeset as $row ) {
-					echo "<br><br>";
-					var_dump ( $row );
-				}
+				// foreach ( $changeset as $row ) {
+				// 	echo "<br><br>";
+				// 	var_dump ( $row );
+				// }
 				if ((count ( $changeset ) != 1) || ($changeset [0] ['FatherLastName'] != 'TestFatherLastName')) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">6. Incorrect parent change log iss_changelog_list after iss_parent_insert </span>";
 					echo '</td></tr>';
 					$this->failedtestcount++; return;
 				}
 				
-				$changeset = iss_changelog_list ( iss_get_table_name ( "payment" ), $parentid, NULL );
+				$changeset = iss_changelog_list ( "payment" , $parentid, NULL );
 				if ((count ( $changeset ) != 1) || ($changeset [0] ["RegistrationYear"] != $regyear)) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">7. Incorrect payment change log iss_changelog_list after iss_parent_insert </span>";
 					echo '</td></tr>';
@@ -1945,20 +1945,21 @@ class ISS_UnitTestPlugin {
 					$this->failedtestcount++; return;
 				}
 				if (($parent ['ParentID'] != $parentid) || ($parent ['RegistrationYear'] != $regyear) || ($parent ['FatherLastName'] != 'testchangedlast') || ($parent ['FatherFirstName'] != 'testchangedfirst') || ($parent ['Comments'] != 'Full Aid') || ($parent ['RegistrationExpiration'] != NULL) || ($parent ['RegistrationComplete'] != 'Complete') || ($parent ['PaidInFull'] != 'Yes')) {
-					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect values returned iss_get_parent_by_parentid after iss_parent_update </span>";
+					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> 9.1 Incorrect values returned iss_get_parent_by_parentid after iss_parent_update </span>";
 					echo '</td></tr>';
 					$this->failedtestcount++; return;
 				}
 				
 				// check the changed log
-				$changeset = iss_changelog_list ( iss_get_table_name ( "parent" ), $parentid, NULL );
-				if ((count ( $changeset ) != 2) || ($changeset [1] ['FatherLastName'] != 'TestFatherLastName') || ($changeset [0] ['FatherLastName'] != 'testchangedlast')) {
+				$changeset = iss_changelog_list ( "parent" , $parentid, NULL );
+				//var_dump ( $changeset );
+				if ((count ( $changeset ) != 2) || ($changeset [0] ['FatherLastName'] != 'TestFatherLastName') || ($changeset [1] ['FatherLastName'] != 'testchangedlast')) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">10. Incorrect parent change log iss_changelog_list after iss_parent_update </span>";
 					echo '</td></tr>';
 					$this->failedtestcount++; return;
 				}
-				$changeset = iss_changelog_list ( iss_get_table_name ( "payment" ), $parentid, NULL );
-				if ((count ( $changeset ) != 2) || ($changeset [1] ['PaidInFull'] != "No") || ($changeset [0] ['PaidInFull'] != "Yes")) {
+				$changeset = iss_changelog_list (   "payment" , $parentid, NULL );
+				if ((count ( $changeset ) != 2) || ($changeset [0] ['PaidInFull'] != "No") || ($changeset [1] ['PaidInFull'] != "Yes")) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect payment change log iss_changelog_list after iss_parent_update </span>";
 					echo '</td></tr>';
 					$this->failedtestcount++; return;

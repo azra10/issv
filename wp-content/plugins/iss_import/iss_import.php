@@ -6,8 +6,6 @@
  * Author: Azra Syed
  * Author URI: https://codection.com
  */
-// require_once(WP_PLUGIN_DIR . "/iss_parent/includes/functions.php");
-// require_once(WP_PLUGIN_DIR . "/iss_parent/includes/constants.php");
 function iss_parent_import_menu() {
 	add_menu_page ( 'ImportParents', 'Import', 'iss_admin', 'iss_import', 'iss_import_parents', 'dashicons-upload', 8 );
 }
