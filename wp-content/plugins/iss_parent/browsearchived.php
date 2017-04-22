@@ -21,13 +21,13 @@ if (isset ( $_GET ['aid'] )) {
     $aid = iss_sanitize_input ( $_GET ['aid'] );
     if (! empty ( $aid )) { 
       iss_archive_family ( $aid );
-      echo 'Family Arichived';
+      echo ' Family Arichived';
     }
 } else if (isset ( $_GET ['uid'] )) {
     $uid = iss_sanitize_input ( $_GET ['uid'] );
     if (! empty ( $uid )) { 
       iss_unarchive_family ( $uid );
-      echo 'Family Unarchived.';
+      echo ' Family Unarchived.';
     }
 } else {
   echo 'Unknown Command';

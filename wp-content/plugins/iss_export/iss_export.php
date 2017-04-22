@@ -78,6 +78,67 @@ class ISS_Export_Parents {
 			} else if (! isset ( $_POST ['ISSGrade'] ) || empty ( $_POST ['ISSGrade'] )) {
 				echo '<div class="updated"><p><strong>' . __ ( 'Islamic School Grade is required.', 'export-parents-to-csv' ) . '</strong></p></div>';
 				return;
+			}  else if (! isset ( $_POST ['ExportType'] ) || empty ( $_POST ['ExportType'] )) {
+				echo '<div class="updated"><p><strong>' . __ ( 'ExportType is required.', 'export-parents-to-csv' ) . '</strong></p></div>';
+				return;
+			} else if ($_POST ['ExportType'] != 'custom') {
+				$this->regyear = iss_sanitize_input ( $_POST ['RegistrationYear'] );
+				$class = iss_sanitize_input ( $_POST ['ISSGrade'] );
+				$type = $_POST ['ExportType'];
+				$orderby= ''; $fields= ''; $filename = ''; $active =''; $emptycolumns = '';
+				
+				if ($type == 'address') { // add state
+					$fields = array('FatherLastName','FatherFirstName','MotherFirstName','StudentLastName','StudentFirstName','ISSGrade','HomeStreetAddress','HomeCity','HomeState','HomeZip');
+					$filename = $this->regyear . 'AddressLabels' .  date ( '.Ymd.His' ) . '.csv';
+				} else if ($type == 'book') { // add state
+					$fields = array('StudentLastName','StudentFirstName','ISSGrade','StudentNew');
+					$orderby= 'ISSGrade,StudentLastName,StudentFirstName';
+					$filename = $this->regyear . 'BookPacket' .  date ( '.Ymd.His' ) . '.csv';
+				} else if ($type == 'class') { // add state
+					$fields = array('StudentLastName','StudentFirstName','StudentGender','ISSGrade');
+					$orderby= 'ISSGrade,StudentLastName,StudentFirstName';
+					$filename = $this->regyear . 'Class' . $class .  date ( '.Ymd.His' ) . '.csv';
+				} else if ($type == 'attendance') { // add state
+					$fields = array('StudentLastName','StudentFirstName','StudentGender','StudentBirthDate','RegularSchoolGrade','ISSGrade');
+					$orderby= 'ISSGrade,StudentLastName,StudentFirstName';
+					$filename = $this->regyear . 'Attendance' . $class .  date ( '.Ymd.His' ) . '.csv';
+					$emptycolumns = '';
+				} else if ($type == 'inactive') { // add state
+					$fields = array('FatherLastName','FatherFirstName','MotherFirstName','StudentLastName','StudentFirstName','StudentGender','StudentBirthDate','RegularSchoolGrade','ISSGrade');
+					$orderby= 'ISSGrade,StudentLastName,StudentFirstName';
+					$filename = $this->regyear . 'Dropped' . $class .  date ( '.Ymd.His' ) . '.csv';
+					$active = " and StudentStatus = 'inactive' ";
+				} else if ($type == 'room') { // add state
+					$fields = array('FatherLastName','FatherFirstName','MotherFirstName','StudentLastName','StudentFirstName','StudentGender','ISSGrade','HomePhone','FatherEmail','MotherEmail', 'SchoolEmail');
+					$orderby= 'ISSGrade,StudentLastName,StudentFirstName';
+					$filename = $this->regyear . 'RoomParent' . $class .  date ( '.Ymd.His' ) . '.csv';
+				}  		
+					header ( 'Content-Description: File Transfer' );
+					header ( 'Content-Disposition: attachment; filename=' . $filename );
+					header ( 'Content-Type: text/csv; charset=' . get_option ( 'blog_charset' ), true );
+
+					$rows = iss_get_export_list ( $this->regyear, implode ( ',', $fields ), $orderby, $active );
+					echo implode ( ',', $fields ) . $emptycolumns . "\n";
+
+					foreach ( $rows as $row ) {
+						
+						if (($class == 'All') || ($class == $row ['ISSGrade'])) {
+							foreach ($fields as $field ) {
+								 $value = $row[$field];
+								if (strpos ( $value, ',' ) !== false) 
+								{$value = iss_quote_all ( $value );}
+								if ($field == 'SchoolEmail')  
+								{ if (($row['SchoolEmail']== 'Father') && isset($row['FatherEmail'])) $value = $row['FatherEmail'];
+								  else if (($row['SchoolEmail']== 'Mother') && isset($row['MotherEmail'])) $value = $row['MotherEmail'];
+								  else $value = '';
+							 	}
+								echo "{$value},";
+							}
+							echo "\n";
+						}
+					}		
+				
+
 			} else if (isset ( $_POST ['ColumnArray'] ) && (count ( $_POST ['ColumnArray'] ) != 0)) {
 				$this->regyear = iss_sanitize_input ( $_POST ['RegistrationYear'] );
 				$class = iss_sanitize_input ( $_POST ['ISSGrade'] );
@@ -90,14 +151,14 @@ class ISS_Export_Parents {
 				
 				iss_write_log ( "Export: RegistrationYear:{$this->regyear} Class:{$class}" );
 				
-				$rows = iss_get_export_list ( $this->regyear );
+				$rows = iss_get_export_list ( $this->regyear, '', '','' );
 				
 				foreach ( $fields as $key => $value ) {
 					if (($value == 'RegistrationYear') || ($value == 'ParentID') || ($value == 'StudentID')) {
 						unset ( $fields [$key] );
 					}
-				}
-				
+				}				
+
 				echo implode ( ',', $fields ) . ",RegistrationYear,ParentID,StudentID\n";
 				
 				foreach ( $rows as $row ) {
@@ -118,7 +179,7 @@ class ISS_Export_Parents {
 				header ( 'Content-Type: text/csv; charset=' . get_option ( 'blog_charset' ), true );
 				
 				iss_write_log ( "Export: RegistrationYear:{$this->regyear} Class:{$class}" );
-				$rows = iss_get_export_list ( $this->regyear );
+				$rows = iss_get_export_list ( $this->regyear , '', '','');
 				
 				$head = false;
 				foreach ( $rows as $row ) {
@@ -173,7 +234,7 @@ class ISS_Export_Parents {
 		?>
       <form method="post" action="" enctype="multipart/form-data">
         <?php wp_nonce_field( 'iss-export-parents-page_export', '_wpnonce-iss-export-parents-page_export' ); ?>
-          <div class="row">
+         <div class="form-group row">
 			<div class="col-sm-4 col-md-2">
 				<label>Registration Year</label>
 			</div>
@@ -198,8 +259,8 @@ class ISS_Export_Parents {
 					value="<?php echo $_SERVER['REQUEST_URI'] ?>" />
 			</div>
 		</div>
-		<br />
-		<div class="row">
+		
+		<div class="form-group row">
 			<div class="col-sm-4 col-md-2">
 				<label>Islamic School Grade</label>
 			</div>
@@ -209,7 +270,7 @@ class ISS_Export_Parents {
 					<option value="All" selected>All</option>
                 <?php
 		
-$issclasslist = array (
+				$issclasslist = array (
 				'KG' => 'Kindergarten',
 				'1' => 'Grade 1',
 				'2' => 'Grade 2',
@@ -221,29 +282,46 @@ $issclasslist = array (
 				'8' => 'Grade 8',
 				'YB' => 'Youth Boys',
 				'YG' => 'Youth Girls' 
-		);
-		foreach ( $issclasslist as $class => $name ) {
-			echo "<option value=\"$class\">{$name}</option>";
-		}
-		?>
+				);
+				foreach ( $issclasslist as $class => $name ) {
+					echo "<option value=\"$class\">{$name}</option>";
+				}
+				?>
               </select>
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-sm-4 col-md-2">
+				<label>Export Type</label>
+			</div>
+			<div class="col-sm-4 col-md-2">
+				<select name="ExportType" id="ExportType" class="form-control"
+					title="Choose Export Type" required>
+					<option value="custom" selected>Custom Type</option>
+					<option value="address">Address Labels</option>
+					<option value="book">Book Packet Labels</option>
+ 					<option value="class">Class List</option>
+ 					<option value="inactive">Dropped Student List</option>
+  					<option value="room">Room Parent List</option>
+ 					<option value="attendance">Attendance List</option>
+             </select>
 			</div>
 
 		</div>
-		<hr />
-		<div style="padding-bottom: 5px; font-weight: bold;">Select specific
+	
+		<div> <span style="padding-bottom: 5px; font-weight: bold;">For Custom Type Only: </span>Select specific
 			columns and order. By default all columns will be included.</div>
 		<div class="row">
 			<div class="col-sm-5 col-md-3">
 				<select name="FromExport[]" id="multiselect" class="form-control"
 					size="30" multiple="multiple">
 					<optgroup label="Parent Information">
-                  <?php
-		
-foreach ( iss_parent_tabfields () as $field ) {
-			echo "<option value='{$field}'>{$field}</option>";
-		}
-		?>
+                  <?php		
+
+					foreach ( iss_parent_tabfields () as $field ) {
+						echo "<option value='{$field}'>{$field}</option>";
+					}
+					?>
                 </optgroup>
 					<optgroup label="Student Information">
                   <?php

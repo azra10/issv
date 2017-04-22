@@ -39,14 +39,22 @@ function iss_get_registrationyear_list() {
  * @return array of strings
  *        
  */
-function iss_get_export_list($regyear) {
+function iss_get_export_list($regyear, $columns, $orderby, $active) {
 	global $wpdb;
 	
+	if ((NULL==$orderby) || (strlen($orderby)===0))
+	{ $orderby = 'FatherLastName,FatherFirstName,ISSGrade';}
+	if ((NULL==$columns) || (strlen($columns)==0))
+	{ $columns = '*';}
+	if ((NULL==$active) || (strlen($active)==0))	
+	{$active = " and  s.StudentStatus = 'active' and p.ParentStatus = 'active' ";}
+
 	$parents = iss_get_table_name ( "parents" );
 	$students = iss_get_table_name ( "students" );
-	$query = "SELECT *  FROM {$parents} AS p INNER JOIN  {$students} AS s ON p.ParentID  = s.ParentID
-    WHERE s.StudentStatus = 'active' and p.ParentStatus = 'active'
-    and p.RegistrationYear = '{$regyear}' and s.RegistrationYear = '{$regyear}'";
+	$query = "SELECT {$columns}  FROM {$parents} AS p INNER JOIN  {$students} AS s ON p.ParentID  = s.ParentID
+    WHERE p.RegistrationYear = '{$regyear}' and s.RegistrationYear = '{$regyear}' 
+	{$active}    
+	ORDER BY {$orderby}";
 	$result_set = $wpdb->get_results ( $query, ARRAY_A );
 	
 	return $result_set;
