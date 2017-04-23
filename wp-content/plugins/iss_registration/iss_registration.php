@@ -105,8 +105,10 @@ class ISS_Registation {
 				$registration['RegistrationComplete'] = 'Open';
 				if (iss_payment_insert ( $registration ) == false)
 				{	$this->messages [] = "<br>Parent Skipped PID: {$parent['ParentID']}";}
+				else 
+				{	iss_parent_student_update_new($parent ['ParentID'], 'No');}
 			}
-			
+
 			$students = iss_get_students_list ( $this->prevregyear, "*" );
 			if ((NULL == $students) || (count ( $students ) == 0)) {
 				$this->errorstring = "<br>Aborted: Student records not found in previous registration year.";

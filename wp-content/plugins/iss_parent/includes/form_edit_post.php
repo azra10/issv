@@ -25,12 +25,13 @@ $issstudents = iss_get_students_by_parentid ( $parentid, $regyear );
 if ((intval ( $studentid ) != 0)) {
 	$isstabname = "student{$studentid}";
 	foreach ( $issstudents as &$row ) {
-		if ($_POST ['StudentID'] == $studentid) {
+		if ($row['StudentID'] == $studentid) {
 			$studentrow = $row;
 			break;
 		}
 	}
 }
+
 iss_write_log ( "POSTED: {$isstabname} parentid={$parentid} regyear={$regyear} studentid={$studentid}" ); // ISS TEST
 
 $studentnew = array ();

@@ -519,7 +519,7 @@ class ISS_UnitTestPlugin {
 		
 		if (($this->submit === 'test11') || ($this->submit === 'all')) {
 			$regyear = iss_registration_period ();
-			$list = iss_get_export_list ( $regyear , '', '','');
+			$list = iss_get_export_list ( $regyear);
 			if ($list === NULL) {
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Export List </span>";
 				echo '</td></tr>';

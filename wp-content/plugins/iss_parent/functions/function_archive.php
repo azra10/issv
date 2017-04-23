@@ -42,6 +42,46 @@ function iss_get_archived_students_list($regyear, $columns ) {
 	return $result_set;
 }
 /**
+ * Function iss_parent_student_update_new
+ * Update parent & students records inactive
+ * 
+ * @param
+ *        	parentViewID (auto increment column of the table)
+ * @return 1 for success
+ *        
+ */function iss_parent_student_update_new($parentid, $text)
+{
+	global $wpdb;
+	$parent = iss_get_table_name ( "parent" );
+	$student = iss_get_table_name ( "student" );
+	$query = $wpdb->prepare ( "SELECT * FROM {$parent} WHERE ParentID = %d LIMIT 1", $parentid );
+	$row = $wpdb->get_row ( $query, ARRAY_A );
+	
+	if ($row != NULL) {
+		$result = $wpdb->update ( $parent, array (
+				'ParentNew' => $text 
+		), array (
+				'ParentID' => $row ['ParentID'] 
+		), array (
+				'%s' 
+		), array (
+				'%d' 
+		) );
+		
+		$result = $wpdb->update ( $student, array (
+				'StudentNew' => $text
+		), array (
+				'ParentID' => $row ['ParentID'],
+		), array (
+				'%s' 
+		), array (
+				'%d',
+		) );
+		return $result;
+	}
+	return 0;
+}
+/**
  * Function iss_archive_family
  * Update parent & students records inactive
  * 

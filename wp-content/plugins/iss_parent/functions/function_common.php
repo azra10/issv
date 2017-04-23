@@ -39,22 +39,20 @@ function iss_get_registrationyear_list() {
  * @return array of strings
  *        
  */
-function iss_get_export_list($regyear, $columns, $orderby, $active) {
+function iss_get_export_list($regyear, $columns='', $orderby='', $parentactive=true, $studentactive = true) {
 	global $wpdb;
 	
 	if ((NULL==$orderby) || (strlen($orderby)===0))
-	{ $orderby = 'FatherLastName,FatherFirstName,ISSGrade';}
-	if ((NULL==$columns) || (strlen($columns)==0))
-	{ $columns = '*';}
-	if ((NULL==$active) || (strlen($active)==0))	
-	{$active = " and  s.StudentStatus = 'active' and p.ParentStatus = 'active' ";}
-
+	{ $orderby = 'FatherLastName,FatherFirstName,MotherFirstName,ISSGrade';}
+	if ((NULL==$columns) || (strlen($columns)==0)) { $columns = '*';}
+	$parentstatus = ($parentactive)? 'active':'inactive';
+	$studentstatus = ($studentactive)? 'active':'inactive';
+	
 	$parents = iss_get_table_name ( "parents" );
 	$students = iss_get_table_name ( "students" );
 	$query = "SELECT {$columns}  FROM {$parents} AS p INNER JOIN  {$students} AS s ON p.ParentID  = s.ParentID
-    WHERE p.RegistrationYear = '{$regyear}' and s.RegistrationYear = '{$regyear}' 
-	{$active}    
-	ORDER BY {$orderby}";
+    WHERE p.RegistrationYear = '{$regyear}' and s.RegistrationYear = '{$regyear}' and  
+	s.StudentStatus = '{$studentstatus}' and p.ParentStatus = '{$parentstatus}'  ORDER BY {$orderby}";
 	$result_set = $wpdb->get_results ( $query, ARRAY_A );
 	
 	return $result_set;
@@ -376,7 +374,7 @@ function iss_quote_all($value) {
 	if (is_null ( $value ))
 		return "NULL";
 	
-	$value = "\"" . $wpdb->escape ( $value ) . "\"";
+	$value = "\"" .  $value . "\"";
 	return $value;
 }
 

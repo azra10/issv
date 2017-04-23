@@ -51,6 +51,45 @@ function iss_next_registration_year() {
 	$nextregyear = $y2 . '-' . ($y2int + 1);
 	return $nextregyear;
 }
+function iss_previous_issgrade($issgrade) {
+	switch ($issgrade) {
+		case '1' :
+			return 'KG';
+			break;
+		case '2' :
+			return '1';
+			break;
+		case '3' :
+			return '2';
+			break;
+		case '4' :
+			return '3';
+			break;
+		case '5' :
+			return '4';
+			break;
+		case '6' :
+			return '5';
+			break;
+		case '7' :
+			return '6';
+			break;
+		case '8' :
+			return '7';
+			break;
+		case 'KG' :
+			return '0';
+			break;
+		case 'YG' :
+			return '8';
+			break;
+		case 'YB' :
+			return '8';
+			break;
+		default :
+			return $issgrade;
+	}
+}
 function iss_next_issgrade($issgrade, $gender, $regularschoolgrade) {
 	switch ($issgrade) {
 		case '1' :
