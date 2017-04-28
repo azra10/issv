@@ -1,0 +1,1241 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-01-13T13:34:20-05:00\n"
+"POT-Creation-Date: 2017-01-13T13:34:20-05:00\n"
+
+#: ./software-issue-manager/assets/ext/edd/EDD_SL_Plugin_Updater.php:196
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/edd/EDD_SL_Plugin_Updater.php:204
+msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/edd/EDD_SL_Plugin_Updater.php:358
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/edd/EDD_SL_Plugin_Updater.php:358
+msgid "Error"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/field.php:234
+msgid "+ Add more"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/button.php:35
+msgid "Click me"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:18
+msgid "Done"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:19
+msgid "Prev"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:20
+msgid "Next"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:21
+msgid "Today"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "January"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "February"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "March"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "April"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "May"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "June"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "July"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "August"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "September"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "October"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "November"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:22
+msgid "December"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Jan"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Feb"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Mar"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Apr"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Jun"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Jul"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Aug"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Sep"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Oct"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Nov"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:23
+msgid "Dec"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:24
+msgid "Sunday"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:24
+msgid "Monday"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:24
+msgid "Tuesday"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:24
+msgid "Wednesday"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:24
+msgid "Thursday"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:24
+msgid "Friday"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:24
+msgid "Saturday"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:25
+msgid "Sun"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:25
+msgid "Mon"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:25
+msgid "Tue"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:25
+msgid "Wed"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:25
+msgid "Thu"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:25
+msgid "Fri"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:25
+msgid "Sat"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:26
+msgid "Su"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:26
+msgid "Mo"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:26
+msgid "Tu"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:26
+msgid "We"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:26
+msgid "Th"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:26
+msgid "Fr"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:26
+msgid "Sa"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/date.php:27
+msgid "Wk"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:33
+msgid "Choose Time"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:34
+msgid "Time"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:35
+msgid "Hour"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:36
+msgid "Minute"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:37
+msgid "Second"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:38
+msgid "Millisecond"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:39
+msgid "Time Zone"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/datetime.php:40
+msgid "Now"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file-advanced.php:23
+msgid "Select Files"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file-advanced.php:64
+msgctxt "file upload"
+msgid "Select or Upload Files"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file-advanced.php:100
+msgctxt "file upload"
+msgid "Delete"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file-advanced.php:101
+msgctxt "file upload"
+msgid "Edit"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file-input.php:17
+msgid "Select File"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file-input.php:40
+msgid "Select"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file-input.php:42
+msgid "Remove"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file.php:19
+msgid "You may only upload maximum %d file"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file.php:20
+msgid "You may only upload maximum %d files"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file.php:70
+msgid "Error: Cannot delete file"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file.php:83
+msgctxt "file upload"
+msgid "Upload Files"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/file.php:84
+msgctxt "file upload"
+msgid "+ Add new file"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/image-advanced.php:22
+msgid "Select Images"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/image-advanced.php:69
+msgctxt "image upload"
+msgid "Select or Upload Images"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/image-advanced.php:105
+msgctxt "image upload"
+msgid "Delete"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/image-advanced.php:106
+msgctxt "image upload"
+msgid "Edit"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/image.php:70
+msgctxt "image upload"
+msgid "Upload Images"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/image.php:71
+msgctxt "image upload"
+msgid "+ Add new image"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/map.php:53
+msgid "Find Address"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/oembed.php:54
+msgid "Embed HTML not available."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/oembed.php:76
+msgid "Preview"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/plupload-image.php:102
+msgctxt "image upload"
+msgid "Drop images here"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/plupload-image.php:103
+msgctxt "image upload"
+msgid "or"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/plupload-image.php:104
+msgctxt "image upload"
+msgid "Select Files"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/plupload-image.php:179
+msgctxt "image upload"
+msgid "Allowed Image Files"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/post.php:52
+msgid "Post"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/post.php:66
+msgid "Select a %s"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/fields/user.php:54
+msgid "User"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:115
+msgid "This field is required."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:116
+msgid "Please fix this field."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:117
+msgid "Please enter a valid email address."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:118
+msgid "Please enter a valid URL."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:119
+msgid "Please enter a valid date."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:120
+msgid "Please enter a valid date ( ISO )"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:121
+msgid "Please enter a valid number."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:122
+msgid "Please enter only digits."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:123
+msgid "Please enter a valid credit card number."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:124
+msgid "Please enter the same value again."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:125
+msgid "Please enter no more than {0} characters."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:126
+msgid "Please enter at least {0} characters."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:127
+msgid "Please enter a value between {0} and {1} characters long."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:128
+msgid "Please enter a value between {0} and {1}."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:129
+msgid "Please enter a value less than or equal to {0}."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:130
+msgid "Please enter a value greater than or equal to {0}."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/emd-meta-box/inc/meta-box.php:280
+msgid "Please correct the errors highlighted below and try again."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/box.php:55
+msgid "Are you sure you want to delete all connections?"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/box.php:137
+msgid "Search"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/box.php:216
+msgid "previous"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/box.php:217
+msgid "next"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/box.php:218
+msgid "of"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/factory.php:46
+msgid " (from)"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/factory.php:47
+msgid " (to)"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/fields.php:7
+msgid "Delete all connections"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/admin/fields.php:16
+msgid "Delete connection"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/extra.php:19
+msgid "Posts 2 Posts"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/extra.php:20
+msgid "A list of posts connected to the current post"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/extra.php:37
+msgid "Title:"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/extra.php:44
+msgid "Connection type:"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/extra.php:49
+msgid "Connection listing:"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/extra.php:55
+msgid "connected"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/extra.php:56
+msgid "related"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/side.php:247
+msgid "Users"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/side.php:257
+msgid "Search Users"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/side.php:258
+msgid "No users found."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/type.php:101
+msgid "Create connections"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/core/type.php:121
+msgid "Connected %s"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/scb/AdminPage.php:170
+msgid "Settings <strong>saved</strong>."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/scb/AdminPage.php:183
+#: ./software-issue-manager/assets/ext/posts-to-posts/scb/AdminPage.php:194
+msgid "Save Changes"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/posts-to-posts/scb/AdminPage.php:343
+msgid "Settings"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/zebraform/languages/english.php:11
+msgid "Clear"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/zebraform/languages/english.php:12
+msgid "There was a problem with your submission!<br>Possible causes may be that the submission has taken too long, or it represents a duplicate request.<br>Please try again."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/zebraform/languages/english.php:17
+msgid "Get a new code"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/zebraform/languages/english.php:18
+msgid "Other..."
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/zebraform/languages/english.php:19
+msgid "- select -"
+msgstr ""
+
+#: ./software-issue-manager/assets/ext/zebraform/languages/english.php:20
+msgid "Possible spam attempt detected. The posted form data was rejected."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:28
+msgid "Please enter and activate your <b>license keys</b>."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:79
+msgid "Deactivate License"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:83
+msgid "Activate License"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:89
+msgid "Error:"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:202
+#: ./software-issue-manager/includes/admin/license-functions.php:236
+msgid "An error occurred, please try again."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:214
+msgid "Your license key expired on %s."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:219
+msgid "Your license key has been disabled."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:222
+msgid "Invalid license."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:226
+msgid "Your license is not active for this URL."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:229
+msgid "This appears to be an invalid license key for %s."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/license-functions.php:233
+msgid "Your license key has reached its activation limit."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:20
+msgid "Forms"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:122
+msgid "Use the section below to show or hide corresponding form elements. Size column refers to the form elements length relative to the other elements in the same row. Total element size in each row can not exceed 12 units. When you hide or show an element you may adjust sizes of the other elements in the same row. The form elements which are in the same row are color coded."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:126
+msgid "Error Message"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:126
+msgid "Success Mesage"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:126
+msgid "No Access Message"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:126
+msgid "No Result Message"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:198
+msgid "Show %s"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:232
+msgid "Show Captcha"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:234
+msgid "Never Show"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:235
+msgid "Always Show"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:236
+msgid "Visitors Only"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:253
+msgid "CSRF Check"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:258
+msgid "Enables Cross-site request forgery protection when selected."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:266
+msgid "Show Register / Login Form"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:268
+msgid "None"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:269
+msgid "Registration and Login Forms"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:270
+msgid "Login Form only"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:279
+msgid "Displays or hides registration and login forms on this form for non-logged-in users."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-forms.php:298
+msgid "The unique form elements are disabled however you can change their sizes."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:17
+msgid "Misc"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:63
+msgid "Google Maps API Key"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:70
+msgid "Google requires api key to access google map service. By default we provide a complimentary key. Get your own google maps api key to avoid service interruptions"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:74
+msgid "Disable Bootstrap CSS"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:84
+msgid "Disables loading of Bootstrap stylesheet in plugin related pages when checked. You may need to disable it if your theme already uses Bootstrap based stylesheet."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:86
+msgid "Disable Bootstrap JS"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:96
+msgid "Disables loading of Bootstrap JavaScript in plugin related pages when checked. You may need to disable it if your theme already uses Bootstrap based JavaScript."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:100
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:105
+msgid "Only Message"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:107
+msgid "Only Login Form"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions-misc.php:116
+msgid "Display the registration and login forms on the pages non-logged-in users don't have access to."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:28
+msgid "Entities"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:44
+msgid "Taxonomies"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:47
+msgid "Tools"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:50
+msgid "Settings Saved."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:127
+#: ./software-issue-manager/includes/admin/settings-functions.php:557
+msgid "Base Slug"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:130
+msgid "Sets the custom base slug for single and archive posts. After you update,  flush the rewrite rules by going to the Permalink Settings page. This works only if post name based permalink structure is selected."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:132
+msgid "Single Template"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:136
+#: ./software-issue-manager/includes/admin/settings-functions.php:567
+msgid "Right Sidebar"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:136
+#: ./software-issue-manager/includes/admin/settings-functions.php:567
+msgid "Left Sidebar"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:136
+#: ./software-issue-manager/includes/admin/settings-functions.php:567
+msgid "Full Width"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:144
+msgid "Sets the template for a single post."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:146
+msgid "Hide Previous Next Links"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:153
+msgid "Hides the previous and next post links on the frontend for single posts."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:156
+msgid "Archive Template"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:167
+msgid "Sets the template for archive posts."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:169
+#: ./software-issue-manager/includes/admin/settings-functions.php:577
+msgid "Hide Page Navigation"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:176
+#: ./software-issue-manager/includes/admin/settings-functions.php:584
+msgid "Hides the page navigation links on the frontend for archive posts."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:185
+#: ./software-issue-manager/includes/admin/settings-functions.php:202
+#: ./software-issue-manager/includes/admin/settings-functions.php:220
+#: ./software-issue-manager/includes/admin/settings-functions.php:226
+#: ./software-issue-manager/includes/admin/settings-functions.php:297
+#: ./software-issue-manager/includes/admin/settings-functions.php:321
+#: ./software-issue-manager/includes/admin/settings-functions.php:542
+msgid "Enable"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:186
+#: ./software-issue-manager/includes/admin/settings-functions.php:203
+#: ./software-issue-manager/includes/admin/settings-functions.php:221
+#: ./software-issue-manager/includes/admin/settings-functions.php:298
+#: ./software-issue-manager/includes/admin/settings-functions.php:322
+#: ./software-issue-manager/includes/admin/settings-functions.php:543
+msgid "Disable"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:187
+#: ./software-issue-manager/includes/admin/settings-functions.php:204
+#: ./software-issue-manager/includes/admin/settings-functions.php:222
+#: ./software-issue-manager/includes/admin/settings-functions.php:227
+#: ./software-issue-manager/includes/admin/settings-functions.php:299
+#: ./software-issue-manager/includes/admin/settings-functions.php:323
+#: ./software-issue-manager/includes/admin/settings-functions.php:544
+msgid "Hide on FrontEnd Pages"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:200
+msgid "Featured Image"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:242
+msgid "Attributes"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:244
+msgid "Enable: Display this attribute on everywhere</br>Disable: Remove this attribute from everywhere</br>Hide on FrontEnd Pages: This attribute is still enabled on admin area. If you want to hide this attribute on the frontend forms go to Forms tab."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:258
+msgid "Hide Custom Fields"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:267
+msgid "Check the custom fields you would like to hide on the frontend."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:290
+msgid "Relationships"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:292
+msgid "Enable: Display this relationship on everywhere</br>Disable: Remove this relationship from everywhere</br>Hide on FrontEnd Pages: This relationship is still enabled on admin area. If you want to hide this relationship on the frontend forms go to Forms tab."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:314
+msgid "Relationship Attributes"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:316
+msgid "Enable: Display this relationship attribute on everywhere</br>Disable: Remove this relationship attribute from everywhere</br>Hide on FrontEnd Pages: This relationship attribute is still enabled on admin area."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:368
+msgid "Frontend Map Settings"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:369
+msgid "Width"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:369
+msgid "Sets the map width.You can use '%' or 'px'. Default is 100%."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:370
+msgid "Height"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:370
+msgid "Sets the map height. You can use 'px'. Default is 480px."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:371
+msgid "Zoom"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:380
+msgid "Type"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:390
+msgid "Marker"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:391
+msgid "Display Info Window on Page Load"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:539
+msgid "Availability"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:554
+msgid "Enable: Display this taxonomy on everywhere</br>Disable: Remove this taxonomy from everywhere</br>Hide on FrontEnd Pages: This taxonomy is still enabled on admin area. If you want to hide this taxonomy on the frontend forms go to Forms tab."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:560
+msgid "Sets the custom base slug for this taxonomy. After you update,  flush the rewrite rules by going to the Permalink Settings page."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:563
+msgid "Template"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:575
+msgid "Sets the template for the posts which belong to this taxonomy."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:645
+msgid "All missing pages were installed successfully."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:656
+msgid "Install Pages"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:658
+msgid "Install pages"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:659
+msgid "This tool will install all the missing %s pages. Pages already defined and set up will not be replaced."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:661
+msgid "Delete All Settings"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:668
+msgid "This tool will delete all settings/options data including setup assistant created plugin pages when using the \"Delete\" link on the plugins screen."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:670
+msgid "Delete All Data"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:683
+msgid "This tool will delete all %s data and related taxonomies including setup assistant created plugin pages when using the \"Delete\" link on the plugins screen. As a best practice we recommend you to backup your database before selecting this option."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:685
+msgid "Custom CSS"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/settings-functions.php:689
+msgid "Custom CSS allows you to add your own styles or override the default CSS of this plugin. The CSS code written here is only applied to this plugin's frontend pages."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/singletax/class-emd-single-taxonomy.php:144
+msgid "Most Used"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/singletax/class-emd-single-taxonomy.php:208
+msgid "+ %s"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:24
+#: ./software-issue-manager/includes/admin/store-functions.php:47
+msgid "Browse All"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:26
+msgid "The following plugins extend and expand the functionality of your app."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:49
+msgid "The following <a href=\"%s\" title=\"WP App Studio Prodev\" target=\"_blank\">WP App Studio Prodev</a> plugin designs can be used as a template:"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:51
+msgid "To customize the functionality of their corresponding plugins"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:54
+msgid "To create your own plugin"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:81
+msgid "There was an error retrieving the extensions list from the server. Please try again later."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:101
+msgid "Thanks for installing %s."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:101
+msgid "All support requests are accepted through <a href=\"%s\" target=\"_blank\">our support site.</a>"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/store-functions.php:126
+msgid "Like our plugin? Leave us a review"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:42
+msgid "Standards"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:59
+msgid "AutoCompletes"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:67
+msgid "Integrations"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:78
+msgid "Charts"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:94
+msgid "Datagrids"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:102
+msgid "Calendars"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:179
+msgid "Insert WPAS Shortcode"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:180
+msgid "Select a component below to insert into any Post or Page."
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:185
+msgid "Insert Shortcode"
+msgstr ""
+
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:207
+#: ./software-issue-manager/includes/admin/wpas-btn-functions.php:208
+msgid "Add WPAS Shortcode"
+msgstr ""
+
+#: ./software-issue-manager/includes/class-emd-widget.php:132
+msgid "Title"
+msgstr ""
+
+#: ./software-issue-manager/includes/class-emd-widget.php:137
+msgid "%s to show"
+msgstr ""
+
+#: ./software-issue-manager/includes/class-emd-widget.php:138
+msgid "Max: 10"
+msgstr ""
+
+#: ./software-issue-manager/includes/class-emd-widget.php:209
+#: ./software-issue-manager/includes/class-emd-widget.php:222
+msgid "%1$s on %2$s"
+msgstr ""
+
+#: ./software-issue-manager/includes/common-functions.php:348
+msgid "Author:"
+msgstr ""
+
+#: ./software-issue-manager/includes/common-functions.php:349
+msgid "%s \a\t %s"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:152
+msgid "%s updated. <a href=\"%s\">View %s</a>"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:153
+msgid "Custom field updated."
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:154
+msgid "Custom field deleted."
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:155
+msgid "%s updated."
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:157
+msgid "%s restored to revision from %s"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:158
+msgid "%s published. <a href=\"%s\">View %s</a>"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:159
+msgid "%s saved."
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:160
+msgid "%s submitted. <a target=\"_blank\" href=\"%s\">Preview %s</a>"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:161
+msgid "%s scheduled for: <strong>%s</strong>. <a target=\"_blank\" href=\"%s\">Preview %s</a>"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:161
+msgid "M j, Y @ G:i"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:162
+msgid "%s draft updated. <a target=\"_blank\" href=\"%s\">Preview %s</a>"
+msgstr ""
+
+#: ./software-issue-manager/includes/entities/class-emd-entity.php:181
+msgid "Operations"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:825
+#: ./software-issue-manager/includes/form-functions.php:835
+msgid "Invalid username"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:830
+msgid "Username already taken"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:840
+msgid "Email address already taken"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:845
+msgid "Invalid Email"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:849
+msgid "Please enter a password"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:853
+msgid "Passwords do not match"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:914
+msgid "The password you entered is incorrect"
+msgstr ""
+
+#: ./software-issue-manager/includes/form-functions.php:918
+msgid "The username you entered does not exist"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-archive.php:46
+msgid "<i class=\"fa fa-angle-left\"></i> Previous"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-archive.php:48
+msgid "Next <i class=\"fa fa-angle-right\"></i>"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-login.php:4
+msgid "Log into Your Account"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-login.php:6
+msgid "Username or Email"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-login.php:10
+msgid "Password"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-login.php:14
+msgid "Remember Me"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-login.php:21
+msgid "Log In"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-login.php:26
+msgid "Lost Password?"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-login.php:31
+msgid "Register"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-register.php:6
+msgid "Username"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-register.php:10
+msgid "Email"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-register.php:14
+msgid "First Name"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-register.php:18
+msgid "Last Name"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-register.php:26
+msgid "Confirm Password"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-register.php:39
+msgid "Login"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-single.php:43
+msgctxt "Previous post link"
+msgid "<i class=\"fa fa-angle-left\"></i>"
+msgstr ""
+
+#: ./software-issue-manager/layouts/emd-single.php:44
+msgctxt "Next post link"
+msgid "<i class=\"fa fa-angle-right\"></i>"
+msgstr ""
