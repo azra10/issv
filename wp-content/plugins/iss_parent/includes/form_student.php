@@ -1,46 +1,17 @@
 <div class="container">
   <?php
 		
-$issclasslist = array (
-				'KG' => 'Kindergarten',
-				'1' => 'Grade 1',
-				'2' => 'Grade 2',
-				'3' => 'Grade 3',
-				'4' => 'Grade 4',
-				'5' => 'Grade 5',
-				'6' => 'Grade 6',
-				'7' => 'Grade 7',
-				'8' => 'Grade 8',
-				'YB' => 'Youth Boys',
-				'YG' => 'Youth Girls',
-				'XX' => 'Unknown' 
-		);
-		?>
-    <?php
+	$issclasslist = iss_class_list();				
+	$regschclasslist = iss_regular_school_class_list();
 				
-$regschclasslist = array (
-						'KG' => 'Kindergarten',
-						'1' => 'Grade 1',
-						'2' => 'Grade 2',
-						'3' => 'Grade 3',
-						'4' => 'Grade 4',
-						'5' => 'Grade 5',
-						'6' => 'Grade 6',
-						'7' => 'Grade 7',
-						'8' => 'Grade 8',
-						'9' => 'Grade 9',
-						'10' => 'Grade 10',
-						'XX' => 'Unknown' 
-				);
-				
-				if (strpos ( $isstabname, "student", 0 ) === 0) {
-					$activetab = $isstabname;
-				} else if (! is_null ( $issstudents ) && (count ( $issstudents ) > 0)) {
-					$activetab = 'student' . $issstudents [0] ['StudentID'];
-				} else {
-					$activetab = 'studentnew';
-				}
-				?>
+	if (strpos ( $isstabname, "student", 0 ) === 0) {
+		$activetab = $isstabname;
+	} else if (! is_null ( $issstudents ) && (count ( $issstudents ) > 0)) {
+		$activetab = 'student' . $issstudents [0] ['StudentID'];
+	} else {
+		$activetab = 'studentnew';
+	}
+	?>
 
       <!-- student tabs -->
 	<div class="row">

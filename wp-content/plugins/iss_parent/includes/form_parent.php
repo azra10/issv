@@ -63,24 +63,6 @@
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="FatherEmail"> Email <span
-					class="text-danger">*</span>
-				</label>
-				<div class="col-md-7 input-group" data-validate="email">
-					<input class="form-control input-md"
-						placeholder="Father Email (required)" type="text"
-						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php if (isset($issparent['FatherEmail'])) echo $issparent['FatherEmail']; ?>" id="FatherEmail"
-						name="FatherEmail" required="" maxlength="100" validate="true"> <span
-						class="input-group-addon"> <i class="glyphicon glyphicon-envelope"
-						aria-="" hidden="true"></i></span>
-				</div>
-				<div class="text-danger col-md-offset-4">
-            <?php if (isset($errors['FatherEmail'])) echo $errors['FatherEmail']; ?>
-          </div>
-			</div>
-			<!-- Text input-->
-			<div class="form-group">
 				<label class="col-md-4 control-label" for="FatherCellPhone"> Cell
 					Phone <span class="text-danger">*</span>
 				</label>
@@ -94,8 +76,24 @@
 						class=" glyphicon glyphicon-phone" aria-="" hidden="true"></i></span>
 				</div>
 				<div class="text-danger col-md-offset-4">
-            <?php if (isset($errors['FatherCellPhone'])) echo $errors['FatherCellPhone']; ?>
-          </div>
+					<?php if (isset($errors['FatherCellPhone'])) echo $errors['FatherCellPhone']; ?>
+				</div>
+			</div>
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="FatherEmail"> Email </label>
+				<div class="col-md-7 input-group" data-validate="email">
+					<input class="form-control input-md"
+						placeholder="Father Email (optional)" type="text"
+						<?php if (!$edit) { echo "disabled"; } ?>
+						value="<?php if (isset($issparent['FatherEmail'])) echo $issparent['FatherEmail']; ?>" 
+						id="FatherEmail" name="FatherEmail"  maxlength="100" 
+						validate="true"> <span class="input-group-addon"> <i class="glyphicon glyphicon-envelope"
+						aria-="" hidden="true"></i></span>
+				</div>
+				<div class="text-danger col-md-offset-4">
+					<?php if (isset($errors['FatherEmail'])) echo $errors['FatherEmail']; ?>
+				</div>
 			</div>
 
 			<!-- Text input-->
@@ -134,8 +132,8 @@
 						class="glyphicon glyphicon-remove"></span></span>
 				</div>
 				<div class="text-danger col-md-offset-4">
-            <?php if (isset($errors['MotherLastName'])) echo $errors['MotherLastName']; ?>
-          </div>
+					<?php if (isset($errors['MotherLastName'])) echo $errors['MotherLastName']; ?>
+				</div>
 			</div>
 
 			<!-- Text input-->
@@ -153,39 +151,19 @@
 						class="glyphicon glyphicon-remove"></span> </span>
 				</div>
 				<div class="text-danger col-md-offset-4">
-            <?php if (isset($errors['MotherFirstName'])) echo $errors['MotherFirstName']; ?>
-          </div>
+					<?php if (isset($errors['MotherFirstName'])) echo $errors['MotherFirstName']; ?>
+				</div>
 			</div>
 
 			<!-- Text input-->
 			<div class="form-group">
-				<label class="col-md-4 control-label" for="MotherEmail"> Email <span
-					class="text-danger">*</span>
-				</label>
-				<div class="col-md-7 input-group" data-validate="email">
-					<input class="form-control input-md"
-						placeholder="Mother Email (required)" type="text"
-						<?php if (!$edit) { echo "disabled"; } ?>
-						value="<?php if (isset($issparent['MotherEmail'])) echo $issparent['MotherEmail']; ?>" id="MotherEmail"
-						name="MotherEmail" required="true" maxlength="100" validate="true">
-					<span class="input-group-addon"><i
-						class="glyphicon glyphicon-envelope" aria-="" hidden="true"></i></span>
-				</div>
-				<div class="text-danger col-md-offset-4">
-            <?php if (isset($errors['MotherEmail'])) echo $errors['MotherEmail']; ?>
-          </div>
-			</div>
-			<!-- Text input-->
-			<div class="form-group">
-				<label class="col-md-4 control-label" for="MotherCellPhone"> Cell
-					Phone <span class="text-danger">*</span>
-				</label>
+				<label class="col-md-4 control-label" for="MotherCellPhone"> Cell Phone  </label>
 				<div class="col-md-7 input-group" data-validate="phone">
 					<input class="form-control input-md"
-						placeholder="Mother Cell Phone (required)" type="text"
+						placeholder="Mother Cell Phone (optional)" type="text"
 						<?php if (!$edit) { echo "disabled"; } ?>
 						value="<?php if (isset($issparent['MotherCellPhone'])) echo $issparent['MotherCellPhone']; ?>"
-						id="MotherCellPhone" name="MotherCellPhone" required="true"
+						id="MotherCellPhone" name="MotherCellPhone" 
 						maxlength="20" validate="true"> <span class="input-group-addon"><i
 						class=" glyphicon glyphicon-phone" aria-="" hidden="true"></i></span>
 				</div>
@@ -194,6 +172,22 @@
           </div>
 			</div>
 
+			<!-- Text input-->
+			<div class="form-group">
+				<label class="col-md-4 control-label" for="MotherEmail"> Email  </label>
+				<div class="col-md-7 input-group" data-validate="email">
+					<input class="form-control input-md"
+						placeholder="Mother Email (optional)" type="text"
+						<?php if (!$edit) { echo "disabled"; } ?>
+						value="<?php if (isset($issparent['MotherEmail'])) echo $issparent['MotherEmail']; ?>" 
+						id="MotherEmail" name="MotherEmail"  maxlength="100" validate="true">
+					<span class="input-group-addon"><i
+						class="glyphicon glyphicon-envelope" aria-="" hidden="true"></i></span>
+				</div>
+				<div class="text-danger col-md-offset-4">
+					<?php if (isset($errors['MotherEmail'])) echo $errors['MotherEmail']; ?>
+				</div>
+			</div>
 			<!-- Text input-->
 			<div class="form-group">
 				<label class="col-md-4 control-label" for="motherworkphone">Work

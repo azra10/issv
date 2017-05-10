@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `qv84_iss_parent` (
   `ParentStatus` varchar(10) NOT NULL,
   `ParentNew` varchar(5) NOT NULL DEFAULT 'No',
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Updated Date',
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Created Date',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created Date',
   `SpecialNeedNote` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Parents';
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `qv84_iss_payment` (
   `RegistrationExpiration` datetime DEFAULT NULL,
   `RegistrationComplete` varchar(10) DEFAULT 'New',
   `updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Updated Date',
-  `created` datetime NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Created Date',
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'Created Date',
   `Comments` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Payments';
 

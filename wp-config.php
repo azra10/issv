@@ -20,13 +20,13 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'lwp');
+define('DB_NAME', 'qv84');
 
 /** MySQL database username */
 define('DB_USER', 'root');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'Password1');
 
 /** MySQL hostname */
 define('DB_HOST', 'localhost');
@@ -63,7 +63,7 @@ define('NONCE_SALT',       'lzQ+`s>v|DbBQ/jLEz7_/;lw:Ub{6%F{HbH1?9Y92~#sG$6>bMv8
  * You can have multiple installations in one database if you give each
  * a unique prefix. Only numbers, letters, and underscores please!
  */
-$table_prefix  = 'lwp_';
+$table_prefix  = 'qv84_';
 
 /**
  * For developers: WordPress debugging mode.

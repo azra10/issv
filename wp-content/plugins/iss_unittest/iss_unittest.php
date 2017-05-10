@@ -258,11 +258,11 @@ class ISS_UnitTestPlugin {
 			$result = true;
 			$name = iss_get_school_name ();
 			if ($name === NULL) {
-				$result = false;
+				 $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Name, expected Islamic School of Silicon Valley </span>";
 			}
 			if ($result && ($name != 'Islamic School of Silicon Valley')) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect name {$name}, expected Islamic School of Silicon Valley </span>";
 			}
 			
@@ -286,11 +286,11 @@ class ISS_UnitTestPlugin {
 			$result = true;
 			$name = iss_adminpref_schoolname ();
 			if ($name === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Name, expected Islamic School of Silicon Valley </span>";
 			}
 			if ($result && ($name != 'Islamic School of Silicon Valley')) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect name {$name}, expected Islamic School of Silicon Valley </span>";
 			}
 			
@@ -315,11 +315,11 @@ class ISS_UnitTestPlugin {
 			$errors = array ();
 			$name = iss_adminpref_registrationyear ();
 			if ($name === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Year, expected format 2016-2017 </span>";
 			}
 			if ($result && ! iss_field_valid ( 'RegistrationYear', $name, $errors, '' )) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name}, expected format 2016-2017</span>";
 			}
 			
@@ -345,11 +345,11 @@ class ISS_UnitTestPlugin {
 			$errors = array ();
 			$name = iss_userpref_registrationyear ();
 			if ($name === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Year, expected format 2016-2017 </span>";
 			}
 			if ($result && ! iss_field_valid ( 'RegistrationYear', $name, $errors, '' )) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration year {$name}, expected format 2016-2017 </span>";
 			}
 			
@@ -375,11 +375,11 @@ class ISS_UnitTestPlugin {
 			$errors = array ();
 			$name = iss_registration_period ();
 			if ($name === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Year </span>";
 			}
 			if ($result && ! iss_field_valid ( 'RegistrationYear', $name, $errors, '' )) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration period {$name} </span>";
 			}
 			
@@ -404,11 +404,11 @@ class ISS_UnitTestPlugin {
 			$errors = array ();
 			$name = iss_next_registration_year ();
 			if ($name === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Year </span>";
 			}
 			if ($result && ! iss_field_valid ( 'RegistrationYear', $name, $errors, '' )) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration period {$name} </span>";
 			}
 			
@@ -434,11 +434,11 @@ class ISS_UnitTestPlugin {
 			$name = iss_last_registration_year ();
 			
 			if ($name === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Year </span>";
 			}
 			if ($result && ! iss_field_valid ( 'RegistrationYear', $name, $errors, '' )) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid registration period {$name} </span>";
 			}
 			if ($result)
@@ -451,12 +451,12 @@ class ISS_UnitTestPlugin {
 			list ( $y3, $y4 ) = explode ( "-", $name );
 			
 			if ($result && ($y1 != $y4)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect last registration period {$name} </span>";
 			}
 			}
 			if ($result && ($name != $regyear)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect last registration period {$name} </span>";
 			}
 			
@@ -488,15 +488,15 @@ class ISS_UnitTestPlugin {
 			
 			$result = true;
 			if ($returnlog === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL User Option List </span>";
 			}
 			if ($result && (count ( $returnlog ) == 0)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Zero items in User Option List </span>";
 			}
 			if ($result && ('2010-2011' != $returnlog ['iss_user_registrationyear'] [0])) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid user preference value {$returnlog['iss_user_registrationyear'][0]} </span>";
 			}
 			
@@ -555,15 +555,15 @@ class ISS_UnitTestPlugin {
 			$regyear = iss_registration_period ();
 			$list = iss_get_parents_complete_list ( $regyear );
 			if ($list === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Parent List </span>";
 			}
 			if ($result && (count ( $list ) == 0)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Zero item parent list </span>";
 			}
 			if ($result && ($list [0] ['RegistrationYear'] != $regyear)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect registration year {$list[0]['RegistrationYear']} </span>";
 			}
 			
@@ -625,7 +625,7 @@ class ISS_UnitTestPlugin {
 			$regyear = iss_registration_period ();
 			$plist = iss_get_parents_complete_list ( $regyear );
 			if (count ( $plist ) == 0) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Cannot Test Arvhived Parent List </span>";
 				echo '</td></tr>';
 				$this->failedtestcount++; return;
@@ -925,15 +925,15 @@ class ISS_UnitTestPlugin {
 			$columns = "ParentViewID, ParentID, FatherLastName, FatherFirstName, RegistrationComplete, RegistrationYear";
 			$list = iss_get_parents_list ( $regyear, $columns );
 			if ($list === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Parent List </span>";
 			}
 			if ($result && (count ( $list ) == 0)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Zero item parent list </span>";
 			}
 			if ($result && ($list [0] ['RegistrationYear'] != $regyear)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect registration year {$list[0]['RegistrationYear']} </span>";
 			}
 			
@@ -959,15 +959,15 @@ class ISS_UnitTestPlugin {
 			$columns = "ParentViewID, ParentID, FatherLastName, FatherFirstName, RegistrationComplete, RegistrationYear";
 			$list = iss_get_startwith_parents_list ( $regyear, $columns, 'T' );
 			if ($list === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Parent List </span>";
 			}
 			if ($result && (count ( $list ) == 0)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Zero item parent list </span>";
 			}
 			if ($result && ($list [0] ['RegistrationYear'] != $regyear)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect registration year {$list[0]['RegistrationYear']} </span>";
 			}
 			
@@ -993,15 +993,15 @@ class ISS_UnitTestPlugin {
 			$columns = "ParentViewID, ParentID, FatherLastName, FatherFirstName, RegistrationComplete, RegistrationYear";
 			$list = iss_get_search_parents_list ( $regyear, $columns, 'test' );
 			if ($list === NULL) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Parent List </span>";
 			}
 			if ($result && (count ( $list ) == 0)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Zero item parent list </span>";
 			}
 			if ($result && ($list [0] ['RegistrationYear'] != $regyear)) {
-				$result = false;
+				$result = false; $this->failedtestcount++;
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Incorrect registration year {$list[0]['RegistrationYear']} </span>";
 			}
 			
@@ -1252,11 +1252,11 @@ class ISS_UnitTestPlugin {
 			$name = iss_adminpref_registrationfee_sibling_installment ();
 			if (($name === NULL) || ($name === 0)) {
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> NULL Registration Fee (sibline) Installment </span>";
-				$result = false;
+				$result = false; $this->failedtestcount++;
 			}
 			if (! iss_field_valid ( 'PaymentInstallment1', $name, $errors, '' )) {
 				echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\"> Invalid Installment Amount(sibling) {$name} </span>";
-				$result = false;
+				$result = false; $this->failedtestcount++;
 			}
 			
 			if ($result) {
@@ -1364,7 +1364,7 @@ class ISS_UnitTestPlugin {
 				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
 					echo "<br><br>";
-					var_dump ( $row );
+					//var_dump ( $row );
 				}
 				if ((count ( $changeset ) != 1) || ($changeset [0] ['StudentLastName'] != 'TestStudentLastName')) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">6. Incorrect student change log iss_changelog_list after iss_process_newstudentrequest </span>";
@@ -1488,7 +1488,7 @@ class ISS_UnitTestPlugin {
 				$issparent = array ();
 				$parentid = iss_process_newparentrequest ( $_POST, $issparent, $errors );
 				// var_dump($errorstring);
-				var_dump ( $errors );
+				//var_dump ( $errors );
 				if (($parentid == 0) || (intval ( $parentid ) == 0) || (count ( $errors ) !== 0)) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">3. ParentID : {$parentid} error on iss_process_newparentrequest </span>";
 					echo '</td></tr>';
@@ -1516,7 +1516,7 @@ class ISS_UnitTestPlugin {
 				//echo "<br>first changelog {$count}<br>";
 				foreach ( $changeset as $row ) {
 					echo "<br><br>";
-					var_dump ( $row );
+					//var_dump ( $row );
 				}
 				if ((count ( $changeset ) != 1) || ($changeset [0] ['FatherLastName'] != 'TestFatherLastName')) {
 					echo "<i class=\"glyphicon glyphicon-remove\" ></i><span class=\"text-danger\">6. Incorrect parent change log iss_changelog_list after iss_process_newparentrequest </span>";

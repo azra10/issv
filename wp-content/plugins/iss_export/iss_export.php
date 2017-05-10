@@ -286,19 +286,7 @@ class ISS_Export_Parents {
 					<option value="All" selected>All</option>
                 <?php
 		
-				$issclasslist = array (
-				'KG' => 'Kindergarten',
-				'1' => 'Grade 1',
-				'2' => 'Grade 2',
-				'3' => 'Grade 3',
-				'4' => 'Grade 4',
-				'5' => 'Grade 5',
-				'6' => 'Grade 6',
-				'7' => 'Grade 7',
-				'8' => 'Grade 8',
-				'YB' => 'Youth Boys',
-				'YG' => 'Youth Girls' 
-				);
+				$issclasslist = iss_class_list();
 				foreach ( $issclasslist as $class => $name ) {
 					echo "<option value=\"$class\">{$name}</option>";
 				}

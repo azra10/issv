@@ -377,6 +377,38 @@ function iss_quote_all($value) {
 	$value = "\"" .  $value . "\"";
 	return $value;
 }
-
-
+function iss_class_list() {
+	$issclasslist = array (
+				'KG' => 'Kindergarten',
+				'1' => 'Grade 1',
+				'2' => 'Grade 2',
+				'3' => 'Grade 3',
+				'4' => 'Grade 4',
+				'5' => 'Grade 5',
+				'6' => 'Grade 6',
+				'7' => 'Grade 7',
+				'8' => 'Grade 8',
+				'YB' => 'Youth Boys',
+				'YG' => 'Youth Girls',
+				'XX' => 'Unknown' 
+		);
+		return $issclasslist;
+}
+function iss_regular_school_class_list() {
+	$regschclasslist = array (
+						'KG' => 'Kindergarten',
+						'1' => 'Grade 1',
+						'2' => 'Grade 2',
+						'3' => 'Grade 3',
+						'4' => 'Grade 4',
+						'5' => 'Grade 5',
+						'6' => 'Grade 6',
+						'7' => 'Grade 7',
+						'8' => 'Grade 8',
+						'9' => 'Grade 9',
+						'10' => 'Grade 10',
+						'XX' => 'Unknown' 
+				);
+	return $regschclasslist;
+}
 ?>

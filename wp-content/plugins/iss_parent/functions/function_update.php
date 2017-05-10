@@ -265,6 +265,8 @@ function iss_process_newparentrequest(&$post, &$issparent, &$errors) {
 		}
 	} // for tab fields
 	
+	iss_required_emails_valid($post, $errors);
+	
 	if (empty ( $errors )) {
 		$parentid = iss_parent_insert ( $issparent );
 		if (0 < $parentid) {
@@ -301,6 +303,7 @@ function iss_process_updateparentrequest($tabname, &$issparent, &$post, &$errors
 			$issparent [$fieldname] = $inputval; // modify parent record
 		}
 	} // for tab fields
+	iss_required_emails_valid($post, $errors);
 	
 	if (empty ( $errors )) {
 		if (! empty ( $changedfields )) {
@@ -310,6 +313,23 @@ function iss_process_updateparentrequest($tabname, &$issparent, &$post, &$errors
 		}
 	}
 	return 0;
+}
+function iss_required_emails_valid($post, &$errors) {
+  if ((!isset($post['FatherEmail']) || empty($post['FatherEmail'])) && 
+  	  (!isset($post['MotherEmail']) || empty($post['MotherEmail']))) {
+	$errors['FatherEmail'] =  'Father or Mother email is required.';
+	$errors['MotherEmail'] =  'Father or Mother email is required.';	
+  }
+  if ((!isset($post['FatherEmail']) || empty($post['FatherEmail']))  && 
+  		($post['SchoolEmail']=='Father' )) {
+	$errors['FatherEmail'] = 'Chosen as School email, cannot be empty.';
+  }
+  if ((!isset($post['MotherEmail']) || empty($post['MotherEmail'])) && ($post['SchoolEmail']=='Mother' )) {
+	$errors['MotherEmail'] = 'Chosen as School email, cannot be empty.';
+  }
+  iss_write_log ( "iss_get_new_studentid" );
+  iss_write_log ( $errors );
+	
 }
 
 /*  STUDENT */

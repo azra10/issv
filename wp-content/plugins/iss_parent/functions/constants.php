@@ -106,7 +106,10 @@ function iss_student_required_fields() {
 function iss_parent_tabfields() {
 	return array_merge ( iss_parent_required_tabfields (), array (
 			"FatherWorkPhone",
+			"FatherEmail",
 			"MotherWorkPhone",
+			"MotherEmail",
+			"MotherCellPhone",
 			"FamilySchoolStartYear",
 			"ParentNew" 
 	) );
@@ -119,12 +122,9 @@ function iss_parent_required_tabfields() {
 			"RegistrationYear",
 			"FatherFirstName",
 			"FatherLastName",
-			"FatherEmail",
 			"FatherCellPhone",
 			"MotherFirstName",
-			"MotherLastName",
-			"MotherEmail",
-			"MotherCellPhone" 
+			"MotherLastName"
 	);
 }
 function iss_home_tabfields() {
