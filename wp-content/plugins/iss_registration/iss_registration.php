@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: ISS Registeration For Next Year
+ * Plugin Name: 70. ISS Registeration For Next Year
  * Description: Prepare all active parents and student for next year registration.
  * Version: 1.0.0
  * Author: Azra Syed

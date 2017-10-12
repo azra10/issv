@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: ISS Export to CSV
+ * Plugin Name: 50. ISS Export to CSV
  * Description: Export Parents with students data to a csv file.
  * Version: 1.0.0
  * Author: Azra Syed

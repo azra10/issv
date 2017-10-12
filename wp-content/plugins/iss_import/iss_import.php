@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: ISS Import From CSV
+ * Plugin Name: 60. ISS Import From CSV
  * Plugin URI: http://learnislam.org/
  * Description: Import parents with students data from a csv file. Existing records are archived if different.
  * Author: Azra Syed

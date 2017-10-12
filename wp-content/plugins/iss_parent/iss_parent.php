@@ -1,6 +1,6 @@
 <?php
 /**
- Plugin Name: ISS Parent/Student Management
+ Plugin Name: 20. ISS Parent/Student Management
  Author: Azra Syed
  Version: 1.0
  */

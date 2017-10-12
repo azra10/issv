@@ -1,7 +1,7 @@
 <?php
 /*
- * Plugin Name: ISS Admin Preferences
- * Description: Save admin preferences.
+ * Plugin Name: 30. ISS School Preferences
+ * Description: Save school preferences. School Name, Registration Year, Installments, Registration Fee (first child), Registration Fee (siblings) and Open Registration Days.
  * Version: 1.0.0
  * Author: Azra Syed
  * Text Domain: iss_adminpref

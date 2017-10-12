@@ -1,7 +1,7 @@
 <?php
 /*
- * Plugin Name: ISS User Preferences
- * Description: Save user preferencess.
+ * Plugin Name: 40. ISS User Preferences
+ * Description: Save user preferencess. Registration year.
  * Version: 1.0.0
  * Author: Azra Syed
  * Text Domain: iss_user_pref
