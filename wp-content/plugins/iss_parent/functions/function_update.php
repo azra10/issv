@@ -303,8 +303,10 @@ function iss_process_updateparentrequest($tabname, &$issparent, &$post, &$errors
 			$issparent [$fieldname] = $inputval; // modify parent record
 		}
 	} // for tab fields
-	iss_required_emails_valid($post, $errors);
 	
+	if ($tabname == 'parent')
+	{iss_required_emails_valid($post, $errors);}
+
 	if (empty ( $errors )) {
 		if (! empty ( $changedfields )) {
 			return iss_parent_update ( $changedfields, $issparent ); // PARENT UPDATE
@@ -327,7 +329,7 @@ function iss_required_emails_valid($post, &$errors) {
   if ((!isset($post['MotherEmail']) || empty($post['MotherEmail'])) && ($post['SchoolEmail']=='Mother' )) {
 	$errors['MotherEmail'] = 'Chosen as School email, cannot be empty.';
   }
-  iss_write_log ( "iss_get_new_studentid" );
+  iss_write_log ( "iss_required_emails_valid" );
   iss_write_log ( $errors );
 	
 }

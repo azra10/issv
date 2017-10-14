@@ -1,4 +1,4 @@
-<?php if (iss_current_user_is_secretery()) { ?>
+<?php if (iss_current_user_can_editparent()) { ?>
 
 <legend>Admin Only</legend>
 <div class="row">

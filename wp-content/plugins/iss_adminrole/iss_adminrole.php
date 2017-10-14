@@ -1,6 +1,6 @@
 <?php
 /*
- * Plugin Name: 10. ISS Roles
+ * Plugin Name: 20. ISS Roles
  * Description: Create roles <strong>admin, board, secretary, teacher, parent, student and test </strong> on activation. No dependency on any other plug-in. On Activation wordpress admnistrator receives test, admin, secretary & board  capabilities. On Deactivation, capabilities and roles are removed. Users with capabilities/roles are not touched except wordpress admnistrator. wordpress admnistrator capabilities (test, admin, secretary & board) removed.
  * Version: 1.0.0
  * Author: Azra Syed

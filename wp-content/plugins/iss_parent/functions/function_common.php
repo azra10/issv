@@ -141,6 +141,17 @@ function iss_get_search_parents_list($regyear, $columns, $keyword) {
 	$result_set = $wpdb->get_results ( $query, ARRAY_A );
 	return $result_set;
 }
+function iss_get_registration_parents_list($regyear, $columns, $status) {
+	global $wpdb;
+	
+	$customers = iss_get_table_name ( "parents" );
+	$query = "SELECT {$columns} FROM {$customers}
+    WHERE  RegistrationYear LIKE '{$regyear}' && ParentStatus = 'active' && RegistrationStatus = '{$status}'
+    ORDER BY FatherLastName, FatherFirstName";
+	
+	$result_set = $wpdb->get_results ( $query, ARRAY_A );
+	return $result_set;
+}
 /**
  * Function iss_get_parent_by_parentid
  * Get parent record by ParentID
