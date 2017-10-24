@@ -225,7 +225,7 @@ function iss_textinput_field_cb($args) {
 // the "class" key value is used for the "class" attribute of the <tr> containing the field.
 // you can add custom key value pairs to be used inside your callbacks.
 function iss_registrationyear_field_cb($args) {
-	$regyearlist = iss_get_registrationyear_list ();
+	$regyearlist = ISS_GradingPeriodService::GetRegistrationYears();
 	// get the value of the setting we've registered with register_setting()
 	$options = get_option ( 'iss_options' );
 	// output the field

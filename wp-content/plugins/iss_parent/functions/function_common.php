@@ -11,25 +11,24 @@ if (! function_exists ( 'iss_write_log' )) {
 		}
 	}
 }
-
-/** GET Functions */
-/**
- * Function iss_get_registrationyear_list
- * Queries registration years in payment table
- * 
- * @param
- *        	none
- * @return array of strings
- *        
- */
-function iss_get_registrationyear_list() {
-	global $wpdb;
-	$parents = iss_get_table_name ( "payment" );
-	$query = "SELECT distinct(RegistrationYear)  FROM {$parents} order by  RegistrationYear";
-	$result_set = $wpdb->get_results ( $query, ARRAY_A );
-	
-	return $result_set;
+if (! function_exists ( 'iss_show_error' )) {
+	function iss_show_error($errors, $field) {
+		if ((null != $errors) && !empty($errors) && isset($errors[$field])) {
+			echo $errors[$field];
+		}
+	}
 }
+if (! function_exists ( 'iss_show_heading' )) {
+	function iss_show_heading($message, $url = null) {
+		if (!empty($message) && !empty($url)) {
+			echo "<h3>{$message} <a href=\"{$url}\" class=\"btn btn-primary\"> Add New</a></h3>";
+		} elseif (!empty($message)) {
+			echo "<h3>{$message}</h3>";
+		}
+	}
+}	
+/** GET Functions */
+
 /**
  * Function iss_get_export_list
  * Queries parents & studnts in a registration period
@@ -366,6 +365,14 @@ function iss_get_table_name($name) {
 		return $wpdb->prefix . "iss_parent";
 	} elseif ($name == "student") {
 		return $wpdb->prefix . "iss_student";
+	} elseif ($name == "grading_period") {
+		return $wpdb->prefix . "iss_grading_period";
+	} elseif ($name == "teacher") {
+		return $wpdb->prefix . "iss_teacher";
+	} elseif ($name == "class") {
+		return $wpdb->prefix . "iss_class";
+	} elseif ($name == "classes") {
+		return $wpdb->prefix . "iss_classes";
 	} else {
 		iss_write_log ( "Unknown table name {$name}" );
 		return NULL;
@@ -388,23 +395,7 @@ function iss_quote_all($value) {
 	$value = "\"" .  $value . "\"";
 	return $value;
 }
-function iss_class_list() {
-	$issclasslist = array (
-				'KG' => 'Kindergarten',
-				'1' => 'Grade 1',
-				'2' => 'Grade 2',
-				'3' => 'Grade 3',
-				'4' => 'Grade 4',
-				'5' => 'Grade 5',
-				'6' => 'Grade 6',
-				'7' => 'Grade 7',
-				'8' => 'Grade 8',
-				'YB' => 'Youth Boys',
-				'YG' => 'Youth Girls',
-				'XX' => 'Unknown' 
-		);
-		return $issclasslist;
-}
+
 function iss_regular_school_class_list() {
 	$regschclasslist = array (
 						'KG' => 'Kindergarten',

@@ -1,7 +1,7 @@
 <div class="container">
   <?php
 		
-	$issclasslist = iss_class_list();				
+	$issclasslist = ISS_Class::GetClassList();				
 	$regschclasslist = iss_regular_school_class_list();
 				
 	if (strpos ( $isstabname, "student", 0 ) === 0) {

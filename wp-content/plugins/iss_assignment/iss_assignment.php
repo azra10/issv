@@ -38,7 +38,7 @@ function iss_assignment_add_post_meta_boxes() {
 /* Display the post meta box. */
 function iss_assignment_post_class_meta_box( $post ) { 
  wp_nonce_field( basename( __FILE__ ), 'iss_assignment_post_class_nonce' );
- $issclasslist = iss_class_list();	
+ $issclasslist = ISS_Class::GetClassList();	
  $selected = esc_attr( get_post_meta( $post->ID, 'iss_assignment_post_class', true ) );
  if ( isset( $_GET['class']) && ! empty ($_GET['class'])) $selected = $_GET['class'];  
  ?>	

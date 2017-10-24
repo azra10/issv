@@ -65,7 +65,7 @@ if (count ( $result_set ) == 0) {
 	
 	<form action="" method="post" class="navbar-form">
       <?php wp_nonce_field( 'iss_parent_search','iss_parent_search_nonce' ); ?>
-			<input type="hidden" id="initial" name="initial" value="<?php echo $$initial;?>"/>
+			<input type="hidden" id="initial" name="initial" value="<?php echo $initial;?>"/>
 			<input type="hidden" id="selection" name="selection" value"<?php echo $selection;?>" />
 				<select name="bulkaction">
 				<option selected value="0">Bulk Action</option> <option value="Archive">Archive</option> <!--option>Email</option-->

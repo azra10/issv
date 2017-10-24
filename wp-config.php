@@ -87,6 +87,12 @@ define ( 'WP_DEBUG_LOG', true );
 define ( 'WP_DEBUG_DISPLAY', false );
 @ini_set ( 'display_errors', 0 );
 
+/*
+	global $wpdb; $wpdb->flush(); //in the beginning of the page
+	var_dump($wpdb->queries); //in the end of the page or where the query happening.
+*/
+//define( 'SAVEQUERIES', true );
+ 
 /* That's all, stop editing! Happy blogging. */
 
 /** Absolute path to the WordPress directory. */

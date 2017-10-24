@@ -56,88 +56,94 @@ function iss_field_valid($field, $inputval, &$errors, $prefix) {
 		}
 			
 		if ($fields_with_types [$field] == 'int') {
-			if(!check_int_string($inputval)) {
+			if(!ISS_Validate::check_int_string($inputval)) {
 				$errors [$errorfield] = "{$displaynames[$field]} is not a valid integer.";
 				return false;
 			}
 		}
 		if (($fields_with_types [$field] == 'date')  &&
-			!check_date_string($inputval)){
+			!ISS_Validate::check_date_string($inputval)){
 				$errors [$errorfield] = "{$displaynames[$field]} is a not valid date (yyyy-mm-dd).";
 				return false;
 		}
 		
 		if (($fields_with_types [$field] == 'float')  && 
-			!check_double_string ( $inputval )) {
+			!ISS_Validate::check_double_string ( $inputval )) {
 				$errors [$errorfield] = "{$displaynames[$field]} is not a valid amount.";
 				return false;
 		}
 
 		if (($fields_with_types [$field] == 'registrationyear')  && 
-			!check_registrationyear_string($inputval)){
+			!ISS_Validate::check_registrationyear_string($inputval)){
 				$errors [$errorfield] = "{$displaynames[$field]} is not a valid.";
 				return false;			
 		}
 		if ($fields_with_types [$field] == 'datetime') {
-			return check_datetime_string($inputval);
+			return ISS_Validate::check_datetime_string($inputval);
 		}
 	}
 	return true;
 }
-function check_date_string($inputval){
-	$y = 0;
-	$m = 0;
-	$d = 0;
-	$list = explode ( "-", $inputval );
-	$count = count ( $list );
-	if ($count > 0)
-		$y = intval ( $list [0] );
-	if ($count > 1)
-		$m = intval ( $list [1] );
-	if ($count > 2)
-		$d = intval ( $list [2] );
-	if (checkdate ( $m, $d, $y )) {
-		return true;
+class ISS_Validate
+{
+	public static function check_bit_string($inputval){
+		return (($inputval == 0) || ($inputval == 1));
 	}
-	return false;
-}
-function check_registrationyear_string($inputval){
-	$list = explode ( "-", $inputval );
-	$count = count ( $list );
-	$y1int = 0;
-	$y2int = 0;
-	if ($count > 0)
-		$y1int = intval ( $list [0] );
-	if ($count > 1)
-		$y2int = intval ( $list [1] );
-	$y3int = $y1int + 1;
-	if (($y1int === 0) || ($y2int === 0) || ($y3int != $y2int)) {
+
+	public static function check_date_string($inputval){
+		$y = 0;
+		$m = 0;
+		$d = 0;
+		$list = explode ( "-", $inputval );
+		$count = count ( $list );
+		if ($count > 0)
+			$y = intval ( $list [0] );
+		if ($count > 1)
+			$m = intval ( $list [1] );
+		if ($count > 2)
+			$d = intval ( $list [2] );
+		if (checkdate ( $m, $d, $y )) {
+			return true;
+		}
 		return false;
 	}
-	return true;
-}
-function check_datetime_string($inputval){
-	$format = 'Y-m-d H:i:s';
-	$input = trim ( $inputval );
-	$time = strtotime ( $input );
-	$newdate = date ( $format, $time );
-	if ($newdate === $inputval)
+	public static function check_registrationyear_string($inputval){
+		$list = explode ( "-", $inputval );
+		$count = count ( $list );
+		$y1int = 0;
+		$y2int = 0;
+		if ($count > 0)
+			$y1int = intval ( $list [0] );
+		if ($count > 1)
+			$y2int = intval ( $list [1] );
+		$y3int = $y1int + 1;
+		if (($y1int === 0) || ($y2int === 0) || ($y3int != $y2int)) {
+			return false;
+		}
 		return true;
-	return false;
-}
-function check_int_string($str){
- if (($str === '0') || ($str===0) || (intval($str)>0)) 
- 	return true;
+	}
+	public static function check_datetime_string($inputval){
+		$format = 'Y-m-d H:i:s';
+		$input = trim ( $inputval );
+		$time = strtotime ( $input );
+		$newdate = date ( $format, $time );
+		if ($newdate === $inputval)
+			return true;
+		return false;
+	}
+	public static function check_int_string($str){
+	if (($str === '0') || ($str===0) || (intval($str)>0)) 
+		return true;
 
+		return false;
+	}
+	public static function check_double_string($str){
+	if (($str === '0.00') || self::check_int_string($str) || (floatval($str)>0)) return true;
+		//  $pairs = explode('.',$str);
+		//  if ( is_array($pairs) && count($pairs)==2) {
+		//    return ( is_numeric($pairs[0]) && is_numeric($pairs[1]))? true : false; 
+		//  }
 	return false;
+	}
 }
-function check_double_string($str){
- if (($str === '0.00') || check_int_string($str) || (floatval($str)>0)) return true;
-//  $pairs = explode('.',$str);
-//  if ( is_array($pairs) && count($pairs)==2) {
-//    return ( is_numeric($pairs[0]) && is_numeric($pairs[1]))? true : false; 
-//  }
- return false;
-}
-
 ?>

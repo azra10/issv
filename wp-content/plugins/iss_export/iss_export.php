@@ -246,7 +246,7 @@ class ISS_Export_Parents {
 		if (NULL == $this->regyear) {
 			$this->regyear = iss_registration_period ();
 		}
-		$regyearlist = iss_get_registrationyear_list ();
+		$regyearlist = ISS_GradingPeriodService::GetRegistrationYears();
 		?>
       <form method="post" action="" enctype="multipart/form-data">
         <?php wp_nonce_field( 'iss-export-parents-page_export', '_wpnonce-iss-export-parents-page_export' ); ?>
@@ -286,7 +286,7 @@ class ISS_Export_Parents {
 					<option value="All" selected>All</option>
                 <?php
 		
-				$issclasslist = iss_class_list();
+				$issclasslist = ISS_Class::GetClassList();
 				foreach ( $issclasslist as $class => $name ) {
 					echo "<option value=\"$class\">{$name}</option>";
 				}

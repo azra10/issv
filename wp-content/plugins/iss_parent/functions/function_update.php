@@ -1,5 +1,40 @@
 <?php
 
+class ISS_ParentService
+{
+	public static function error($message) 
+    { iss_write_log("Error ISS_ParentService::" . print_r($message, TRUE));}
+
+    public static function debug($message) 
+    { iss_write_log("Debug ISS_ParentService::" . print_r($message, TRUE)); }
+
+	 public static function GetViewName() {
+        return iss_get_table_name("parents");
+    }
+    public static function GetTableName() {
+        return iss_get_table_name("parent");
+    }
+    public static function GetParentCount($registrationyear) {
+        try
+		{
+			self::debug ( "GetParentCount" );			
+			if (!empty($registrationyear))
+			{
+				$table = self::GetViewName();
+				global $wpdb;
+				$query = "SELECT count(ParentID) AS ParentCount FROM {$table} WHERE RegistrationYear = '{$registrationyear}'";
+				$result_set = $wpdb->get_row ( $query, ARRAY_A );
+				if ($result_set != NULL) {
+					return $result_set ['ParentCount'];
+				}
+			}
+		} catch (Exception $ex) {
+                self::error($ex->getMessage());
+        }
+		return -1;
+    }
+}
+
 function iss_get_new_parentid() {
 	try {
 		iss_write_log ( "iss_get_new_parentid" );
@@ -16,7 +51,7 @@ function iss_get_new_parentid() {
 			$parentid = 1;
 		return $parentid;
 	} catch ( Exception $ex ) {
-		iss_write_log ( "Error" . $ex . getMessage () );
+		iss_write_log ( "Error" . $ex->getMessage () );
 	}
 	return 1;
 }

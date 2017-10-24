@@ -66,7 +66,7 @@ class ISS_UserPreferencePlugin {
 			echo '<div class="updated"><p><strong> User not logged in.</strong></p></div>';
 		}
 		$userregyear = iss_userpref_registrationyear();
-		$regyearlist = iss_get_registrationyear_list ();
+		$regyearlist = ISS_GradingPeriodService::GetRegistrationYears();
 		?>
       <form class="form" method="post" action=""
 		enctype="multipart/form-data">
