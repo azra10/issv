@@ -7,7 +7,7 @@
  * Author URI: https://codection.com
  */
 function iss_parent_import_menu() {
-	add_menu_page ( 'ImportParents', 'Import', 'iss_admin', 'iss_import', 'iss_import_parents', 'dashicons-upload', 8 );
+	add_menu_page ( 'ImportParents', 'Import', 'iss_admin', 'iss_import', 'iss_import_parents', 'dashicons-upload', 87 );
 }
 
 add_action ( "admin_menu", "iss_parent_import_menu" );

@@ -26,7 +26,7 @@ class ISS_UserPreferencePlugin {
 		add_menu_page ( 'iss_userpref', 'User Preference', 'iss_board', 'user_home', array (
 				$this,
 				'users_page' 
-		), 'dashicons-admin-customizer', 6 );
+		), 'dashicons-admin-customizer', 98 );
 	}
 	public function add_plugin_page_action() {		
 		// / IF FORM POST REQUEST

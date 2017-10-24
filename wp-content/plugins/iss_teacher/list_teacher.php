@@ -1,9 +1,5 @@
 <?php 
-    if (iss_current_user_can_admin()) { 
-         iss_show_heading("Teachers", "admin.php?page=new_teacher");
-    } else {
-        iss_show_heading("Teachers");
-    }    
+    iss_show_heading("Teachers", iss_current_user_can_admin()? "admin.php?page=new_teacher": null);        
     $result_set = ISS_TeacherService::GetTeachers ( );
 ?>
 <div>

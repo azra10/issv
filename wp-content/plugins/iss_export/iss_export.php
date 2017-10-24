@@ -54,7 +54,7 @@ class ISS_Export_Parents {
 		$my_page = add_menu_page ( __ ( 'ExportParents', 'export-parents-to-csv' ), __ ( 'Export', 'export-parents-to-csv' ), 'iss_board', 'export-parents-to-csv', array (
 				$this,
 				'users_page' 
-		), 'dashicons-download', 7 );
+		), 'dashicons-download', 86 );
 		add_action ( 'load-' . $my_page, 'iss_load_admin_custom_css' );
 	}
 	

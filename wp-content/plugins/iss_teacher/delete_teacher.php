@@ -1,5 +1,4 @@
-
- 
+<?php iss_show_heading("Delete Teacher"); ?> 
 <?php include (plugin_dir_path( __FILE__ ) . "/delete_teacher_post.php"); ?>
 
 <div class="container">
@@ -7,8 +6,7 @@
     <?php wp_nonce_field('iss-delete-teacher-form-page', '_wpnonce-iss-delete-teacher-form-page') ?>
     <input type="hidden" id="TeacherID" name="TeacherID" value="<?php echo $tid; ?>" />    
 	<div class="row">
- 		<h3>Delete Teacher Record</h3>
-		<h5>Name: <?php echo $teacher->Name; ?></h5>
+ 		<h5>Name: <?php echo $teacher->Name; ?></h5>
 		<h5>Email: <?php echo $teacher->Email; ?></h5>
         <h5>Status: <?php echo $teacher->Status == 'inactive'? 'No' : 'Yes'; ?></h5>
         <input type="checkbox" id="agreeyes" name="agreeyes"> 

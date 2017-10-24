@@ -1,3 +1,4 @@
+<?php iss_show_heading("Delete Grading Period"); ?> 
 <?php include (plugin_dir_path( __FILE__ ) . "/delete_gp_post.php"); ?>
 
 <div class="container">
@@ -5,8 +6,7 @@
     <?php wp_nonce_field('iss-delete-gradingperiod-form-page', '_wpnonce-iss-delete-gradingperiod-form-page') ?>
     <input type="hidden" id="GradingPeriodID" name="GradingPeriodID" value="<?php echo $gid; ?>" />    
 	<div class="row">
- 		<h3>Delete Grading Period</h3>
-		<h5>Registration Year: <?php echo $gradingperiod->RegistrationYear; ?></h5>
+ 		<h5>Registration Year: <?php echo $gradingperiod->RegistrationYear; ?></h5>
 		<h5>Grading Period: <?php echo $gradingperiod->GradingPeriod; ?></h5>
         <h5>Start Date: <?php echo $gradingperiod->StartDate; ?></h5>
         <h5>End Date: <?php echo $gradingperiod->EndDate; ?></h5>

@@ -142,7 +142,7 @@ register_post_type( 'iss_assignment', array(
    ),
   'description' => 'Assignment for students',
   'public' => true,
-  'menu_position' => 20,
+  'menu_position' => 4,
  // 'taxonomies' => array( 'category' ) ,
   'capability_type' => 'iss_assignment',
   'map_meta_cap'=> true,

@@ -25,7 +25,7 @@ class ISS_UnitTestPlugin extends ISS_UnitTest1 {
 		add_menu_page ( 'iss_unittest', 'Unit Test', 'iss_test', 'test_home', array (
 				$this,
 				'tests_page' 
-		), 'dashicons-lightbulb', 99 );
+		), 'dashicons-lightbulb', 999 );
 	}
 	public function add_plugin_page_action() {
 		// / IF FORM POST REQUEST

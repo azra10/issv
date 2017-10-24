@@ -60,7 +60,7 @@ function history_parent_page() {
 }
 
 function iss_register_menu_page() {
-	$my_pages [] = add_menu_page ( 'Parents', 'Parents', 'iss_board', 'parents_home', 'parents_home_page', 'dashicons-id-alt', 3 );
+	$my_pages [] = add_menu_page ( 'Parents', 'Parents', 'iss_board', 'parents_home', 'parents_home_page', 'dashicons-id-alt', 4 );
 	$my_pages [] = add_menu_page ( 'Students', 'Students', 'iss_board', 'students_home', 'students_home_page', 'dashicons-groups', 4 );
 	$my_pages [] = add_submenu_page ( null, 'Payment', 'Payment', 'iss_secretary', 'payment_parent', 'payment_parent_page' );
 	$my_pages [] = add_submenu_page ( null, 'Print', 'Print', 'iss_board', 'print_parent', 'print_parent_page' );

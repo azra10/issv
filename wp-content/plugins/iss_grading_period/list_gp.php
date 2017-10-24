@@ -1,9 +1,5 @@
-<?php 
-    if (iss_current_user_can_admin()) { 
-         iss_show_heading("Grading Periods", "admin.php?page=new_gp");
-    } else {
-        iss_show_heading("Grading Periods");
-    }    
+<?php   
+    iss_show_heading("Grading Periods", iss_current_user_can_admin()? "admin.php?page=new_gp": null);        
     $result_set = ISS_GradingPeriodService::GetGradingPeriods ( );
 ?>
 <div>

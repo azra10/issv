@@ -1,12 +1,7 @@
 <?php 
-    $result_set = ISS_ClassService::GetClasses ();  
     $regyear = iss_registration_period(); 
-    if (iss_current_user_can_admin()) { 
-        iss_show_heading("Classses ({$regyear})", "admin.php?page=new_class");        
-    }
-    else{
-        iss_show_heading("Classses ({$regyear})");
-    }
+    iss_show_heading("Classses ({$regyear})", iss_current_user_can_admin()? "admin.php?page=new_class": null);        
+    $result_set = ISS_ClassService::GetClasses ();         
 ?>
 <div>
     <div class="row">

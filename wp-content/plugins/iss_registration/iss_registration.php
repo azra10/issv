@@ -54,7 +54,7 @@ class ISS_Registation {
 		add_menu_page ( __ ( 'Prepare Next Year', 'iss_registration_text' ), __ ( 'Prepare Next Year', 'iss_registration_text' ), 'iss_admin', 'iss_registration_text', array (
 				$this,
 				'users_page' 
-		), 'dashicons-migrate', 8 );
+		), 'dashicons-migrate', 88 );
 	}
 	
 	/**
