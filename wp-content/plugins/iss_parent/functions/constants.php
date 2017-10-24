@@ -244,7 +244,21 @@ function iss_field_displaynames() {
 				"StudentBirthDate" => "Student Birth Date",
 				"StudentGender" => "Student Gender",
 				"created" => "Create Date",
-				"updated" => "Last Update Date" 
+				"updated" => "Last Update Date",
+
+				"GradingPeriodID" => "GradingPeriodID",
+				"GradingPeriod" => "Grading Period",
+				"StartDate" => "Start Date",
+				"EndDate" => "End Date",
+
+				"TeacherID" => "TeacherID",
+				"Name" => "Name",
+				"Email" => "Email",
+				"Status" => "Status",
+
+				"ClassID" => "ClassID",
+				"Subject" => "Subject"
+
 		);
 	return $iss_field_displaynames_;
 }
@@ -312,7 +326,20 @@ function iss_fields_lengths() {
 				"StudentBirthDate" => 10,
 				"StudentGender" => 1,
 				"StudentStatus" => 10,
-				"StudentNew" => 3				
+				"StudentNew" => 3,
+
+				"GradingPeriodID" => 11,
+				"GradingPeriod" => 11,
+				"StartDate" => 10,
+				"EndDate" => 10,
+				
+				"TeacherID" => 11,
+				"Name" => 100,
+				"Email" => 100,
+				"Status" => 10,
+
+				"ClassID" => 11,
+				"Subject" => 2
 		);
 	return $iss_field_lengths_;
 }
@@ -380,7 +407,21 @@ function iss_fields_types() {
 				"StudentGender" => "string",
 				"StudentStatus" => "string",
 				"StudentNew" => "string",				
-				"ChangeSetID" => "string" 
+				"ChangeSetID" => "string" ,
+
+				"GradingPeriodID" => "int",
+				"GradingPeriod" => "int",
+				"StartDate" => "date",
+				"EndDate" => "date",
+
+				"TeacherID" => "int",
+				"Name" => "string",
+				"Email" => "string",
+				"Status" => "string",
+
+				"ClassID" => "string",
+				"Subject" => "string"
+
 		);
 	return $iss_field_types_;
 }
