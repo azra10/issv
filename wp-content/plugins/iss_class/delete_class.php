@@ -4,7 +4,7 @@
 <div class="container">
 <form class="form-horizontal" method="post" action="" enctype="multipart/form-data">
     <?php wp_nonce_field('iss-delete-class-form-page', '_wpnonce-iss-delete-class-form-page') ?>
-    <input type="hidden" id="ClassID" name="ClassID" value="<?php echo $tid; ?>" />    
+    <input type="hidden" id="ClassID" name="ClassID" value="<?php echo $cid; ?>" />    
 	<div class="row">
  		<h5>Name: <?php echo $class->Name; ?></h5>
 		<h5>ISSGrade: <?php echo $class->ISSGrade; ?></h5>

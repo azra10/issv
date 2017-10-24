@@ -13,9 +13,15 @@
         placeholder="Teacher Name (required)" type="text" maxlength="100" value="<?php echo $teacher->Name; ?>" >
           <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
         </div>  
-        <p class="text-danger"><?php iss_show_errors( $errors, 'Name'); ?></p>   
+        <p class="text-danger"><?php iss_show_error( $errors, 'Name'); ?></p>   
     </div>
-
+    <?php if (!$newteacher) { ?>
+      <input type="hidden" id="Email" name="FormArray[Email]" value="<?php echo $teacher->Email; ?>" />    
+      <div class="form-group">
+        <label class="control-label">Email</label>
+        <div><?php echo $teacher->Email; ?></div>
+      </div>      
+    <?php } else { ?> 
     <!-- Email-->
     <div class="form-group">
       <label class="control-label" for="Email">Email</label>  
@@ -25,9 +31,9 @@
         placeholder="Email (required)" type="date" maxlength="100" value="<?php echo $teacher->Email; ?>" >
         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
       </div>
-      <p class="text-danger"><?php iss_show_errors( $errors, 'Email'); ?></p>     
+      <p class="text-danger"><?php iss_show_error( $errors, 'Email'); ?></p>     
     </div>
-
+    <?php } ?> 
     <!-- Status-->
     <div class="form-group">
       <label class="control-label" for="radios">Status</label>

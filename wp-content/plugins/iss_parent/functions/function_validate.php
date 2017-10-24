@@ -75,11 +75,13 @@ function iss_field_valid($field, $inputval, &$errors, $prefix) {
 
 		if (($fields_with_types [$field] == 'registrationyear')  && 
 			!ISS_Validate::check_registrationyear_string($inputval)){
-				$errors [$errorfield] = "{$displaynames[$field]} is not a valid.";
+				$errors [$errorfield] = "{$displaynames[$field]} is not a valid (yyyy-yyyy).";
 				return false;			
 		}
-		if ($fields_with_types [$field] == 'datetime') {
-			return ISS_Validate::check_datetime_string($inputval);
+		if (($fields_with_types [$field] == 'datetime') &&
+			!ISS_Validate::check_datetime_string($inputval)){
+				$errors [$errorfield] = "{$displaynames[$field]} is not a valid (yyyy-mm-dd HH:MM:SS).";
+				return false;		
 		}
 	}
 	return true;

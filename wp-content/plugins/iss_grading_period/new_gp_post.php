@@ -1,8 +1,8 @@
 <?php
-var_dump($_POST);
+//var_dump($_POST);
 
 $errors = array();
-$newrecrod = true;
+$newgp = true;
 
 if (isset ( $_POST ['_wpnonce-iss-edit-gradingperiod-form-page'] )) {
     check_admin_referer ( 'iss-edit-gradingperiod-form-page', '_wpnonce-iss-edit-gradingperiod-form-page' );  

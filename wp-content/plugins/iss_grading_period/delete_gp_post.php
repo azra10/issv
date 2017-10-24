@@ -1,4 +1,6 @@
 <?php
+//var_dump($_POST);
+
 if (isset ( $_POST ['_wpnonce-iss-delete-gradingperiod-form-page'] )) {
     
     check_admin_referer ( 'iss-delete-gradingperiod-form-page', '_wpnonce-iss-delete-gradingperiod-form-page' );

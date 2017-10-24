@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+//var_dump($_POST);
 
 if (! isset ( $_GET ['tid'] ) || empty ( $_GET ['tid'] ) || (intval ( $_GET ['tid'] ) == 0)) {
     echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
@@ -7,6 +7,7 @@ if (! isset ( $_GET ['tid'] ) || empty ( $_GET ['tid'] ) || (intval ( $_GET ['ti
 }
 
 $errors = array();
+$newteacher = false;
 
 if (isset ( $_POST ['_wpnonce-iss-edit-teacher-form-page'] )) {
     check_admin_referer ( 'iss-edit-teacher-form-page', '_wpnonce-iss-edit-teacher-form-page' );   

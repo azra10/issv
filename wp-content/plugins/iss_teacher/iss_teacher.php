@@ -11,7 +11,7 @@ function teacher_home_page() {
     include (plugin_dir_path( __FILE__ ) . "/list_teacher.php");
 }
 function new_teacher_page() {
-	include (plugin_dir_path( __FILE__ ) . "/edit_teacher.php");
+	include (plugin_dir_path( __FILE__ ) . "/new_teacher.php");
 }
 function edit_teacher_page() {
 	include (plugin_dir_path( __FILE__ ) . "/edit_teacher.php");

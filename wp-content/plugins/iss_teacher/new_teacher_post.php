@@ -2,6 +2,7 @@
 var_dump($_POST);
 
 $errors = array();
+$newteacher = true;
 
 if (isset ( $_POST ['_wpnonce-iss-edit-teacher-form-page'] )) {
     check_admin_referer ( 'iss-edit-teacher-form-page', '_wpnonce-iss-edit-teacher-form-page' );

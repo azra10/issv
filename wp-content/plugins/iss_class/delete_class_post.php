@@ -1,4 +1,5 @@
 <?php
+//var_dump($_POST);
 if (isset ( $_POST ['_wpnonce-iss-delete-class-form-page'] )) {
     
     check_admin_referer ( 'iss-delete-class-form-page', '_wpnonce-iss-delete-class-form-page' );

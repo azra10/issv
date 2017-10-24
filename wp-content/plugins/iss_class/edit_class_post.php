@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+//var_dump($_POST);
 
 if (! isset ( $_GET ['cid'] ) || empty ( $_GET ['cid'] ) || (intval ( $_GET ['cid'] ) == 0)) {
     echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';

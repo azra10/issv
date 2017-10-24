@@ -1,5 +1,5 @@
 <?php
-var_dump($_POST);
+//var_dump($_POST);
 
 if  (! isset ( $_GET ['gid'] ) || empty ( $_GET ['gid'] ) || (intval ( $_GET ['gid'] ) == 0)) {   
     echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
@@ -23,6 +23,6 @@ if (isset ( $_POST ['_wpnonce-iss-edit-gradingperiod-form-page'] )) {
         $gradingperiod = ISS_GradingPeriod::Create($_POST['FormArray']);
     }
 } else {
-    $gradingperiod = ISS_GradingPeriod::LoadByID ( $_GET ['gid'] );   
+    $gradingperiod = ISS_GradingPeriodService::LoadByID ( $_GET ['gid'] );   
 }
 ?>
