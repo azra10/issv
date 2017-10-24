@@ -107,14 +107,14 @@ class ISS_GradingPeriodService
          
         global $wpdb;
         $table =  ISS_GradingPeriod::GetTableName();
-        $query = "SELECT distinct(RegistrationYear)  FROM {$table} order by  RegistrationYear";
+        $query = "SELECT distinct(RegistrationYear) FROM {$table} order by  RegistrationYear";
         $result_set = $wpdb->get_results ( $query, ARRAY_A );
         
-        if (null != $result_set){
-            foreach($result_set as $regyear)
-            { $list[] = $regyear['RegistrationYear']; }
-        }
-        return $list;
+        // if (null != $result_set){
+        //     foreach($result_set as $regyear)
+        //     { $list[] = $regyear['RegistrationYear']; }
+        // }
+        return $result_set;
     }
     public static function GetGradingPeriods()
     {
