@@ -14,7 +14,7 @@
          <br/> <br/>
     </div>
     <div class="agree">
-           <button type="submit" name="submit" value="delete" class="btn btn-primary btn-lg deletebutton">Delete</button>			
+           <button type="submit" name="submit" value="delete" class="btn btn-primary deletebutton">Delete</button>			
     </div>
 </form>
 </div>

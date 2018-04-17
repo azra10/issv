@@ -164,7 +164,7 @@ function iss_get_parent_by_parentid($parentid, $regyear) {
 	try {
 		global $wpdb;
 		$parents = iss_get_table_name ( "parents" );
-		$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE" . " RegistrationYear = '{$regyear}' and ParentStatus = 'active' and ParentID = %d LIMIT 1", $parentid );
+		$query = $wpdb->prepare ( "SELECT * FROM {$parents} WHERE  RegistrationYear = %s and ParentStatus = 'active' and ParentID = %d LIMIT 1", $regyear, $parentid );
 		$row = $wpdb->get_row ( $query, ARRAY_A );
 		if ($row != NULL) {
 			return $row;
@@ -297,7 +297,7 @@ function iss_get_student_by_studentid($studentid, $regyear) {
 		// echo "br/> get student {$studentid} , {$regyear}"; // ISS TEST
 		global $wpdb;
 		$table = iss_get_table_name ( "students" );
-		$query = $wpdb->prepare ( "SELECT * FROM {$table} WHERE RegistrationYear = '{$regyear}'  and StudentID = %d LIMIT 1", $studentid );
+		$query = $wpdb->prepare ( "SELECT * FROM {$table} WHERE RegistrationYear = %s  and StudentID = %d LIMIT 1", $regyear, $studentid );
 		$row = $wpdb->get_row ( $query, ARRAY_A );
 		if ($row != NULL) {
 			return $row;
@@ -320,7 +320,7 @@ function iss_get_student_by_studentid($studentid, $regyear) {
 function iss_get_students_by_parentid($parentid, $regyear) {
 	global $wpdb;
 	$table = iss_get_table_name ( "students" );
-	$query = $wpdb->prepare ( "SELECT * FROM {$table} WHERE " . " RegistrationYear = '{$regyear}' and ParentID = %d ORDER BY StudentID", $parentid );
+	$query = $wpdb->prepare ( "SELECT * FROM {$table} WHERE " . " RegistrationYear = %s and ParentID = %d ORDER BY StudentID", $regyear, $parentid );
 	$result_set = $wpdb->get_results ( $query, ARRAY_A );
 	
 	if ($result_set != NULL) {
@@ -373,6 +373,8 @@ function iss_get_table_name($name) {
 		return $wpdb->prefix . "iss_class";
 	} elseif ($name == "classes") {
 		return $wpdb->prefix . "iss_classes";
+	} elseif ($name == "wpuser") {
+		return $wpdb->prefix . "users";
 	} else {
 		iss_write_log ( "Unknown table name {$name}" );
 		return NULL;

@@ -1,5 +1,53 @@
 <?php
+class ISS_Parent
+{
+	public $ParentID;
+	public $FatherEmail;
+    public $MotherEmail;
+    public $ParentStatus;
+    public $created;
+    public $updated;
+	public static function GetViewName() {
+        return iss_get_table_name("parents");
+    }
+    public static function GetTableName() {
+        return iss_get_table_name("parent");
+    }
+	public static function Create(array $row)
+    {
+        $instance = new self();
+        $instance->fill( $row );
+        return $instance;
+    }
 
+	// TODO Add more fields to make the complete row
+    public function fill(array $row)
+    {
+        // fill all properties from array
+        if (is_array($row) && !empty($row)) {
+            if (isset($row['ParentID'])) {
+                $this->ParentID = $row['ParentID'];
+            }
+            if (isset($row['FatherEmail'])) {
+                $this->FatherEmail = $row['FatherEmail'];
+            }
+            if (isset($row['MotherEmail'])) {
+                $this->MotherEmail = $row['MotherEmail'];
+            }
+            if (isset($row['ParentStatus'])) {
+                $this->ParentStatus = $row['ParentStatus'];
+            }
+            if (isset($row['created'])) {
+                $this->created = $row['created'];
+            }
+            if (isset($row['updated'])) {
+                $this->updated = $row['updated'];
+            }
+            return;
+        }
+        throw new Throwable("__construct input object is null/empty");
+    }
+}
 class ISS_ParentService
 {
 	public static function error($message) 
@@ -8,21 +56,16 @@ class ISS_ParentService
     public static function debug($message) 
     { iss_write_log("Debug ISS_ParentService::" . print_r($message, TRUE)); }
 
-	 public static function GetViewName() {
-        return iss_get_table_name("parents");
-    }
-    public static function GetTableName() {
-        return iss_get_table_name("parent");
-    }
     public static function GetParentCount($registrationyear) {
         try
 		{
 			self::debug ( "GetParentCount" );			
 			if (!empty($registrationyear))
 			{
-				$table = self::GetViewName();
+				$table = ISS_Parent::GetViewName();
 				global $wpdb;
-				$query = "SELECT count(ParentID) AS ParentCount FROM {$table} WHERE RegistrationYear = '{$registrationyear}'";
+				$query = $wpdb->prepare("SELECT count(ParentID) AS ParentCount FROM {$table}
+						WHERE RegistrationYear = %s and ParentStatus = %s", $registrationyear, 'active');
 				$result_set = $wpdb->get_row ( $query, ARRAY_A );
 				if ($result_set != NULL) {
 					return $result_set ['ParentCount'];
@@ -32,6 +75,139 @@ class ISS_ParentService
                 self::error($ex->getMessage());
         }
 		return -1;
+	}
+	public static function LoadByID($id)
+    {
+        try {
+            self::debug("LoadByID {$id}");
+            global $wpdb;
+            $table =  ISS_Parent::GetTableName();
+            $query = $wpdb->prepare("SELECT *  FROM {$table} where ParentID = %d", $id);
+            $row = $wpdb->get_row ( $query, ARRAY_A );
+            if (null != $row) {
+                return ISS_Parent::Create( $row );
+            }
+        } catch (Throwable $ex) {
+            self::error($ex->getMessage());
+        }       
+        return null;
+    }
+}
+class ISS_Student
+{
+	public $ParentID;
+	public $StudentID;
+	public $StudentEmail;
+	public $StudentStatus;
+	public $StudentFirstName;
+	public $StudentLastName;
+	public $StudentBirthDate;
+	public $StudentGender;
+    public $created;
+    public $updated;
+		
+	// public $RegularSchoolGrade;
+	// public $ISSGrade;
+	// public $RegistrationYear;
+	public static function GetViewName() {
+        return iss_get_table_name("students");
+    }
+    public static function GetTableName() {
+        return iss_get_table_name("student");
+    }
+	public static function Create(array $row)
+    {
+        $instance = new self();
+        $instance->fill( $row );
+        return $instance;
+    }
+
+	// TODO Add more fields to make the complete row
+    public function fill(array $row)
+    {
+        // fill all properties from array
+        if (is_array($row) && !empty($row)) {
+            if (isset($row['ParentID'])) {
+                $this->ParentID = $row['ParentID'];
+            }
+            if (isset($row['StudentID'])) {
+                $this->StudentID = $row['StudentID'];
+            }
+            if (isset($row['StudentFirstName'])) {
+                $this->StudentFirstName = $row['StudentFirstName'];
+            }
+            if (isset($row['StudentLastName'])) {
+                $this->StudentLastName = $row['StudentLastName'];
+            }
+			if (isset($row['ISSGrade'])) {
+                $this->ISSGrade = $row['ISSGrade'];
+            }
+            if (isset($row['RegularSchoolGrade'])) {
+                $this->RegularSchoolGrade = $row['RegularSchoolGrade'];
+            }
+            if (isset($row['StudentBirthDate'])) {
+                $this->StudentBirthDate = $row['StudentBirthDate'];
+            }
+            if (isset($row['StudentGender'])) {
+                $this->StudentGender = $row['StudentGender'];
+            }
+           if (isset($row['StudentStatus'])) {
+                $this->StudentStatus = $row['StudentStatus'];
+            }
+            if (isset($row['created'])) {
+                $this->created = $row['created'];
+            }
+            if (isset($row['updated'])) {
+                $this->updated = $row['updated'];
+            }
+            return;
+        }
+        throw new Throwable("__construct input object is null/empty");
+    }
+}
+class ISS_StudentService
+{
+	public static function error($message) 
+    { iss_write_log("Error ISS_StudentService::" . print_r($message, TRUE));}
+
+    public static function debug($message) 
+    { iss_write_log("Debug ISS_StudentService::" . print_r($message, TRUE)); }
+
+    public static function GetStudentCount($registrationyear) {
+        try
+		{
+			self::debug ( "GetStudentCount" );			
+			if (!empty($registrationyear))
+			{
+				$table = ISS_Student::GetViewName();
+				global $wpdb;
+				$query = $wpdb->prepare("SELECT count(StudentID) AS StudentCount FROM {$table} 
+						WHERE RegistrationYear = %s and StudentStatus = %s", $registrationyear, 'active');
+				$result_set = $wpdb->get_row ( $query, ARRAY_A );
+				if ($result_set != NULL) {
+					return $result_set ['ParentCount'];
+				}
+			}
+		} catch (Exception $ex) {
+                self::error($ex->getMessage());
+        }
+		return -1;
+	}
+	public static function LoadByID($id)
+    {
+        try {
+            self::debug("LoadByID {$id}");
+            global $wpdb;
+            $table =  ISS_Student::GetTableName();
+            $query = $wpdb->prepare("SELECT *  FROM {$table} where StudentID = %d", $id);
+            $row = $wpdb->get_row ( $query, ARRAY_A );
+            if (null != $row) {
+                return ISS_Student::Create( $row );
+            }
+        } catch (Throwable $ex) {
+            self::error($ex->getMessage());
+        }       
+        return null;
     }
 }
 

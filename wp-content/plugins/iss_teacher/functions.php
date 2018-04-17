@@ -102,14 +102,15 @@ class ISS_TeacherService
             self::debug("LoadByID {$id}");
             global $wpdb;
             $table =  ISS_Teacher::GetTableName();
-            $query = "SELECT *  FROM {$table} where TeacherID = {$id}";
+            
+            $query = $wpdb->prepare("SELECT *  FROM {$table} where TeacherID = %d", $id);
             $row = $wpdb->get_row ( $query, ARRAY_A );
             if (null != $row) {
                 return ISS_Teacher::Create( $row );
             }
         } catch (Throwable $ex) {
             self::error($ex->getMessage());
-        }
+        }       
         return null;
     }
     public static function Load(string $email)
@@ -120,7 +121,7 @@ class ISS_TeacherService
             {
                 global $wpdb;
                 $table =  ISS_Teacher::GetTableName();
-                $query = "SELECT *  FROM {$table} where Email = '{$email}'";
+                $query = $wpdb->prepare("SELECT *  FROM {$table} where Email = %s", $email);
                 $row = $wpdb->get_row ( $query, ARRAY_A );
                 if (null != $row) {
                     return ISS_Teacher::Create( $row );
@@ -237,7 +238,7 @@ class ISS_TeacherService
             }
             if ($update) {
                 self::debug ( "teacher table update" );
-                iss_write_log ( $dsarray );
+                self::debug ( $dsarray );
                 
                 $result = $wpdb->update ( $table, $dsarray, array (
                         'TeacherID' => $id
