@@ -88,10 +88,17 @@ function iss_field_valid($field, $inputval, &$errors, $prefix) {
 }
 class ISS_Validate
 {
+	public static function invalid_int_in_url($getargs, $idname) {
+		if (! isset ( $getargs [$idname] ) || empty ( $getargs [$idname] ) || (intval ( $getargs [$idname] ) == 0)) 
+		{
+			return true;
+		}
+		return false;
+			
+	}
 	public static function check_bit_string($inputval){
 		return (($inputval == 0) || ($inputval == 1));
 	}
-
 	public static function check_date_string($inputval){
 		$y = 0;
 		$m = 0;

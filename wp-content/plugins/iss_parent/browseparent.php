@@ -135,7 +135,9 @@ if (count ( $result_set ) == 0) {
 									style="padding-left: 10px; white-space: nowrap;"> <i
 										class="glyphicon glyphicon-envelope"></i> Email
 								</span></a> -->
-								
+							<a href="admin.php?page=account_home&pid=<?php echo $row[ 'ParentViewID'] ; ?>">
+								<span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-user"></i> Account </span>
+							</a>
 							<a
 								href="admin.php?page=archived_home&aid=<?php echo $row['ParentViewID'];?>">
 									<span style="padding-left: 10px; white-space: nowrap;"> <i

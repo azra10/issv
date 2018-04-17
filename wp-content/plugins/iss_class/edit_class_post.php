@@ -1,7 +1,6 @@
 <?php
 //var_dump($_POST);
-
-if (! isset ( $_GET ['cid'] ) || empty ( $_GET ['cid'] ) || (intval ( $_GET ['cid'] ) == 0)) {
+if (ISS_Validate::invalid_int_in_url($_GET,'cid')) {
     echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
     exit;
 }
@@ -24,6 +23,11 @@ if (isset ( $_POST ['_wpnonce-iss-edit-class-form-page'] )) {
     }
 } else {
     $class = ISS_ClassService::LoadByID ( $_GET ['cid'] );
+}
+
+if (null == $class){
+    echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
+    exit;
 }
 $regyear = iss_registration_period();
 $classlist = ISS_Class::GetClassList();

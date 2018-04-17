@@ -1,7 +1,6 @@
 <?php
 //var_dump($_POST);
-
-if  (! isset ( $_GET ['gid'] ) || empty ( $_GET ['gid'] ) || (intval ( $_GET ['gid'] ) == 0)) {   
+if (ISS_Validate::invalid_int_in_url($_GET,'gid')) {
     echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
     exit;
 }
@@ -24,5 +23,10 @@ if (isset ( $_POST ['_wpnonce-iss-edit-gradingperiod-form-page'] )) {
     }
 } else {
     $gradingperiod = ISS_GradingPeriodService::LoadByID ( $_GET ['gid'] );   
+}
+
+if (null == $gradingperiod){
+    echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
+    exit;
 }
 ?>

@@ -88,10 +88,13 @@ define ( 'WP_DEBUG_DISPLAY', false );
 @ini_set ( 'display_errors', 0 );
 
 /*
-	global $wpdb; $wpdb->flush(); //in the beginning of the page
-	var_dump($wpdb->queries); //in the end of the page or where the query happening.
+	//in the beginning of the page
+	global $wpdb; $wpdb->flush(); 
+
+	 //in the end of the page or where the query happening.
+	var_dump($wpdb->queries);
 */
-//define( 'SAVEQUERIES', true );
+define( 'SAVEQUERIES', true );
  
 /* That's all, stop editing! Happy blogging. */
 

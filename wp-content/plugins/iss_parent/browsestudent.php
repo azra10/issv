@@ -99,22 +99,21 @@ if (isset ( $_POST ['submit'] )) {
                 <a
                 href="admin.php?page=edit_parent&pid=<?php echo $row['ParentID']; ?>&regyear=<?php echo (isset($regyear))?
                         $regyear :''; ?>&sid=<?php echo $row['StudentID'];?>">
-                    <span style="padding-left: 10px; white-space: nowrap;"> <i
-                        class="glyphicon glyphicon-edit"></i> Edit
-                </span>
+                    <span style="padding-left: 10px; white-space: nowrap;"> <i 
+                    class="glyphicon glyphicon-edit"></i> Edit 
+                    </span>
                 </a>
+                <a href="admin.php?page=account_home&sid=<?php echo $row[ 'StudentID'] ; ?>">
+					<span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-user"></i> Account </span>
+				</a>
                 <?php } ?>
-
-                    <a
-                href="admin.php?page=view_parent&id=<?php echo $row['ParentID'];?>"> <span
-                    style="padding-left: 10px; white-space: nowrap;"> <i
-                        class="glyphicon glyphicon-eye-open"></i> View
-                </span>
-            </a> <a
-                href="admin.php?page=print_parent&id=<?php echo $row['ParentID'];?>"> <span
-                    style="padding-left: 10px; white-space: nowrap;"> <i
-                        class="glyphicon glyphicon-print"></i> Print
-                </span></a>
+                
+                <a href="admin.php?page=view_parent&id=<?php echo $row['ParentID'];?>"> 
+                <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-eye-open"></i> View</span>
+                </a> 
+                <a href="admin.php?page=print_parent&id=<?php echo $row['ParentID'];?>"> 
+                    <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-print"></i> Print</span>
+                </a>
             </td>
         </tr>
             <?php } ?>

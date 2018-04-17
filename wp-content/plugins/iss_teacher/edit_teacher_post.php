@@ -1,7 +1,6 @@
 <?php
 //var_dump($_POST);
-
-if (! isset ( $_GET ['tid'] ) || empty ( $_GET ['tid'] ) || (intval ( $_GET ['tid'] ) == 0)) {
+if (ISS_Validate::invalid_int_in_url($_GET,'tid')) {
     echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
     exit;
 }
@@ -22,6 +21,11 @@ if (isset ( $_POST ['_wpnonce-iss-edit-teacher-form-page'] )) {
         $teacher = ISS_Teacher::Create($_POST['FormArray']);
     }
 } else {
-    $teacher = ISS_TeacherService::LoadByID ( $_GET ['tid'] );    
+    $teacher = ISS_TeacherService::LoadByID ( $_GET ['tid'] );   
+}
+
+if (null == $teacher){
+    echo '<div class="text-primary"><p><strong>Record not found.</strong></p></div>';
+    exit;
 }
 ?>

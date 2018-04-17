@@ -28,7 +28,7 @@
       
       <div class="input-group col-md-6">
         <input id="Email" name="FormArray[Email]" class="form-control " required="" 
-        placeholder="Email (required)" type="date" maxlength="100" value="<?php echo $teacher->Email; ?>" >
+        placeholder="Email (required)" type="text" maxlength="100" value="<?php echo $teacher->Email; ?>" >
         <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
       </div>
       <p class="text-danger"><?php iss_show_error( $errors, 'Email'); ?></p>     

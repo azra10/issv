@@ -26,6 +26,9 @@
                 <a href="admin.php?page=delete_teacher&tid=<?php echo $row->TeacherID ; ?>">
                     <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-remove"></i> Delete </span>
                 </a>
+                <a href="admin.php?page=account_home&tid=<?php echo $row->TeacherID ; ?>">
+                    <span style="padding-left: 10px; white-space: nowrap;"> <i class="glyphicon glyphicon-user"></i> Account </span>
+                </a>
                 </td>
                 </tr>
                 <?php } ?>
